@@ -11,11 +11,11 @@
     </target>
     <target name="prepare">
         <mkdir dir="build" />
-        <mkdir dir="${build.dir}/classes" />
         <mkdir dir="${build.dir}/jar" />
     </target>
     <target name="compile">
-        <mkdir dir=
+        <mkdir dir="${build.dir}/classes" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
     </target>
 </project>
 
