@@ -8,14 +8,29 @@
         <property name="build.dir" value="build" />
         <property name="classes.dir" value="${build.dir}/classes" />
         <property name="jar.dir" value="${build.dir}/jar" />
+		<property name="docs.dir" value="${docs.dir}" />
     </target>
+	
     <target name="prepare">
-        <mkdir dir="build" />
-        <mkdir dir="${build.dir}/jar" />
+        <mkdir dir="${build.dir}" />
+		<mkdir dir="${docs.dir}" />
+		<mkdir dir="${docs.dir}/javadoc" />
     </target>
+	
     <target name="compile">
         <mkdir dir="${build.dir}/classes" />
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
     </target>
+	
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}" />
+		<jar destfile="m4.jar" basedir="${build.dir}" />
+	</target>
+	
+	<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
+		<fileset dir="${src.dir}">
+			<include name="**/*.java">
+		</fileset>
+	</javadoc>
 </project>
 
