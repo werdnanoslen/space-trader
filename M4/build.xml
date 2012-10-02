@@ -10,6 +10,11 @@
         <property name="jar.dir" value="${build.dir}/jar" />
 		<property name="docs.dir" value="${docs.dir}" />
     </target>
+    
+	<target name="clean">
+        <delete dir="${build.dir}/classes"/>
+        <delete dir="${jar.dir}"/>
+	</target>
 	
     <target name="prepare">
         <mkdir dir="${build.dir}" />
@@ -22,11 +27,17 @@
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
     </target>
 	
+	<target name="run" depends="jar">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+    
 	<target name="jar" depends="compile">
 		<mkdir dir="${jar.dir}" />
 		<jar destfile="m4.jar" basedir="${build.dir}" />
 	</target>
 	
+	<target name="all" depends="init, prepare, compile, jar, run"/>
+	 
 	<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
 		<fileset dir="${src.dir}">
 			<include name="**/*.java">
