@@ -17,7 +17,7 @@
     </target>
 	
     <target name="compile">
-        <mkdir dir="${build.dir}/classes" />
+        <mkdir dir="${classes.dir}" />
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
     </target>
     
@@ -26,7 +26,7 @@
 		<mkdir dir="${docs.dir}/javadoc" />
 		<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
 			<fileset dir="${src.dir}">
-				<include name="**/*.java">
+				<include name="**/*.java" />
 			</fileset>
 		</javadoc>
 	</target>
