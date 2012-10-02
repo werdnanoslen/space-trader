@@ -18,7 +18,7 @@
 	
     <target name="compile">
         <mkdir dir="${classes.dir}" />
-		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" includeantruntime="false"/>
     </target>
     
 	<target name="javadoc" depends="init">
