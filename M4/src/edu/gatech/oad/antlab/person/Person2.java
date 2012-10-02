@@ -32,8 +32,8 @@ public class Person2 {
 	 */
 	private String calc(String input) {
 	  //Person 2 put your implementation here
-		Random r =new Randow();
-		String output;
+		Random r = new Random();
+		String output = "";
 		int length= input.length();
 		int randomIndex = r.nextInt(length);
 		for (int i=0; i<length;i++){
