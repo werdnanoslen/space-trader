@@ -1,0 +1,61 @@
+<!-- build.xml -->
+
+<project name="space-trader" basedir="." default="all">
+
+    <target name="init">
+        <property name="src.dir" value="src"/>
+        <property name="build.dir" value="build"/>
+        <property name="classes.dir" value="${build.dir}/classes"/>
+        <property name="library.dir" value="lib"/>
+        <property name ="doc.dir" value="doc"/>
+        <property name= "jar.file" value = "AntLabRun"/>
+    </target>
+
+
+    <target name = "prepare">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${doc.dir}"/>
+        <mkdir dir="${doc.dir}/javadoc"/>
+    </target>
+
+    <target name = "compile">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}/resources.jar"/>
+    </target>
+
+    <target name= "javadoc">
+        <javadoc access="public" destdir="${doc.dir}/javadoc" classpath="${library.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+        </javadoc>
+    </target>
+
+    <target name = "jar">
+        <jar destfile="${jar.file}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="edu.gatech.oad.antlab.pkg1.AntLabMain"/>
+                <attribute name="Class-Path" value="#{library.dir}/resources.jar"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name = "run">
+        <java jar="${jar.file}.jar" fork="true">
+            <classpath>
+                <pathelement location="${library.dir}/resources.jar"/>
+                <pathelement location="java.class.path"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name = "all" depends = "init,prepare,compile,javadoc,jar,run">
+    </target>
+
+
+    <target name = "clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+</project>
