@@ -1,0 +1,54 @@
+<!-- Ant 2340/M4 -->
+<!-- build.xml -->
+
+<project name="M4" basedir="." default="main">
+    <target name="init">
+        <property name="src.dir" value="src" />
+        <property name="library.dir" value="lib" />
+        <property name="build.dir" value="build" />
+        <property name="classes.dir" value="${build.dir}/classes" />
+        <property name="jar.dir" value="${build.dir}/jar" />
+		<property name="docs.dir" value="${docs.dir}" />
+    </target>
+    
+	<target name="clean">
+        <delete dir="${docs.dir}"/>
+        <delete dir="${build.dir}"/>
+	</target>
+	
+    <target name="prepare">
+        <mkdir dir="${build.dir}" />
+    </target>
+	
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
+    </target>
+	
+	<target name="run" depends="jar">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+    </target>
+    
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}" />
+		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+	</target>
+	
+	<target name="all" depends="init, prepare, compile, jar, run"/>
+	 
+	<target name="javadoc" depends="init">
+		<mkdir dir="${docs.dir}" />
+		<mkdir dir="${docs.dir}/javadoc" />
+		<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java">
+			</fileset>
+		</javadoc>
+	</target>
+    
+</project>
+
