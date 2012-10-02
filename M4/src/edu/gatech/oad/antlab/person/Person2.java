@@ -33,10 +33,13 @@ public class Person2 {
 	private String calc(String input) {
 	  //Person 2 put your implementation here
 		Random r =new Randow();
-		for (int i=0; i<50; i++){
-			System.out.println(input.charAt(r.nextInt(input.length())));
+		String output;
+		int length= input.length();
+		int randomIndex = r.nextInt(length);
+		for (int i=0; i<length;i++){
+			output += input.charAt(randomIndex);
 		}
-	  return null;
+	  return output;
 	}
 	/**
 	 * Return a string rep of this object
