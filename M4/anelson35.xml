@@ -1,0 +1,50 @@
+<!-- Ant 2340/M4 -->
+<!-- build.xml -->
+
+<project name="M4" basedir="." default="main">
+    <target name="init">
+        <property name="src.dir" value="src" />
+        <property name="library.dir" value="lib" />
+        <property name="build.dir" value="build" />
+			<property name="classes.dir" value="${build.dir}/classes" />
+			<property name="jar.dir" value="${build.dir}/jar" />
+		<property name="docs.dir" value="${docs.dir}" />
+		<property name="ant.project.name" value="m4" />
+    </target>
+	
+    <target name="prepare">
+        <mkdir dir="${build.dir}" />
+    </target>
+	
+    <target name="compile">
+        <mkdir dir="${build.dir}/classes" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}" />
+    </target>
+    
+	<target name="javadoc" depends="init">
+		<mkdir dir="${docs.dir}" />
+		<mkdir dir="${docs.dir}/javadoc" />
+		<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java">
+			</fileset>
+		</javadoc>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}" />
+		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${build.dir}" />
+	</target>
+	
+	<target name="run" depends="jar">
+		<java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
+	</target>
+	
+	<target name="all" depends="init,prepare,compile,javadoc,jar,run" />
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${docs.dir}" />
+	</target>
+</project>
+
