@@ -1,9 +1,9 @@
 public class Character {
 
-	ArrayList<Object> characterData;
-	Planet planet;
-	Ship ship;
-	Contract contract;
+	private ArrayList<Object> characterData;
+	private Planet planet;
+	private Ship ship;
+	private Contract contract;
 
 	public Character (ArrayList<Object> characterData) {
 		this.characterData = characterData;
