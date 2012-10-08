@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\Bitizen\Documents\CS  2340\space-trader\.metadata\.plugins\org.eclipse.jdt.core
+3884661636.index
+1951290509.index
+2668784332.index
