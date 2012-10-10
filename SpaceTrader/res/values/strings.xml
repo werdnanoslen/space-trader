@@ -8,5 +8,5 @@
     <string name="button_loadGame">Load Game</string>
     <string name="hello_world">Let\'s setup a game!</string>
     <string name="title_activity_game_setup">GameSetup</string>
-
+	<string name="allocation_error">You must use exactly 16 skill points before you begin!</string>
 </resources>
