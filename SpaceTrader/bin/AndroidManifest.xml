@@ -20,6 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".GameSetup"
+            android:label="@string/title_activity_game_setup" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.LauncherActivity" />
+        </activity>
     </application>
 
 </manifest>
