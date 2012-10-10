@@ -67,33 +67,33 @@
             android:layout_height="wrap_content" >
 
             <NumberPicker
-                android:id="@+id/numberPicker1"
+                android:id="@+id/pilotLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <NumberPicker
-                android:id="@+id/numberPicker2"
+                android:id="@+id/fighterLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <NumberPicker
-                android:id="@+id/numberPicker3"
+                android:id="@+id/traderLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <NumberPicker
-                android:id="@+id/numberPicker4"
+                android:id="@+id/engineerLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/feedback_area"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/allocation_error" >
+            android:text="" >
 
             <requestFocus />
         </EditText>
@@ -132,6 +132,7 @@
                 android:id="@+id/button1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:onClick="checkMakePlayer"
                 android:text="Submit!" />
 
         </LinearLayout>
