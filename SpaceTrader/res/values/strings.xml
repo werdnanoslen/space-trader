@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">SpaceTrader</string>
     <string name="intro_text">Welcome to Space Trader!</string>
     <string name="menu_settings">Settings</string>
@@ -7,6 +8,8 @@
     <string name="button_loadGame">Load Game</string>
     <string name="hello_world">Let\'s setup a game!</string>
     <string name="title_activity_game_setup">GameSetup</string>
-	<string name="too_high_error">Remove some skill points! Sum must equal 16 to continue!</string>
-    <string name ="too_low_error">You still have skill points to allocate! Sum must equal 16 to continue! </string>
+    <string name="too_high_error">Remove some skill points! Sum must equal 16 to continue!</string>
+    <string name="too_low_error">You still have skill points to allocate! Sum must equal 16 to continue! </string>
+    <string name="title_activity_space">Space</string>
+
 </resources>

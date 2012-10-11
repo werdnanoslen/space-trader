@@ -1,6 +1,9 @@
 package com.cs2340.spacetrader;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable{
+	//TODO add other attributes
 	private String name;
 	private int engineerLevel;
 	private int pilotLevel;
