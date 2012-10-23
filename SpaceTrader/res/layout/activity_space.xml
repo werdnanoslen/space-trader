@@ -1,64 +1,55 @@
-<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/text_fuel_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.12"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/text_fuel_level"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <ProgressBar
-                android:id="@+id/bar_fuel_level"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.20"
-                android:max="100" />
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
-        </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/text_fuel_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_current_planet"
+            android:layout_weight="0.12"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/text_fuel_level"
             android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_destination" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_dock" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_ship" />
 
+        <ProgressBar
+            android:id="@+id/bar_fuel_level"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.20"
+            android:max="100" />
     </LinearLayout>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/text_orbiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_current_planet"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button_dock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_dock" />
+
+    <Button
+        android:id="@+id/button_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_destination" />
+
+    <Button
+        android:id="@+id/button_ship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_ship" />
+
+</LinearLayout>

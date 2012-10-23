@@ -16,5 +16,14 @@
     <string name="button_dock">Dock on planet</string>
     <string name="button_destination">Change destination</string>
     <string name="button_ship">View ship</string>
+    <string name="setup_text_pilot">Pilot</string>
+    <string name="setup_text_fighter">Fighter</string>
+    <string name="setup_text_engineer">Engineer</string>
+    <string name="setup_text_trader">Trader</string>
+    <string name="setup_input_name">Character Name</string>
+    <string name="setup_radio_easy">Easy</string>
+    <string name="setup_radio_hard">Hard</string>
+    <string name="setup_radio_impossible">Impossible</string>
+    <string name="setup_button_submit">Submit!</string>
 
 </resources>
