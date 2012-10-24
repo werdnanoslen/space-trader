@@ -15,30 +15,31 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f070010;
-        public static final int bar_fuel_level=0x7f070012;
-        public static final int button1=0x7f07000d;
-        public static final int button_destination=0x7f070015;
-        public static final int button_dock=0x7f070014;
-        public static final int button_loadGame=0x7f07000e;
-        public static final int button_newGame=0x7f07000f;
-        public static final int button_ship=0x7f070016;
+        public static final int LinearLayout1=0x7f070011;
+        public static final int bar_fuel_level=0x7f070013;
+        public static final int button1=0x7f07000e;
+        public static final int button_destination=0x7f070016;
+        public static final int button_dock=0x7f070015;
+        public static final int button_loadGame=0x7f07000f;
+        public static final int button_newGame=0x7f070010;
+        public static final int button_ship=0x7f070017;
         public static final int character_name=0x7f070000;
-        public static final int engineerLevel=0x7f070008;
-        public static final int fighterLevel=0x7f070006;
-        public static final int menu_settings=0x7f070017;
-        public static final int pilotLevel=0x7f070005;
-        public static final int radio0=0x7f07000a;
-        public static final int radio1=0x7f07000b;
-        public static final int radio2=0x7f07000c;
-        public static final int radioGroup1=0x7f070009;
-        public static final int text_engineerLevel=0x7f070004;
-        public static final int text_fighterLevel=0x7f070002;
-        public static final int text_fuel_level=0x7f070011;
-        public static final int text_orbiting=0x7f070013;
-        public static final int text_pilotLevel=0x7f070001;
-        public static final int text_traderLevel=0x7f070003;
-        public static final int traderLevel=0x7f070007;
+        public static final int engineerLevel=0x7f070009;
+        public static final int feedback_area=0x7f070001;
+        public static final int fighterLevel=0x7f070007;
+        public static final int menu_settings=0x7f070018;
+        public static final int pilotLevel=0x7f070006;
+        public static final int radio0=0x7f07000b;
+        public static final int radio1=0x7f07000c;
+        public static final int radio2=0x7f07000d;
+        public static final int radioGroup1=0x7f07000a;
+        public static final int text_engineerLevel=0x7f070005;
+        public static final int text_fighterLevel=0x7f070003;
+        public static final int text_fuel_level=0x7f070012;
+        public static final int text_orbiting=0x7f070014;
+        public static final int text_pilotLevel=0x7f070002;
+        public static final int text_traderLevel=0x7f070004;
+        public static final int traderLevel=0x7f070008;
     }
     public static final class layout {
         public static final int activity_game_setup=0x7f030000;

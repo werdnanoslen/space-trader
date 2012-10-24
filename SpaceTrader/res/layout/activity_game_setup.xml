@@ -18,6 +18,13 @@
             android:inputType="textPersonName" >
 
         </EditText>
+
+        <EditText
+            android:id="@+id/feedback_area"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="none" />
 
     </LinearLayout>
 
