@@ -12,6 +12,8 @@ import android.widget.NumberPicker;
 
 public class GameSetup extends Activity {
 	public final static String PLAYA = "com.example.myfirstapp.PLAYA";
+	public static Player thePlayer;
+	public static Map theMap;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +75,9 @@ public class GameSetup extends Activity {
     		EditText nameField = (EditText) findViewById(R.id.character_name);
     		String name = nameField.getText().toString();
     		//TODO - create game class, replace player instantiation with game
-    		Player player = new Player(name,tLevel, pLevel, eLevel, fLevel);
+    		//thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel);
+    		theMap = new Map();
     		Intent intent = new Intent(this, Space.class);
-    		intent.putExtra(PLAYA, player);
     		startActivity(intent);
     	}
     }

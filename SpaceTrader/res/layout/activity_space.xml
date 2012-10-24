@@ -52,4 +52,24 @@
         android:layout_height="wrap_content"
         android:text="@string/button_ship" />
 
+    <TextView
+        android:id="@+id/Planet1Name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        tools:context=".Space" />
+    
+    <TextView
+        android:id="@+id/Planet1TechLevel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        tools:context=".Space" />
+    
+    <TextView
+        android:id="@+id/Planet1Coords"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        tools:context=".Space" />
 </LinearLayout>

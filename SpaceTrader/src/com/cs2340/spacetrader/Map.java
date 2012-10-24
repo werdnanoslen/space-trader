@@ -7,10 +7,11 @@ public class Map implements Serializable{
 	private Planet[] planetArray;
 	
 	public Map(){
-		generatePlanetArray();
+		planetArray = generatePlanetArray();
+
 	}
 	
-	public void generatePlanetArray(){
+	public Planet[] generatePlanetArray(){
 		Random rand = new Random();
 		Inventory inventory = new Inventory();
 		Contract contract = new Contract();
@@ -43,6 +44,7 @@ public class Map implements Serializable{
 		planetArray[5] = planet5;
 		planetArray[6] = planet6;
 		planetArray[7] = planet7;
+		return planetArray;
 	}
 	
 	public Planet[] getPlanetArray(){

@@ -66,4 +66,8 @@ public class Planet implements Serializable{
 	public void createContract(){
 		//randomly generate contract here
 	}
+	
+	public int[] getCoordinate(){
+		return coordinate;
+	}
 }
