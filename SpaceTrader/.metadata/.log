@@ -1,0 +1,9 @@
+!SESSION 2012-10-23 23:44:24.998 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.7.0_02
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Nikhil\Documents\GitHub\space-trader\SpaceTrader
+
+!ENTRY org.eclipse.ui 2 2 2012-10-23 23:45:01.760
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
