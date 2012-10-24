@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="15" />
 
     <application
@@ -26,6 +26,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.LauncherActivity" />
+        </activity>
+        <activity
+            android:name=".Space"
+            android:label="@string/title_activity_space" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
