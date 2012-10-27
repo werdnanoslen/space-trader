@@ -22,6 +22,7 @@ public final class R {
         public static final int Planet1Coords=0x7f080020;
         public static final int Planet1Name=0x7f08001e;
         public static final int Planet1TechLevel=0x7f08001f;
+        public static final int Planet1Water=0x7f080021;
         public static final int bar_fuel_level=0x7f080019;
         public static final int button1=0x7f08000f;
         public static final int button_destination=0x7f08001c;
@@ -34,7 +35,7 @@ public final class R {
         public static final int engineerLevel=0x7f08000a;
         public static final int feedback_area=0x7f080002;
         public static final int fighterLevel=0x7f080008;
-        public static final int menu_settings=0x7f080025;
+        public static final int menu_settings=0x7f080026;
         public static final int pilotLevel=0x7f080007;
         public static final int planet_business=0x7f080013;
         public static final int planet_button_leave=0x7f080016;
@@ -51,10 +52,10 @@ public final class R {
         public static final int text_orbiting=0x7f08001a;
         public static final int text_pilotLevel=0x7f080003;
         public static final int text_traderLevel=0x7f080005;
-        public static final int trade_cargo=0x7f080023;
-        public static final int trade_cash=0x7f080022;
-        public static final int trade_leave=0x7f080021;
-        public static final int trade_list=0x7f080024;
+        public static final int trade_cargo=0x7f080024;
+        public static final int trade_cash=0x7f080023;
+        public static final int trade_leave=0x7f080022;
+        public static final int trade_list=0x7f080025;
         public static final int traderLevel=0x7f080009;
     }
     public static final class layout {

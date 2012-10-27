@@ -9,24 +9,26 @@ public class Planet implements Serializable{
 	private Contract contract;
 	private String name;
 	private String techLevel;
+	private int nTechLevel;		//numeric tech level for calculating good prices
 	
 	public Planet(String name, int[] coord, Inventory inventory, Contract contract, int nTechLevel){
 		this.coordinate = coord;
 		this.inventory = inventory;
 		this.name = name;	
 		this.contract = contract;
+		this.nTechLevel = nTechLevel;
 		switch (nTechLevel) {
  				case 0: 
 	    			techLevel = "Pre-Agriculture";
 	    			break;
-			   case 1: 
-			   	techLevel = "Agriculture";
-			   	break;
-			   case 2: 
-			   	techLevel = "Medieval";
-			   	break;
+ 				case 1: 
+			   		techLevel = "Agriculture";
+			   		break;
+			   	case 2: 
+			   		techLevel = "Medieval";
+			   		break;
 			  	case 3: 
-			   	techLevel = "Renaissance";
+			  		techLevel = "Renaissance";
 			    	break;
 			  	case 4: 
 			    	techLevel = "Early Industrial";
@@ -69,5 +71,9 @@ public class Planet implements Serializable{
 	
 	public int[] getCoordinate(){
 		return coordinate;
+	}
+	
+	public int getNTechLevel(){
+		return nTechLevel;
 	}
 }

@@ -72,4 +72,11 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
         tools:context=".Space" />
+    
+    <TextView
+        android:id="@+id/Planet1Water"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        tools:context=".Space" />
 </LinearLayout>
