@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/current_planet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_docked"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/planet_business"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_business"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/planet_button_trade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_button_trade" />
+
+    <Button
+        android:id="@+id/planet_button_upgrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_button_upgrade" />
+
+    <Button
+        android:id="@+id/planet_button_leave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_button_leave" />
+
+</LinearLayout>
