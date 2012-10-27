@@ -49,13 +49,13 @@ public class Good {
 		
 		price = basePrice + Math.abs(planetTechLvl-minProd)*incPerLvl + basePrice*(variance + eventMod)/100;
 		
-		/*//test code
+		//test code, prints to LogCat
 		Log.d("BasePrice", Integer.toString(basePrice));
 		Log.d("EventMod", Integer.toString(eventMod));
 		Log.d("Variance", Integer.toString(variance));
 		Log.d("Variance Result", Integer.toString(basePrice*(variance+ eventMod)/100));
 		Log.d("TechDiff*inc", Integer.toString(Math.abs(planetTechLvl-minProd)*incPerLvl));
-		*/
+		
 		return price;
 	}
 	
