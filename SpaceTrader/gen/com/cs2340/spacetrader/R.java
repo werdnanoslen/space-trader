@@ -8,6 +8,9 @@
 package com.cs2340.spacetrader;
 
 public final class R {
+    public static final class array {
+        public static final int trade_list=0x7f050000;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -15,51 +18,56 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f070017;
-        public static final int Planet1Coords=0x7f070020;
-        public static final int Planet1Name=0x7f07001e;
-        public static final int Planet1TechLevel=0x7f07001f;
-        public static final int bar_fuel_level=0x7f070019;
-        public static final int button1=0x7f07000f;
-        public static final int button_destination=0x7f07001c;
-        public static final int button_dock=0x7f07001b;
-        public static final int button_loadGame=0x7f070010;
-        public static final int button_newGame=0x7f070011;
-        public static final int button_ship=0x7f07001d;
-        public static final int character_name=0x7f070001;
-        public static final int current_planet=0x7f070012;
-        public static final int engineerLevel=0x7f07000a;
-        public static final int feedback_area=0x7f070002;
-        public static final int fighterLevel=0x7f070008;
-        public static final int menu_settings=0x7f070021;
-        public static final int pilotLevel=0x7f070007;
-        public static final int planet_business=0x7f070013;
-        public static final int planet_button_leave=0x7f070016;
-        public static final int planet_button_trade=0x7f070014;
-        public static final int planet_button_upgrade=0x7f070015;
-        public static final int radio0=0x7f07000c;
-        public static final int radio1=0x7f07000d;
-        public static final int radio2=0x7f07000e;
-        public static final int radioGroup1=0x7f07000b;
-        public static final int scroll=0x7f070000;
-        public static final int text_engineerLevel=0x7f070006;
-        public static final int text_fighterLevel=0x7f070004;
-        public static final int text_fuel_level=0x7f070018;
-        public static final int text_orbiting=0x7f07001a;
-        public static final int text_pilotLevel=0x7f070003;
-        public static final int text_traderLevel=0x7f070005;
-        public static final int traderLevel=0x7f070009;
+        public static final int LinearLayout1=0x7f080017;
+        public static final int Planet1Coords=0x7f080020;
+        public static final int Planet1Name=0x7f08001e;
+        public static final int Planet1TechLevel=0x7f08001f;
+        public static final int bar_fuel_level=0x7f080019;
+        public static final int button1=0x7f08000f;
+        public static final int button_destination=0x7f08001c;
+        public static final int button_dock=0x7f08001b;
+        public static final int button_loadGame=0x7f080010;
+        public static final int button_newGame=0x7f080011;
+        public static final int button_ship=0x7f08001d;
+        public static final int character_name=0x7f080001;
+        public static final int current_planet=0x7f080012;
+        public static final int engineerLevel=0x7f08000a;
+        public static final int feedback_area=0x7f080002;
+        public static final int fighterLevel=0x7f080008;
+        public static final int menu_settings=0x7f080025;
+        public static final int pilotLevel=0x7f080007;
+        public static final int planet_business=0x7f080013;
+        public static final int planet_button_leave=0x7f080016;
+        public static final int planet_button_trade=0x7f080014;
+        public static final int planet_button_upgrade=0x7f080015;
+        public static final int radio0=0x7f08000c;
+        public static final int radio1=0x7f08000d;
+        public static final int radio2=0x7f08000e;
+        public static final int radioGroup1=0x7f08000b;
+        public static final int scroll=0x7f080000;
+        public static final int text_engineerLevel=0x7f080006;
+        public static final int text_fighterLevel=0x7f080004;
+        public static final int text_fuel_level=0x7f080018;
+        public static final int text_orbiting=0x7f08001a;
+        public static final int text_pilotLevel=0x7f080003;
+        public static final int text_traderLevel=0x7f080005;
+        public static final int trade_cargo=0x7f080023;
+        public static final int trade_cash=0x7f080022;
+        public static final int trade_leave=0x7f080021;
+        public static final int trade_list=0x7f080024;
+        public static final int traderLevel=0x7f080009;
     }
     public static final class layout {
         public static final int activity_game_setup=0x7f030000;
         public static final int activity_launcher=0x7f030001;
         public static final int activity_planet=0x7f030002;
         public static final int activity_space=0x7f030003;
+        public static final int activity_trade=0x7f030004;
     }
     public static final class menu {
-        public static final int activity_game_setup=0x7f060000;
-        public static final int activity_launcher=0x7f060001;
-        public static final int activity_space=0x7f060002;
+        public static final int activity_game_setup=0x7f070000;
+        public static final int activity_launcher=0x7f070001;
+        public static final int activity_space=0x7f070002;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -92,8 +100,12 @@ public final class R {
         public static final int title_activity_space=0x7f04000a;
         public static final int too_high_error=0x7f040008;
         public static final int too_low_error=0x7f040009;
+        public static final int trade_capacity=0x7f04001f;
+        public static final int trade_cash=0x7f040020;
+        public static final int trade_item_name=0x7f040021;
+        public static final int trade_leave=0x7f04001e;
     }
     public static final class style {
-        public static final int AppTheme=0x7f050000;
+        public static final int AppTheme=0x7f060000;
     }
 }
