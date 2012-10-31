@@ -41,4 +41,7 @@
     <string name="temp_buy">BUY $8\n2 Available</string>
     <string name="temp_sell">SELL $4\n5 Owned</string>
 
+    <string name="title_activity_planet">PlanetView</string>
+    
+    <string name="title_activity_trade_view">TradeView</string>
 </resources>

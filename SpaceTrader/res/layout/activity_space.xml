@@ -38,7 +38,8 @@
         android:id="@+id/button_dock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_dock" />
+        android:text="@string/button_dock" 
+        android:onClick="startPlanetView" />
 
     <Button
         android:id="@+id/button_destination"
