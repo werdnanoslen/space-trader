@@ -1,0 +1,60 @@
+<!-- Ant 2340/M4 -->
+<!-- build.xml -->
+
+<project name="M4" basedir="." default="all">
+    <target name="init">
+        <property name="src.dir" value="src" />
+        <property name="library.dir" value="lib" />
+        <property name="build.dir" value="build" />
+        <property name="classes.dir" value="${build.dir}/classes" />
+        <property name="jar.dir" value="${build.dir}/jar" />
+	<property name="docs.dir" value="${docs.dir}" />
+	<property name="main-class" value="m4" />
+    </target>
+	
+    <target name="prepare">
+        <mkdir dir="${build.dir}" />
+	<mkdir dir="${docs.dir}" />
+	<mkdir dir="${docs.dir}/javadoc" />
+    </target>
+	
+    <target name="compile">
+	<javac srcdir="${src.dir}" destdir="${classes.dir}" classpath="${library.dir}/resources.jar" includeantruntime="false"/>
+    </target>
+	
+	<target name = "jar" depends="compile">
+	<mkdir dir="${jar.dir}" />
+        <jar destfile="${jar.dir}/AntLabRun.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="edu.gatech.oad.antlab.pkg1.AntLabMain"/>
+                <attribute name="Class-Path" value="#{library.dir}/resources.jar"/>
+		<include name="#{library.dir}/resources.jar"/>
+            </manifest>
+        </jar>
+    	</target>
+
+	<target name="run" depends="jar">
+        <java jar="${jar.dir}/AntLabRun.jar" fork="true">
+	    <classpath>
+                <pathelement location="${library.dir}/resources.jar"/>
+                <pathelement location="java.class.path"/>
+            </classpath>
+	</java>
+    	</target>
+	
+	<target name="all" depends="init, prepare, compile, jar, run"/>
+	 
+	<target name="clean">
+            <delete dir="${build.dir}/classes"/>
+            <delete dir="${jar.dir}"/>
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc sourcepath="${src.dir}" access="public" destdir="${docs}/javadoc">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java"/>
+			</fileset>
+		</javadoc>
+	</target>
+</project>
+
