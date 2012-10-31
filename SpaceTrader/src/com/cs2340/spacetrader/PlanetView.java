@@ -18,7 +18,7 @@ public class PlanetView extends Activity {
     }
     
     public void startTradeView(View view){
-    	Intent intent = new Intent(this, TradeView.class);
+    	Intent intent = new Intent(PlanetView.this, TradeView.class);
     	startActivity(intent);
     }
 

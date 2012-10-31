@@ -21,7 +21,9 @@ public class TradeView extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trade);
-                
+        
+        planet = GameSetup.theMap.getPlanetArray()[0];
+        sInventory = new ShipInventory(100, 10);
         market = new MarketVisit(sInventory, planet);
         
         //slots on display to display current balances
@@ -29,7 +31,7 @@ public class TradeView extends Activity
         capacityDisplay = (TextView) findViewById(R.id.trade_capacity); 
         
         //initialize values in slots
-        refreshDisplays();
+        //refreshDisplays();
     }
     
     private void refreshDisplays()
@@ -41,22 +43,22 @@ public class TradeView extends Activity
     public void buy(View view)
     {
     	//quick weedouts
-    	if (sInventory.getMoneyLeft() <= 0) return;
-    	if (sInventory.getCapacityLeft() <= 0) return;
+    	//if (sInventory.getMoneyLeft() <= 0) return;
+    	//if (sInventory.getCapacityLeft() <= 0) return;
     	
-    	market.buyFromPlanet(water, 1);
+    	//market.buyFromPlanet(water, 1);
     	
-    	refreshDisplays();
+    	//refreshDisplays();
     }
     
     public void sell(View view)
     {
     	//quick weedout
-    	if (sInventory.getCapacityLeft() == 0) return;
+    	//if (sInventory.getCapacityLeft() == 0) return;
     	
-    	market.sellToPlanet(water, 1);
+    	//market.sellToPlanet(water, 1);
     	
-    	refreshDisplays();
+    	//refreshDisplays();
     }
     
     public void gotoPlanet(View view)
