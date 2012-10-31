@@ -12,7 +12,8 @@
             android:id="@+id/trade_leave"
             android:layout_width="108dp"
             android:layout_height="wrap_content"
-            android:text="@string/trade_leave" />
+            android:text="@string/trade_leave" 
+            android:onClick="gotoPlanet"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,13 +79,15 @@
                 android:id="@+id/buy_temp"
                 android:layout_width="159dp"
                 android:layout_height="wrap_content"
-                android:text="@string/temp_buy" />
+                android:text="@string/temp_buy" 
+                android:onClick="buy"/>
 
             <Button
                 android:id="@+id/sell_temp"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:text="@string/temp_sell" />
+                android:text="@string/temp_sell" 
+                android:onClick="sell"/>
 
         </LinearLayout>
 
