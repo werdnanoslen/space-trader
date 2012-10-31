@@ -23,7 +23,8 @@ public class TradeView extends Activity
         setContentView(R.layout.activity_trade);
         
         planet = GameSetup.theMap.getPlanetArray()[0];
-        sInventory = new ShipInventory(100, 10);
+        //sInventory = new ShipInventory(100, 10);
+        sInventory = GameSetup.thePlayer.getship().getInventory();
         market = new MarketVisit(sInventory, planet);
         
         //slots on display to display current balances

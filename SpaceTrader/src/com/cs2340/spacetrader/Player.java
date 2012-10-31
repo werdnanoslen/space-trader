@@ -21,4 +21,9 @@ public class Player{
 		this.traderLevel=tLevel;
 		this.ship = new Ship(gold, slots);
 	}
+	
+	Ship getship()
+	{
+		return ship;
+	}
 }

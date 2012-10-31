@@ -9,4 +9,9 @@ public class Ship {
 	{
 		this.inventory = new ShipInventory(gold, nSlots);
 	}
+
+	ShipInventory getInventory()
+	{
+		return inventory;
+	}
 }
