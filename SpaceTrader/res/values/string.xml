@@ -31,8 +31,8 @@
     <string name="planet_button_leave">Return to orbit</string>
     <string name="planet_button_upgrade">Upgrade ship</string>
     <string name="trade_leave">Leave market</string>
-    <string name="trade_capacity">Capacity: %i</string>
-    <string name="trade_cash">Cash: $%i</string>
+    <string name="trade_capacity_text">Capacity: </string>
+    <string name="trade_cash_text">Cash: </string>
     <string name="trade_item_name">%s</string>
     <string-array name="trade_list">
         <item >Test</item>
