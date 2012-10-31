@@ -75,7 +75,10 @@ public class GameSetup extends Activity {
     		EditText nameField = (EditText) findViewById(R.id.character_name);
     		String name = nameField.getText().toString();
     		//TODO - create game class, replace player instantiation with game
-    		//thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel);
+    		//TODO - MOVE CONSTANTS SOMEWHERE BETTER
+    		int initGold = 2000;
+    		int CargoSlots = 10;
+    		thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel, initGold, CargoSlots);
     		theMap = new Map();
     		Intent intent = new Intent(this, Space.class);
     		startActivity(intent);
