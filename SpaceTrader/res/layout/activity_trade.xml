@@ -19,6 +19,26 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/TextView02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trade_cash"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/TextView01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trade_capacity"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/trade_cash"
                 android:layout_width="match_parent"
@@ -34,11 +54,43 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
+        <TextView
+            android:id="@+id/name_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/temp_name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buy_temp"
+                android:layout_width="159dp"
+                android:layout_height="wrap_content"
+                android:text="@string/temp_buy" />
+
+            <Button
+                android:id="@+id/sell_temp"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="@string/temp_sell" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/trade_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="193dp"
         android:entries="@array/trade_list" >
     </ListView>
 
