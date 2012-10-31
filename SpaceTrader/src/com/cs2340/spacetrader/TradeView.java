@@ -1,7 +1,5 @@
 package com.cs2340.spacetrader;
 
-import com.cs2340.spacetrader.Planet.MarketVisit;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +12,8 @@ public class TradeView extends Activity
 	private TextView cashDisplay;
 	private TextView capacityDisplay;
 	private Planet planet;
-	
 	private MarketVisit market;
+	
 	private Good water;
 	
     @Override
@@ -24,7 +22,7 @@ public class TradeView extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trade);
                 
-        market = planet.visitMarket(sInventory);
+        market = new MarketVisit(sInventory, planet);
         
         //slots on display to display current balances
         cashDisplay = (TextView) findViewById(R.id.trade_cash);
