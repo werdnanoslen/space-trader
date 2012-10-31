@@ -22,7 +22,8 @@
         android:id="@+id/planet_button_trade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/planet_button_trade" />
+        android:text="@string/planet_button_trade" 
+        android:onClick="startTradeView"/>
 
     <Button
         android:id="@+id/planet_button_upgrade"

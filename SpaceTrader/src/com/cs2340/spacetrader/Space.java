@@ -2,7 +2,9 @@ package com.cs2340.spacetrader;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 public class Space extends Activity {
@@ -28,5 +30,10 @@ public class Space extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_space, menu);
         return true;
+    }
+    
+    public void startPlanetView(View view){
+    	Intent intent = new Intent(this, PlanetView.class);
+    	startActivity(intent);
     }
 }
