@@ -85,10 +85,6 @@ public class Planet implements Serializable {
 		return nTechLevel;
 	}
 	
-	public MarketVisit visitMarket(ShipInventory shipInventory, PlanetInventory inventory) { // takes in the inventory of the ship that wants to visit the market.
-		return new MarketVisit(shipInventory, this);
-	}
-	
 	public void setMarketBusy(boolean bool){
 		marketBusy = bool;
 	}
