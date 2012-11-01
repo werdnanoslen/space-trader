@@ -40,7 +40,7 @@ public class MarketVisit {
 		public int priceAtWhichPlanetBuys(Good good){
 			if (inventory.contains(good)) {
 				GoodData goodDetails = inventory.getGoodFromInventory(good);
-				int originalPrice = goodDetails.getGood().price();
+				int originalPrice = goodDetails.getGood().basePrice();
 				int price = (int)(originalPrice - originalPrice/10.0);
 				return price;
 			}
@@ -54,25 +54,27 @@ public class MarketVisit {
 		 *  returns false if planet will not buy a good or ship is trying to sell more than you have or you haven't checked in to the market. if sale is complete, it returns true.
 		 */
 		public boolean sellToPlanet(Good good, int quantityToSell){
-			if (planet.getMarketBusy() == true) {
-				if (willPlanetBuy(good) == false)
-					return false;
-				else if (inventory.contains(good)) {
+			//if (planet.getMarketBusy() == true) 
+			//{
+				//if (willPlanetBuy(good) == false)
+				//	return false;
+				//else if (inventory.contains(good)) {
 					GoodData goodDetails = inventory.getGoodFromInventory(good);
 					int quantityInShip = goodDetails.getQuantity();
 					if (quantityToSell <= quantityInShip){
 						shipInventory.remove(good, quantityToSell);
 						inventory.add(good, quantityToSell);
 						shipInventory.deltaCapacity(quantityToSell); // the capacity of the ship increases by quantityToSell (this is because 1 good = 1 capacity). Its not a realistic model. But it is a simple one.
-						int deltaMoney = (int) (good.price() - good.price()/10.0);
+						int deltaMoney = (int) (0.9*((double) good.basePrice()));
+						//int deltaMoney = 50;
 						shipInventory.deltaMoney(deltaMoney);
 						return true;
 					}
 					else // this is executed if ship is trying to sell more than it has.
 						return false;
-				}
+				//}
 				
-				else if (inventory.contains(good) == false){
+				/*else if (inventory.contains(good) == false){
 					GoodData goodDetails = inventory.getGoodFromInventory(good);
 					int quantityInShip = goodDetails.getQuantity();
 					if (willPlanetBuy(good) && quantityToSell <= quantityInShip){
@@ -86,11 +88,12 @@ public class MarketVisit {
 					else // this is executed if ship is trying to sell more than it has or ship does not have the good at all.
 						return false;
 					
-				}
-			return true; // this is just to get eclipse to compile
+				}*/
+					
+			/*return true; // this is just to get eclipse to compile
 			}
 			else 
-				return false;
+				return false;*/
 		}
 		
 		public boolean willPlanetSell(Good good){

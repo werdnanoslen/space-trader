@@ -58,7 +58,7 @@ public class TradeView extends Activity
     	//quick weedout
     	if (sInventory.getCapacityLeft() <= 0) return;
     	
-    	market.sellToPlanet(sInventory.getGood("Water"), 1);
+    	market.sellToPlanet(market.getPlanetInventory().getGood("Water"), 1);
     	
     	refreshDisplays();
     }
