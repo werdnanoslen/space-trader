@@ -103,7 +103,7 @@ public class MarketVisit {
 		public int priceAtWhichPlanetSells(Good good){
 			if (willPlanetSell(good) == true){
 				GoodData goodDetails = inventory.getGoodFromInventory(good);
-				int price = goodDetails.getGood().price();
+				int price = goodDetails.getGood().basePrice();
 				return price;
 			}
 			else
@@ -115,14 +115,18 @@ public class MarketVisit {
 		 * or if planet does not sell or if ship hasn't checked in to market.
 		 */
 		public boolean buyFromPlanet(Good good, int quantity){
-			if (planet.getMarketBusy() == false) {
+			//if (planet.getMarketBusy() == true) {
 				int price = priceAtWhichPlanetSells(good);
+				//int price = inventory.getGoodFromInventory(good).getGood().price();
+				//int price = 50;
 				int moneyNeeded = price*quantity;
 				int capacityNeeded = quantity; // 1 quantity of any object takes up 1 capacity. This may not be realistic but I thought this is enough for our purpose.
 				
+				//TODO - Add Check to ensure planet has proper quantity or rewrite buyfromplanet to only process orders of 1
 				if (willPlanetSell(good) == true && moneyNeeded <= shipInventory.getMoneyLeft() && capacityNeeded <= shipInventory.getCapacityLeft()){
 					shipInventory.add(good, quantity);
 					shipInventory.deltaMoney(-1*price);
+					//shipInventory.deltaMoney(-1*50);
 					shipInventory.deltaCapacity(-1*quantity);
 					return true;
 				}
@@ -130,10 +134,10 @@ public class MarketVisit {
 				else
 					return false;
 			}
-			else
+/*			else
 				return false;
 		}
-	
+*/	
 		public void checkOut(){
 			planet.setMarketBusy(false);
 		}

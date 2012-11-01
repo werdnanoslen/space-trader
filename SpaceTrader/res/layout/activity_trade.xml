@@ -79,7 +79,7 @@
                 android:id="@+id/buy_temp"
                 android:layout_width="159dp"
                 android:layout_height="wrap_content"
-                android:text="@string/temp_buy" 
+                android:text="@string/temp_buy"
                 android:onClick="buy"/>
 
             <Button

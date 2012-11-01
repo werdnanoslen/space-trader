@@ -49,6 +49,11 @@ public class Good {
 		return price;
 	}
 	
+	public int basePrice()
+	{
+		return basePrice;
+	}
+	
 	public int importPriceforPlanet(int planetTechLvl){
 		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl;
 	}

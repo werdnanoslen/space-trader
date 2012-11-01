@@ -26,6 +26,7 @@ public class TradeView extends Activity
         //sInventory = new ShipInventory(100, 10);
         sInventory = GameSetup.thePlayer.getship().getInventory();
         market = new MarketVisit(sInventory, planet);
+        //market.checkIn();
         
         //slots on display to display current balances
         cashDisplay = (TextView) findViewById(R.id.trade_cash);
@@ -49,7 +50,7 @@ public class TradeView extends Activity
     	if (sInventory.getCapacityLeft() <= 0) return;
     	
     	Good Viking = market.getPlanetInventory().getGood("Water");
-    	//market.buyFromPlanet(market.getPlanetInventory().getGood("Water"), 1);
+    	market.buyFromPlanet(Viking, 1);
     	
     	refreshDisplays();
     }
