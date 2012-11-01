@@ -47,8 +47,7 @@ public class TradeView extends Activity
     	if (sInventory.getMoneyLeft() <= 0) return;
     	if (sInventory.getCapacityLeft() <= 0) return;
     	
-    	Good Viking = market.getPlanetInventory().getGood("Water");
-    	//market.buyFromPlanet(market.getPlanetInventory().getGood("Water"), 1);
+    	market.buyFromPlanet(market.getPlanetInventory().getGood("Water"), 1);
     	
     	refreshDisplays();
     }
@@ -58,7 +57,7 @@ public class TradeView extends Activity
     	//quick weedout
     	if (sInventory.getCapacityLeft() <= 0) return;
     	
-    	//market.sellToPlanet(water, 1);
+    	market.sellToPlanet(sInventory.getGood("Water"), 1);
     	
     	refreshDisplays();
     }
