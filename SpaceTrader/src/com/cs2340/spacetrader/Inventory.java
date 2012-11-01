@@ -63,4 +63,16 @@ public abstract class Inventory implements Serializable{
 		return goodInInventory;
 	}
 
+	Good getGood(String goodName)
+	{
+		for (int i = 0; i < goods.size(); i++) { // if the good is already present, it just adds to its quantity.
+			String name = goods.get(i).getGood().getName();
+			if (name.equals(goodName)){
+				return goods.get(i).getGood();
+			}
+		}
+		//If the good is not in the list, return a dummy one
+		//TODO think of a better way to propagate result of a bad call
+		return new Good("awefulthings", 0, 0, 0, 0, 0, 0);
+	}
 }

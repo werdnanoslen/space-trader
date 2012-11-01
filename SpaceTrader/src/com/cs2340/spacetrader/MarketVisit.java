@@ -138,5 +138,9 @@ public class MarketVisit {
 			planet.setMarketBusy(false);
 		}
 		
+		PlanetInventory getPlanetInventory()
+		{
+			return inventory;
+		}
 		
 	}

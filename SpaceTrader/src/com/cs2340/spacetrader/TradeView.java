@@ -45,12 +45,13 @@ public class TradeView extends Activity
     public void buy(View view)
     {
     	//quick weedouts
-    	//if (sInventory.getMoneyLeft() <= 0) return;
-    	//if (sInventory.getCapacityLeft() <= 0) return;
+    	if (sInventory.getMoneyLeft() <= 0) return;
+    	if (sInventory.getCapacityLeft() <= 0) return;
     	
-    	//market.buyFromPlanet(water, 1);
+    	Good Viking = market.getPlanetInventory().getGood("Water");
+    	//market.buyFromPlanet(market.getPlanetInventory().getGood("Water"), 1);
     	
-    	//refreshDisplays();
+    	refreshDisplays();
     }
     
     public void sell(View view)
