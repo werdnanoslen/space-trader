@@ -23,7 +23,6 @@ public class TradeView extends Activity
         setContentView(R.layout.activity_trade);
         
         planet = GameSetup.theMap.getPlanetArray()[0];
-        //sInventory = new ShipInventory(100, 10);
         sInventory = GameSetup.thePlayer.getship().getInventory();
         market = new MarketVisit(sInventory, planet);
         
@@ -57,11 +56,11 @@ public class TradeView extends Activity
     public void sell(View view)
     {
     	//quick weedout
-    	//if (sInventory.getCapacityLeft() == 0) return;
+    	if (sInventory.getCapacityLeft() <= 0) return;
     	
     	//market.sellToPlanet(water, 1);
     	
-    	//refreshDisplays();
+    	refreshDisplays();
     }
     
     public void gotoPlanet(View view)
