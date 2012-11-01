@@ -29,16 +29,17 @@ public class TradeView extends Activity
         
         //slots on display to display current balances
         cashDisplay = (TextView) findViewById(R.id.trade_cash);
-        capacityDisplay = (TextView) findViewById(R.id.trade_capacity); 
-        
+        capacityDisplay = (TextView) findViewById(R.id.trade_capacity);
+
+
         //initialize values in slots
-        //refreshDisplays();
+        refreshDisplays();
     }
     
     private void refreshDisplays()
     {
-    	cashDisplay.setText('$' + sInventory.getMoneyLeft());
-        capacityDisplay.setText(sInventory.getCapacityLeft());
+		cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
+		capacityDisplay.setText(String.valueOf(sInventory.getCapacityLeft()));
     }
     
     public void buy(View view)
