@@ -12,7 +12,8 @@
     <string name="too_low_error">You still have skill points to allocate! Sum must equal 16 to continue! </string>
     <string name="title_activity_space">Space</string>
     <string name="text_fuel_level">Fuel level: </string>
-    <string name="text_current_planet">Currently orbiting: %s</string>
+    <string name="text_current_planet">Currently orbiting: </string>
+    <string name="space_current_planet"></string>
     <string name="button_dock">Dock on planet</string>
     <string name="button_destination">Change destination</string>
     <string name="button_ship">View ship</string>
@@ -25,7 +26,7 @@
     <string name="setup_radio_hard">Hard</string>
     <string name="setup_radio_impossible">Impossible</string>
     <string name="setup_button_submit">Submit!</string>
-    <string name="planet_docked">Currently docked on: %s</string>
+    <string name="planet_docked">Currently docked on: </string>
     <string name="planet_business">What is your business here?</string>
     <string name="planet_button_trade">Trade goods</string>
     <string name="planet_button_leave">Return to orbit</string>
