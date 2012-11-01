@@ -123,7 +123,7 @@ public class MarketVisit {
 				if (willPlanetSell(good) == true && moneyNeeded <= shipInventory.getMoneyLeft() && capacityNeeded <= shipInventory.getCapacityLeft()){
 					shipInventory.add(good, quantity);
 					shipInventory.deltaMoney(-1*price);
-					shipInventory.deltaMoney(-1*quantity);
+					shipInventory.deltaCapacity(-1*quantity);
 					return true;
 				}
 				
