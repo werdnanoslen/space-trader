@@ -39,8 +39,8 @@
         <item >Test</item>
     </string-array>
     <string name="temp_name">Fuel</string>
-    <string name="temp_buy">BUY $8\n2 Available</string>
-    <string name="temp_sell">SELL $4\n5 Owned</string>
+    <string name="temp_buy">BUY $30\n2 Available</string>
+    <string name="temp_sell">SELL $27\n5 Owned</string>
 
     <string name="title_activity_planet">PlanetView</string>
     
