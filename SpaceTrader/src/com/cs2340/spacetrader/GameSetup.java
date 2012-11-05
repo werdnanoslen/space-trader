@@ -78,8 +78,8 @@ public class GameSetup extends Activity {
     		//TODO - MOVE CONSTANTS SOMEWHERE BETTER
     		int initGold = 2000;
     		int CargoSlots = 10;
-    		thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel, initGold, CargoSlots);
     		theMap = new Map();
+    		thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel, initGold, CargoSlots);
     		Intent intent = new Intent(this, Space.class);
     		startActivity(intent);
     	}

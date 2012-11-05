@@ -50,4 +50,16 @@ public class Map implements Serializable{
 	public Planet[] getPlanetArray(){
 		return planetArray;
 	}
+	
+	public Planet getPlanet(String name)
+	{
+		int numel = planetArray.length;
+		for (int i=0;i<numel;i++)
+		{
+			if (planetArray[i].getName()==name)
+				return planetArray[i];		
+		}
+		return null;
+	}
+	
 }
