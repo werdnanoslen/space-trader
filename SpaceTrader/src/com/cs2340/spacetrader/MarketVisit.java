@@ -128,6 +128,8 @@ public class MarketVisit {
 					shipInventory.add(good, quantity);
 					shipInventory.deltaMoney(-1*price);
 					shipInventory.deltaCapacity(-1*quantity);
+					//TODO make sure this works
+					inventory.remove(good, quantity);
 					return true;
 				}
 				
@@ -145,6 +147,11 @@ public class MarketVisit {
 		PlanetInventory getPlanetInventory()
 		{
 			return inventory;
+		}
+		
+		ShipInventory getShipInventory()
+		{
+			return shipInventory;
 		}
 		
 	}
