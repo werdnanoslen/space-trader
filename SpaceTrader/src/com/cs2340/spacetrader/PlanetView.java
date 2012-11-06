@@ -21,9 +21,23 @@ public class PlanetView extends Activity {
         name.setText(GameSetup.theMap.getPlanetArray()[0].getName());
     }
     
-    public void startTradeView(View view){
+    /**
+     * Continue to TradeView from PlanetView
+     * @param view PlanetView
+     */
+    public void startTradeView(View view)
+    {
     	Intent intent = new Intent(PlanetView.this, TradeView.class);
     	startActivity(intent);
     }
 
+    /**
+     * GUI returns to Space from PlanetView
+     * @param view PlanetView
+     */
+    public void startSpaceView(View view)
+    {
+    	Intent intent = new Intent(PlanetView.this, Space.class);
+    	startActivity(intent);
+    }
 }
