@@ -1,0 +1,22 @@
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button_stay_here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_stay_here" 
+        android:onClick="startPlanetView" />
+
+    <ListView
+        android:id="@+id/selectplanet_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    </ListView>
+
+</LinearLayout>

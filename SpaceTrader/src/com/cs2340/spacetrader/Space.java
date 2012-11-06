@@ -44,7 +44,16 @@ public class Space extends Activity {
         getMenuInflater().inflate(R.menu.activity_space, menu);
         return true;
     }
-        
+    
+    /**
+     * Changes GUI to planet select view
+     * @param view
+     */
+    public void changeDestination(View view){
+    	Intent intent = new Intent(this, SelectPlanet.class);
+    	startActivity(intent);
+    }
+    
     public void startPlanetView(View view){
     	Intent intent = new Intent(this, PlanetView.class);
     	startActivity(intent);
