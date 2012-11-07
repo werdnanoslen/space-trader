@@ -36,8 +36,8 @@ public class TradeView extends Activity
         refreshDisplays();
         
         //extract good info PROBLEMS HERE
-        GoodData[] pGoods = (GoodData[])market.getPlanetInventory().array();
-        GoodData[] sGoods = (GoodData[])market.getShipInventory().array();
+        GoodData[] pGoods = (GoodData[])market.getPlanetInventory().getArray();
+        GoodData[] sGoods = (GoodData[])market.getShipInventory().getArray();
         GoodInfo[] gi = new GoodInfo[pGoods.length];
         for (int i = 0; i < pGoods.length; i++){
         	gi[i].name = pGoods[i].getGood().getName();
