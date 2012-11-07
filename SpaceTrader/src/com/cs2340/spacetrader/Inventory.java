@@ -73,6 +73,6 @@ public abstract class Inventory implements Serializable{
 		}
 		//If the good is not in the list, return a dummy one
 		//TODO think of a better way to propagate result of a bad call
-		return new Good("awefulthings", 0, 0, 0, 0, 0, 0);
+		return new Good("awefulthings", 0, 0, 0, 0, 0, 0, false);
 	}
 }
