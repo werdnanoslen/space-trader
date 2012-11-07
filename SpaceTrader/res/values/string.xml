@@ -47,4 +47,5 @@
     <string name="title_activity_trade_view">TradeView</string>
     <string name="button_stay_here">Stay Here</string>
     <string name="title_activity_select_planet">Select Planet</string>
+    <string name="text_tech">Tech Level: </string>
 </resources>

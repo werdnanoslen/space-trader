@@ -56,7 +56,7 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 		holder.button.setText(buttonText);
 		holder.button.setOnClickListener(new Button.OnClickListener()
 		{
-			public void onClick(View v) 
+			public void onClick(View view) 
 			{
 				GameSetup.thePlayer.getship().moveToPlanet(data[position]);
 			}

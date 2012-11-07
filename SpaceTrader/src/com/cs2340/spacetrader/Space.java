@@ -11,36 +11,37 @@ import android.widget.TextView;
 public class Space extends Activity {
 
 	private Ship ship;
+	private Planet currentPlanet;
 	
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_space);
         
+        //Current ship and planet
         ship = GameSetup.thePlayer.getship();
+        currentPlanet = GameSetup.theMap.getPlanet(ship.getPlanetName());
         
-        TextView name = (TextView) findViewById(R.id.current_planet);
-        TextView techLevel = (TextView) findViewById(R.id.Planet1TechLevel);
-        TextView coords = (TextView) findViewById(R.id.Planet1Coords);
+        //Fields
         ProgressBar fuelBar = (ProgressBar) findViewById(R.id.bar_fuel_level);
-        //TextView inventory = (TextView) findViewById(R.id.Planet1Inventory);
-        //TODO - add Code for recovering the person object passed through intent...
-        //as documented here: http://stackoverflow.com/questions/2736389/how-to-pass-object-from-one-activity-to-another-in-android
-    
-        name.setText(ship.getPlanetName());
-        techLevel.setText("Planet 1 has tech level" +  GameSetup.theMap.getPlanetArray()[0].getTechLevel());
-        int[] coordinates =  GameSetup.theMap.getPlanetArray()[0].getCoordinate();
-        coords.setText("Planet 1 is located at " + coordinates[0] + ", " + coordinates[1]);
+        TextView name = (TextView) findViewById(R.id.current_planet);
+        TextView techLevel = (TextView) findViewById(R.id.tech_level);        
+        int[] coordinates = currentPlanet.getCoordinate();
         
-        //Repurposed Android ProgressBar as a fuel gauge
+        //Set values of fields
         fuelBar.setMax(ship.getFuelCapacity());
         fuelBar.setProgress(ship.getFuel());
+        name.setText(currentPlanet.getName() + "(" + coordinates[0] + ", " + coordinates[1] + ")");
+        techLevel.setText(currentPlanet.getTechLevel());
         
-        //inventory.setText("Planet 1 has " + GameSetup.theMap.getPlanetArray()[0].getInventory().getListofGoods().toString());
-        }
+        //TODO - add Code for recovering the person object passed through intent...
+        //as documented here: http://stackoverflow.com/questions/2736389/how-to-pass-object-from-one-activity-to-another-in-android
+    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
         getMenuInflater().inflate(R.menu.activity_space, menu);
         return true;
     }
@@ -49,12 +50,18 @@ public class Space extends Activity {
      * Changes GUI to planet select view
      * @param view
      */
-    public void changeDestination(View view){
+    public void changeDestination(View view)
+    {
     	Intent intent = new Intent(this, SelectPlanet.class);
     	startActivity(intent);
     }
     
-    public void startPlanetView(View view){
+    /**
+     * Changes GUI to current planet's view
+     * @param view
+     */
+    public void startPlanetView(View view)
+    {
     	Intent intent = new Intent(this, PlanetView.class);
     	startActivity(intent);
     }

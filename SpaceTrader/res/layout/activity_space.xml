@@ -46,6 +46,26 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/text_tech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_tech"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tech_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8.44"
+            android:text="@string/space_current_planet"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_dock"
@@ -66,33 +86,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_ship" />
-    
-    <TextView
-        android:id="@+id/Planet1TechLevel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        tools:context=".Space" />
-    
-    <TextView
-        android:id="@+id/Planet1Coords"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        tools:context=".Space" />
-    
-    <TextView
-        android:id="@+id/Planet1Water"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        tools:context=".Space" />
-
-    <TextView
-        android:id="@+id/Planet1Inventory"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        tools:context=".Space" />
 
 </LinearLayout>

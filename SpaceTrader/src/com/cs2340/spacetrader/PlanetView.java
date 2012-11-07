@@ -18,7 +18,7 @@ public class PlanetView extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         
         TextView name = (TextView) findViewById(R.id.planet_current_planet);
-        name.setText(GameSetup.theMap.getPlanetArray()[0].getName());
+        name.setText(GameSetup.thePlayer.getship().getPlanetName());
     }
     
     /**

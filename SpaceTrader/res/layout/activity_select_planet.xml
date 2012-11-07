@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_stay_here" 
-        android:onClick="startPlanetView" />
+        android:onClick="startSpaceView" />
 
     <ListView
         android:id="@+id/selectplanet_list"

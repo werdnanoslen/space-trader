@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 public class SelectPlanet extends Activity {
 	
 	private ListView pListView;
+	private Ship ship;
+	private Planet currentPlanet;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -21,12 +24,13 @@ public class SelectPlanet extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_planet);
         
-        //Initial values
-        Button name = (Button) findViewById(R.id.button_stay_here);
-        Planet currentPlanet = GameSetup.theMap.getPlanetArray()[0];
+        //Current ship and planet
+        ship = GameSetup.thePlayer.getship();
+        currentPlanet = GameSetup.theMap.getPlanet(ship.getPlanetName());
         
-        //Initial settings
-        name.setText("Stay on " + currentPlanet.getName());
+        //Effective 'cancel' button
+        Button stayButton = (Button) findViewById(R.id.button_stay_here);
+        stayButton.setText("Stay on " + currentPlanet.getName());
         
         //get planet array to pass into list adapter
         Planet[] planetData = GameSetup.theMap.getPlanetArray();
@@ -36,24 +40,23 @@ public class SelectPlanet extends Activity {
         pListView = (ListView)findViewById(R.id.selectplanet_list);
         pListView.setAdapter(adapter);
         
+        //something is wrong here!
+        pListView.setOnItemClickListener(new ListView.OnItemClickListener()
+        {
+        	public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) 
+        	{
+            	startSpaceView(view);
+			}
+		});
     }
     
     /**
-     * Change Planets
+     * Return to Space from SelectPlanet
      * @param view
      */
-    public void changePlanet(View view)
+    public void startSpaceView(View view)
     {
-    	
-    }
-    
-    /**
-     * Return to PlanetView from SelectPlanet
-     * @param view
-     */
-    public void startPlanetView(View view)
-    {
-    	Intent intent = new Intent(this, PlanetView.class);
+    	Intent intent = new Intent(this, Space.class);
     	startActivity(intent);
     }
 }

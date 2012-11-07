@@ -24,7 +24,7 @@ public class TradeView extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trade);
         
-        planet = GameSetup.theMap.getPlanetArray()[0];
+        planet = GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName());
         sInventory = GameSetup.thePlayer.getship().getInventory();
         market = new MarketVisit(sInventory, planet);
         //market.checkIn();
