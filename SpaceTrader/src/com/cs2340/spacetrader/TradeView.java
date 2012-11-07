@@ -16,8 +16,6 @@ public class TradeView extends Activity
 	private Planet planet;
 	private MarketVisit market;
 	
-	private Good water;
-	
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -37,16 +35,24 @@ public class TradeView extends Activity
         //initialize values in slots
         refreshDisplays();
         
-        //extract good info
-        GoodInfo[] goodInfo = new GoodInfo[]{
-        		// GoodInfo(name, buyPrice, planetAmount, sellPrice, shipAmount)
-        		new GoodInfo("Water", 35, 35, 35, 35),
-        		new GoodInfo("Furs", 24, 23, 22, 12)
-        };
+        //extract good info PROBLEMS HERE
+        GoodData[] pGoods = (GoodData[])market.getPlanetInventory().getArray();
+        GoodData[] sGoods = (GoodData[])market.getShipInventory().getArray();
+        GoodInfo[] gi = new GoodInfo[pGoods.length];
+        for (int i = 0; i < pGoods.length; i++){
+        	gi[i].name = pGoods[i].getGood().getName();
+        	gi[i].buyPrice = pGoods[i].getGood().price();
+        	gi[i].planetAmount = pGoods[i].getQuantity();
+        	gi[i].sellPrice = (int)(0.9*(double)pGoods[i].getGood().basePrice());
+        	if (sGoods[i] != null)
+        		gi[i].shipAmount = sGoods[i].getQuantity();
+        	else
+        		gi[i].shipAmount = 0;
+        }
         
         
         //set the adapter
-        TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, goodInfo);
+        TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, gi);
         //display the list view
         TradeList = (ListView)findViewById(R.id.trade_list);
         
