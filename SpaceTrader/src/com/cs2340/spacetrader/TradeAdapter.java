@@ -6,6 +6,8 @@ import com.cs2340.spacetrader.TradeView.GoodInfo;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,18 +51,33 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		String buyText = String.format("BUY $%d\n%d Available", data[position].buyPrice, data[position].planetAmount);
 		String sellText = String.format("SELL $%d\n%d Available", data[position].sellPrice, data[position].shipAmount);
 		
-		
+		final String gName = data[position].name;
 		holder.txtName.setText(data[position].name);
 		holder.txtBuyGood.setText(buyText);
 		holder.txtSellGood.setText(sellText);
 		
+		holder.txtBuyGood.setOnClickListener(new Button.OnClickListener()
+		{
+			public void onClick(View view) 
+			{
+				((TradeView)context).buy(gName);
+			}
+		});
+		
+		holder.txtSellGood.setOnClickListener(new Button.OnClickListener()
+		{
+			public void onClick(View view) 
+			{
+				((TradeView)context).sell(gName);
+			}
+		});
 		return row;
 	}
 	
 	static class GoodHolder
 	{
 		TextView txtName;
-		TextView txtBuyGood;
-		TextView txtSellGood;
+		Button txtBuyGood;
+		Button txtSellGood;
 	}
 }

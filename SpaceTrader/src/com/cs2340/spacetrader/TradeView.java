@@ -78,25 +78,25 @@ public class TradeView extends Activity
         TradeList.setAdapter(adapter);
     }
     
-    public void buy(View view)
+    public void buy(String goodName)
     {
     	//quick weedouts
     	if (market.getShipInventory().getMoneyLeft() <= 0) return;
     	if (market.getShipInventory().getCapacityLeft() <= 0) return;
-    	Good theGood = market.getPlanetInventory().getGood("Water");
+    	Good theGood = market.getPlanetInventory().getGood(goodName);
     	if (market.getPlanetInventory().getGoodFromInventory(theGood).getQuantity() <= 0) return;
 
-    	market.buyFromPlanet(market.getPlanetInventory().getGood("Water"), 1);
+    	market.buyFromPlanet(market.getPlanetInventory().getGood(goodName), 1);
     	
     	refreshDisplays();
     }
     
-    public void sell(View view)
+    public void sell(String goodName)
     {
     	//quick weedout
     	if (sInventory.getCapacityLeft() >= sInventory.getCapacityMax()) return;
     	
-    	market.sellToPlanet(market.getPlanetInventory().getGood("Water"), 1);
+    	market.sellToPlanet(market.getPlanetInventory().getGood(goodName), 1);
     	
     	refreshDisplays();
     }
