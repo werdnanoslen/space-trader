@@ -44,13 +44,20 @@
                 android:value="android.app.Space" />
         </activity>
         <activity
+            android:name=".SelectPlanet"
+            android:label="@string/title_activity_select_planet" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.Space" />
+        </activity>
+        <activity
             android:name=".TradeView"
             android:label="@string/title_activity_trade_view" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.PlanetView" />
         </activity>
-        
+
     </application>
 
 </manifest>
