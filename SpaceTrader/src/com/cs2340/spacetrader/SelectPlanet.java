@@ -1,15 +1,13 @@
 package com.cs2340.spacetrader;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 public class SelectPlanet extends Activity {
 	
@@ -39,15 +37,6 @@ public class SelectPlanet extends Activity {
         PlanetListAdapter adapter = new PlanetListAdapter(this, R.layout.planet_row, planetData);
         pListView = (ListView)findViewById(R.id.selectplanet_list);
         pListView.setAdapter(adapter);
-        
-        //something is wrong here!
-        pListView.setOnItemClickListener(new ListView.OnItemClickListener()
-        {
-        	public void onItemClick(AdapterView<?> arg0, View view, int arg2, long arg3) 
-        	{
-            	startSpaceView(view);
-			}
-		});
     }
     
     /**

@@ -3,6 +3,7 @@ package com.cs2340.spacetrader;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,10 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 		{
 			public void onClick(View view) 
 			{
+				Log.i("TEST","I'VE BEEN CLICKED IN THE ADAPTER");
 				GameSetup.thePlayer.getship().moveToPlanet(data[position]);
+				Intent intent = new Intent(context, Space.class);
+            	context.startActivity(intent);
 			}
 		});
 

@@ -7,8 +7,7 @@
 	<Button
         android:id="@+id/button_planet_select"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="changePlanet" />
+        android:layout_height="wrap_content"/>
 	
     
     
