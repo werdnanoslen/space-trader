@@ -90,4 +90,10 @@ public abstract class Inventory implements Serializable{
 	public Object[] getArray(){
 		return goods.toArray();
 	}
+
+	public GoodData[] array(){
+		GoodData [] array = new GoodData[1];
+		goods.toArray(array);
+		return array;
+	}
 }
