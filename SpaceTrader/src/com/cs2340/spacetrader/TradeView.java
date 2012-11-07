@@ -1,5 +1,7 @@
 package com.cs2340.spacetrader;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,21 +37,8 @@ public class TradeView extends Activity
         //initialize values in slots
         refreshDisplays();
         
-        //extract good info PROBLEMS HERE
-        GoodData[] pGoods = (GoodData[])market.getPlanetInventory().getArray();
-        GoodData[] sGoods = (GoodData[])market.getShipInventory().getArray();
-        GoodInfo[] gi = new GoodInfo[pGoods.length];
-        for (int i = 0; i < pGoods.length; i++){
-        	gi[i].name = pGoods[i].getGood().getName();
-        	gi[i].buyPrice = pGoods[i].getGood().price();
-        	gi[i].planetAmount = pGoods[i].getQuantity();
-        	gi[i].sellPrice = (int)(0.9*(double)pGoods[i].getGood().basePrice());
-        	if (sGoods[i] != null)
-        		gi[i].shipAmount = sGoods[i].getQuantity();
-        	else
-        		gi[i].shipAmount = 0;
-        }
-        
+        //extract good info PROBLEMS HERE        
+        GoodInfo[] gi = getGoodInfoArray();
         
         //set the adapter
         TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, gi);
@@ -60,6 +49,46 @@ public class TradeView extends Activity
         
     }
     
+    private GoodInfo[] getGoodInfoArray(){
+    	GoodData[] pGoods = market.getPlanetInventory().getArray();
+        GoodData[] sGoods = market.getShipInventory().getArray();
+        ArrayList<GoodInfo> list = new ArrayList<GoodInfo>();
+        for (int i = 0; i < pGoods.length; i++){
+        	list.add(new GoodInfo(pGoods[i].getGood().getName()));
+        	list.get(i).setPlanetAmount(pGoods[i].getQuantity());
+        	list.get(i).setSellPrice((int)0.9*pGoods[i].getGood().basePrice());
+        	list.get(i).setBuyPrice(pGoods[i].getGood().price());
+        }
+        for (int i = 0; i < sGoods.length; i++){
+        	//String sName = sGoods[i].getGood().getName();
+        	String sName = "Water";
+        	boolean present = false;
+        	int index = 0;
+        	for (int j = 0; j < list.size(); j++){
+        		GoodInfo good = list.get(i);
+        		if (good.name == sName)
+        			present = true;
+        			index = j;
+        	}
+        	if (present){
+        		
+        		list.get(index).setShipAmount(sGoods[i].getQuantity());
+        	}
+        	else{
+        		list.add(new GoodInfo(sGoods[i].getGood().getName()));
+            	list.get(list.size()-1).setPlanetAmount(sGoods[i].getQuantity());
+            	list.get(list.size()-1).setSellPrice((int)0.9*sGoods[i].getGood().basePrice());
+            	list.get(list.size()-1).setBuyPrice(sGoods[i].getGood().price());
+            	list.get(list.size()-1).setShipAmount(sGoods[index].getQuantity());
+        	}
+        
+        }
+        
+        GoodInfo returnArray [] = new GoodInfo[1];
+        return list.toArray(returnArray);
+        
+    }
+    
     public class GoodInfo{
     	public String name;
     	public int buyPrice;
@@ -67,17 +96,26 @@ public class TradeView extends Activity
     	public int sellPrice;
     	public int shipAmount;
     	
-    	public GoodInfo(){
-    		super();
+    	public GoodInfo(String name){
+    		this.name = name;
+    		shipAmount = 0;
+    		planetAmount = 0;
     	}
     	
-    	public GoodInfo(String name, int buyPrice, int planetAmount, int sellPrice, int shipAmount){
-    		super();
-    		this.name = name;
-        	this.buyPrice = buyPrice;
-        	this.planetAmount = planetAmount;
-        	this.sellPrice = sellPrice;
-        	this.shipAmount = shipAmount;
+    	public void setBuyPrice(int price){
+    		buyPrice = price;
+    	}
+    	
+    	public void setSellPrice(int price){
+    		sellPrice = price;
+    	}
+    	
+    	public void setShipAmount (int amount){
+    		shipAmount = amount;
+    	}
+    	
+    	public void setPlanetAmount (int amount){
+    		planetAmount = planetAmount;
     	}
     }
     

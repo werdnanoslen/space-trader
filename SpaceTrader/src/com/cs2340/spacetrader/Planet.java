@@ -3,7 +3,7 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.*;
 
-public class Planet implements Serializable {
+public class Planet implements Serializable{
 
 	private int[] coordinate;
 	private boolean marketBusy; // indicates whether a ship is presently visiting a market 
