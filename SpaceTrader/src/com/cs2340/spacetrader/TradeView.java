@@ -95,6 +95,7 @@ public class TradeView extends Activity
     {
     	//quick weedout
     	if (sInventory.getCapacityLeft() >= sInventory.getCapacityMax()) return;
+    	if (sInventory.getGoodAmount(goodName) <= 0) return;
     	
     	market.sellToPlanet(market.getPlanetInventory().getGood(goodName), 1);
     	
