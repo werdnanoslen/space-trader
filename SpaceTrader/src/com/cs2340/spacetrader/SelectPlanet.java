@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class SelectPlanet extends Activity {
+	
+	private ListView pListView;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -24,6 +27,24 @@ public class SelectPlanet extends Activity {
         
         //Initial settings
         name.setText("Stay on " + currentPlanet.getName());
+        
+        //get planet array to pass into list adapter
+        Planet[] planetData = GameSetup.theMap.getPlanetArray();
+        
+        //set up list adapter
+        PlanetListAdapter adapter = new PlanetListAdapter(this, R.layout.planet_row, planetData);
+        pListView = (ListView)findViewById(R.id.selectplanet_list);
+        pListView.setAdapter(adapter);
+        
+    }
+    
+    /**
+     * Change Planets
+     * @param view
+     */
+    public void changePlanet(View view)
+    {
+    	
     }
     
     /**
