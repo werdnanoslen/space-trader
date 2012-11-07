@@ -76,7 +76,9 @@ public abstract class Inventory implements Serializable{
 		return new Good("awefulthings", 0, 0, 0, 0, 0, 0, false);
 	}
 	
-	public Object[] getArray(){
-		return goods.toArray();
+	public GoodData[] array(){
+		GoodData [] array = new GoodData[1];
+		goods.toArray(array);
+		return array;
 	}
 }
