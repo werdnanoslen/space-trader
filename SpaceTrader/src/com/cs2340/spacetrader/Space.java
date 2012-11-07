@@ -27,7 +27,7 @@ public class Space extends Activity {
         //TODO - add Code for recovering the person object passed through intent...
         //as documented here: http://stackoverflow.com/questions/2736389/how-to-pass-object-from-one-activity-to-another-in-android
     
-        name.setText(GameSetup.theMap.getPlanetArray()[0].getName());
+        name.setText(ship.getPlanetName());
         techLevel.setText("Planet 1 has tech level" +  GameSetup.theMap.getPlanetArray()[0].getTechLevel());
         int[] coordinates =  GameSetup.theMap.getPlanetArray()[0].getCoordinate();
         coords.setText("Planet 1 is located at " + coordinates[0] + ", " + coordinates[1]);
