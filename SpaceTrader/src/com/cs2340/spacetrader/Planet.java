@@ -68,10 +68,6 @@ public class Planet implements Serializable {
 	public String getTechLevel() {
 		return techLevel;
 	}
-	
-	public int getTechLevelInt(){
-		return nTechLevel;
-	}
 
 	public void createContract() {
 		// randomly generate contract here

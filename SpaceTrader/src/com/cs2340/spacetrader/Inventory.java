@@ -76,6 +76,17 @@ public abstract class Inventory implements Serializable{
 		return new Good("awefulthings", 0, 0, 0, 0, 0, 0, false);
 	}
 	
+	int getGoodAmount(String goodName){
+		for (int i = 0; i < goods.size(); i++) { // if the good is already present, it just adds to its quantity.
+			String name = goods.get(i).getGood().getName();
+			if (name.equals(goodName)){
+				return goods.get(i).getQuantity();
+			}
+		}
+		
+		return 0;
+	}
+	
 	public Object[] getArray(){
 		return goods.toArray();
 	}

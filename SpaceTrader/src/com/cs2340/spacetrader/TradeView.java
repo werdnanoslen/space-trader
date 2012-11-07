@@ -35,20 +35,12 @@ public class TradeView extends Activity
         //initialize values in slots
         refreshDisplays();
         
-        //extract good info PROBLEMS HERE
-        GoodData[] pGoods = (GoodData[])market.getPlanetInventory().getArray();
-        GoodData[] sGoods = (GoodData[])market.getShipInventory().getArray();
-        GoodInfo[] gi = new GoodInfo[pGoods.length];
-        for (int i = 0; i < pGoods.length; i++){
-        	gi[i].name = pGoods[i].getGood().getName();
-        	gi[i].buyPrice = pGoods[i].getGood().price();
-        	gi[i].planetAmount = pGoods[i].getQuantity();
-        	gi[i].sellPrice = (int)(0.9*(double)pGoods[i].getGood().basePrice());
-        	if (sGoods[i] != null)
-        		gi[i].shipAmount = sGoods[i].getQuantity();
-        	else
-        		gi[i].shipAmount = 0;
-        }
+        //extract good info
+        Good good = planet.getInventory().getGood("Water");
+        GoodInfo[] gi = new GoodInfo[]{
+        		new GoodInfo("Water", market.priceAtWhichPlanetSells(good), planet.getInventory().getGoodAmount("Water"), market.priceAtWhichPlanetBuys(good), sInventory.getGoodAmount("Water")),
+        		new GoodInfo("Furs", market.priceAtWhichPlanetSells(planet.getInventory().getGood("Furs")), 17, market.priceAtWhichPlanetBuys(planet.getInventory().getGood("Furs")), 10)
+        };
         
         
         //set the adapter
@@ -69,6 +61,7 @@ public class TradeView extends Activity
     	
     	public GoodInfo(){
     		super();
+    		
     	}
     	
     	public GoodInfo(String name, int buyPrice, int planetAmount, int sellPrice, int shipAmount){
@@ -85,6 +78,20 @@ public class TradeView extends Activity
     {
 		cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
 		capacityDisplay.setText(String.valueOf(sInventory.getCapacityLeft()));
+		//extract good info
+        Good good = planet.getInventory().getGood("Water");
+        GoodInfo[] gi = new GoodInfo[]{
+        		new GoodInfo("Water", market.priceAtWhichPlanetSells(good), planet.getInventory().getGoodAmount("Water"), market.priceAtWhichPlanetBuys(good), sInventory.getGoodAmount("Water")),
+        		new GoodInfo("Furs", market.priceAtWhichPlanetSells(planet.getInventory().getGood("Furs")), planet.getInventory().getGoodAmount("Furs"), market.priceAtWhichPlanetBuys(planet.getInventory().getGood("Furs")), sInventory.getGoodAmount("Furs"))
+        };
+        
+        
+        //set the adapter
+        TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, gi);
+        //display the list view
+        TradeList = (ListView)findViewById(R.id.trade_list);
+        
+        TradeList.setAdapter(adapter);
     }
     
     public void buy(View view)
