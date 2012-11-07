@@ -34,22 +34,6 @@ public class TradeView extends Activity
 
         //initialize values in slots
         refreshDisplays();
-        
-        //extract good info
-        Good good = planet.getInventory().getGood("Water");
-        GoodInfo[] gi = new GoodInfo[]{
-        		new GoodInfo("Water", market.priceAtWhichPlanetSells(good), planet.getInventory().getGoodAmount("Water"), market.priceAtWhichPlanetBuys(good), sInventory.getGoodAmount("Water")),
-        		new GoodInfo("Furs", market.priceAtWhichPlanetSells(planet.getInventory().getGood("Furs")), 17, market.priceAtWhichPlanetBuys(planet.getInventory().getGood("Furs")), 10)
-        };
-        
-        
-        //set the adapter
-        TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, gi);
-        //display the list view
-        TradeList = (ListView)findViewById(R.id.trade_list);
-        
-        TradeList.setAdapter(adapter);
-        
     }
     
     public class GoodInfo{
