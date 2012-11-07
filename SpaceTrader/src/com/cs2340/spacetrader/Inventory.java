@@ -75,4 +75,8 @@ public abstract class Inventory implements Serializable{
 		//TODO think of a better way to propagate result of a bad call
 		return new Good("awefulthings", 0, 0, 0, 0, 0, 0, false);
 	}
+	
+	public Object[] getArray(){
+		return goods.toArray();
+	}
 }

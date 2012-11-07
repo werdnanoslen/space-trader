@@ -65,6 +65,12 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
             	context.startActivity(intent);
 			}
 		});
+		
+		//if cost is greater than fuel available, disable travel
+		if (GameSetup.thePlayer.getship().fuelCost(data[position]) > GameSetup.thePlayer.getship().getFuel())
+		{
+			holder.button.setEnabled(false);
+		}
 
 		return row;
 	}

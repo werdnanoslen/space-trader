@@ -53,7 +53,7 @@ public class Ship {
 
 	public void deltaFuel(int fuelAmount)
 	{
-		int newFuel = this.fuel+fuelAmount;
+		int newFuel = this.fuel-fuelAmount;
 		if (newFuel < 0)
 			this.fuel=0;
 		else if (newFuel > this.fuelCapacity)
