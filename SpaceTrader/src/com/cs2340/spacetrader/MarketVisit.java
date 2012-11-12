@@ -1,5 +1,6 @@
 package com.cs2340.spacetrader;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * the inventory each time to simulate changes as a result of trade with other ships
  */
 
-public class MarketVisit {
+public class MarketVisit implements Serializable {
 		private ShipInventory shipInventory;
 		private PlanetInventory inventory;
 		Planet planet;

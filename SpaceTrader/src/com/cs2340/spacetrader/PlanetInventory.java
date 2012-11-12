@@ -1,6 +1,8 @@
 package com.cs2340.spacetrader;
 
-public class PlanetInventory extends Inventory 
+import java.io.Serializable;
+
+public class PlanetInventory extends Inventory implements Serializable
 {
 	private int planetTechLevel;
 	

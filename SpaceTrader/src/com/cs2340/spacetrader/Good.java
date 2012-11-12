@@ -1,10 +1,11 @@
 package com.cs2340.spacetrader;
 
+import java.io.Serializable;
 import java.util.Random;
 
 //import android.util.Log;
 
-public class Good {
+public class Good implements Serializable {
 	public String name; // name of good
 	private int minProd; // min lvl to produce (buy)
 	private int minUse; // min lvl to use (sell)

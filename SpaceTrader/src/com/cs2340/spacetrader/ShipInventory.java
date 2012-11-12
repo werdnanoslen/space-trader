@@ -1,6 +1,8 @@
 package com.cs2340.spacetrader;
 
-public class ShipInventory extends Inventory {
+import java.io.Serializable;
+
+public class ShipInventory extends Inventory implements Serializable {
 	private int moneyLeft;
 	private int capacityLeft;
 	private int capacityMax;

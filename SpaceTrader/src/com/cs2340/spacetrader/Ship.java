@@ -1,7 +1,9 @@
 package com.cs2340.spacetrader;
 
+import java.io.Serializable;
+
 //planet
-public class Ship {
+public class Ship implements Serializable {
 	private ShipInventory inventory;
 	private String planetName;
 	private int fuel;
