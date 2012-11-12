@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import android.content.Context;
 
 /**
+ * Note that both the methods in this class are static methods. Do not instantiate an object of this class.
  * How to use this class to save and load a SpaceTrader game:
  * 
  * Saving:
