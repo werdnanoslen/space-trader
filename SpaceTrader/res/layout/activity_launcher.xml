@@ -12,13 +12,14 @@
         android:text="@string/intro_text"
         tools:context=".Launcher" />
     
-    <!-- Loadgame button, does nothing atm -->
+    <!-- Loadgame button, moves to Space on success -->
     <Button android:id="@+id/button_loadGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/button_loadGame" />
+        android:text="@string/button_loadGame" 
+        android:onClick="loadGame" />
 
     <!-- Newgame button, starts setupGame Activity -->
     <Button

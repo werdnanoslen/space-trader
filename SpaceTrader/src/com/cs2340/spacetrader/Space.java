@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Space extends Activity {
 
@@ -44,6 +46,34 @@ public class Space extends Activity {
     {
         getMenuInflater().inflate(R.menu.menu_options, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) 
+    {
+        switch (item.getItemId()) {
+            case R.id.save_game:
+            	item.setEnabled(false);
+            	item.setTitle("Saving");
+            	SaveState state = new SaveState(GameSetup.thePlayer, GameSetup.theMap);
+            	if (MemoryService.saveGame(state, this))
+        		{
+            		Toast.makeText(this, "Game saved successfully", Toast.LENGTH_SHORT).show();
+        		}
+            	else
+            	{
+            		Toast.makeText(this, "Failed to save game", Toast.LENGTH_SHORT).show();
+            	}
+            	item.setTitle("Save");
+            	item.setEnabled(true);
+                return true;
+            case R.id.quit_game:
+            	Intent intent = new Intent(this, Launcher.class);
+            	startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
     
     /**
