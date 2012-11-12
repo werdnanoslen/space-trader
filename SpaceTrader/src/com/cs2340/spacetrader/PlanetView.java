@@ -76,4 +76,14 @@ public class PlanetView extends Activity {
     	Intent intent = new Intent(PlanetView.this, Space.class);
     	startActivity(intent);
     }
+    
+    /**
+     * Continue to UpgradeShipView
+     * @param view
+     */
+    public void upgradeShip(View view)
+    {
+    	Intent intent = new Intent(PlanetView.this, UpgradeShipView.class);
+    	startActivity(intent);
+    }
 }

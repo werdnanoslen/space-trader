@@ -50,4 +50,8 @@
     <string name="text_tech">Tech Level: </string>
     <string name="save_game">Save</string>
     <string name="quit_game">Quit</string>
+    <string name="upgrade_leave">Leave shipyard</string>
+    <string name="button_upgrade_guns">Upgrade Guns</string>
+    <string name="button_upgrade_armor">Upgrade Armor</string>
+    <string name="title_activity_upgrade_ship_view">Upgrade Ship</string>
 </resources>

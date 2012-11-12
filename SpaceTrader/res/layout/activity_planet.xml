@@ -41,7 +41,8 @@
         android:id="@+id/planet_button_upgrade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/planet_button_upgrade" />
+        android:text="@string/planet_button_upgrade" 
+        android:onClick="upgradeShip" />
 
     <Button
         android:id="@+id/planet_button_leave"
