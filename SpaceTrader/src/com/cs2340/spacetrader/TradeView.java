@@ -3,6 +3,7 @@ package com.cs2340.spacetrader;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,6 +35,13 @@ public class TradeView extends Activity
 
         //initialize values in slots
         refreshDisplays();
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
+        getMenuInflater().inflate(R.menu.menu_options, menu);
+        return true;
     }
     
     public class GoodInfo{

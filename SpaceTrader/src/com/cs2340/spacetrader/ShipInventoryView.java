@@ -29,8 +29,9 @@ public class ShipInventoryView extends Activity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_ship_inventory_view, menu);
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
+        getMenuInflater().inflate(R.menu.menu_options, menu);
         return true;
     }
     

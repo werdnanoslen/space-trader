@@ -21,6 +21,13 @@ public class PlanetView extends Activity {
         name.setText(GameSetup.thePlayer.getship().getPlanetName());
     }
     
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) 
+    {
+        getMenuInflater().inflate(R.menu.menu_options, menu);
+        return true;
+    }
+    
     /**
      * Continue to TradeView from PlanetView
      * @param view PlanetView

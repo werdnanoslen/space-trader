@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/save_game"
+          android:title="@string/save_game" android:enabled="true" android:visible="true" android:showAsAction="always"/>
+    <item android:id="@+id/quit_game"
+          android:title="@string/quit_game" android:enabled="true" android:visible="true" android:showAsAction="always"/>
+</menu>

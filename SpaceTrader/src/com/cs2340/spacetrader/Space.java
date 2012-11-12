@@ -42,7 +42,7 @@ public class Space extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) 
     {
-        getMenuInflater().inflate(R.menu.activity_space, menu);
+        getMenuInflater().inflate(R.menu.menu_options, menu);
         return true;
     }
     
