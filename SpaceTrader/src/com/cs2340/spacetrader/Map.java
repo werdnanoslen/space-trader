@@ -3,7 +3,7 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.*;
 
-public class Map implements Serializable{ // this is a serializable class
+public class Map implements Serializable{ //this is a serializable class
 	private Planet[] planetArray;
 	
 	public Map(){
