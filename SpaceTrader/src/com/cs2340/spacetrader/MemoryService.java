@@ -11,16 +11,19 @@ import android.content.Context;
 
 /**
  * Note that both the methods in this class are static methods. Do not instantiate an object of this class.
- * How to use this class to save and load a SpaceTrader game:
+ * Only one game can be saved at a time. Calling savedGame() overwrites any previously saved game.
  * 
- * Saving:
+ * How to use this class to save and load a SpaceTrader game:
+ *  
+ *
+ * How to save a game:
  * Step 1: Create a game state that you want to save. Use SaveState class to capture the state of a game. The SaveState object wraps a Map and a Player.
  * 		   SaveState state = new SaveState(map, player);
  * Step 2: Call the saveGame() method. This method takes two parameters: the SaveState object you created in Step 1 and the present Context
  * 		   MemoryService.saveGame(state, context);
  * Step 3: Write a Toast to the user indicating if the save was successful. The method returns true if save was successful, else returns false.
  * 
- * Loading the last saved game:
+ * How to load the last saved game:
  * Step 1: Create a SaveState variable. Lets call this "state". The load() method takes in this variable. If the method 
  * 		   returns successfully, this variable will point to the current state of the game.
  * 		   SaveState state; // this will point to null at this point.
