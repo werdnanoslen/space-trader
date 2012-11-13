@@ -98,6 +98,14 @@ public class Ship implements Serializable {
 		return Armor.nextArmor(armorLevel).getPrice();
 	}
 	
+	public void removeIllicitGoods() {
+		this.inventory.removeIllicitGoods();
+	}
+	
+	public int priceBribe() {
+		return this.inventory.priceBribe();
+	}
+	
 	private int fuelMetric(int deltaX, int deltaY)
 	{
 		int squaredCost = (int) (Math.pow((int)deltaX,2)+ Math.pow((int)deltaY, 2));
