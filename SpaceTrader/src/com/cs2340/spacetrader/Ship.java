@@ -111,6 +111,10 @@ public class Ship implements Serializable {
 		this.inventory.deltaMoney(this.priceBribe());
 	}
 	
+	/**
+	 * Carries out logic behind attempting to fight a pirate
+	 * @return boolean player won fight
+	 */
 	public boolean fight() {
 		
 		Random generator = new Random();
@@ -127,7 +131,13 @@ public class Ship implements Serializable {
 		}
 	}
 	
+	/**
+	 * Carries out logic behind attempting to flee a fight
+	 * @return boolean whether fleeing was successful
+	 */
+	
 	public boolean flee() {
+		
 		Random generator = new Random();
 		int val = generator.nextInt(100);
 		if (val > 20)
@@ -141,6 +151,11 @@ public class Ship implements Serializable {
 		}
 		
 	}
+	
+	/**
+	 * Returns an amount of fuel necessary to fly proportional to euclidean distance between planets
+	 * @return integer fuel cost
+	 */
 	
 	private int fuelMetric(int deltaX, int deltaY)
 	{
@@ -157,7 +172,7 @@ public class Ship implements Serializable {
 	}
 	
 	/**
-	 * Returns the name of the weapon the ship has
+	 * Returns the name of the next weapon the ship can upgrade to
 	 * @return string weapon name
 	 */
 	public String getWeaponName(){
@@ -173,7 +188,7 @@ public class Ship implements Serializable {
 	}
 	
 	/**
-	 * Returns the name of the armor the ship has
+	 * Returns the name of the next armor the ship can upgrade to
 	 * @return string armor name
 	 */
 	public String getArmorName(){
