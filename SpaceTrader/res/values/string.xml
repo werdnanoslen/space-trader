@@ -31,6 +31,7 @@
     <string name="planet_button_trade">Trade goods</string>
     <string name="planet_button_leave">Return to orbit</string>
     <string name="planet_button_upgrade">Upgrade ship</string>
+    <string name="planet_button_contract">Look for contract</string>
     <string name="trade_leave">Leave market</string>
     <string name="trade_capacity_text">Capacity: </string>
     <string name="trade_cash_text">Cash: </string>

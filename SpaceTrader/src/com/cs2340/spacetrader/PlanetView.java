@@ -1,17 +1,22 @@
 package com.cs2340.spacetrader;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.app.NavUtils;
 
 public class PlanetView extends Activity {
 
+	public Contract contract;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,5 +90,24 @@ public class PlanetView extends Activity {
     {
     	Intent intent = new Intent(PlanetView.this, UpgradeShipView.class);
     	startActivity(intent);
+    }
+    
+    /**
+     * Randomly generates the contract
+     */
+    public void createContract()
+    {
+    	contract = GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getContract();
+    	contract.generateContract();    	
+    }
+    
+    /**
+     * Displays a dialog to accept or reject a contract
+     * @param view
+     */
+    public void lookForContract(View view){
+    	createContract();
+    	TextView ct = (TextView)findViewById(R.id.temp_contract);
+    	ct.setText(contract.getString());
     }
 }

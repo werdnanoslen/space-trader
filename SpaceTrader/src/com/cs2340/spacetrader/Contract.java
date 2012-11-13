@@ -19,6 +19,9 @@ public class Contract implements Serializable{
 		//generateContract();
 	}
 	
+	/**
+	 * Generate the fields of the contract randomly
+	 */
 	public void generateContract(){
 		Random r = new Random();
 		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
@@ -31,12 +34,16 @@ public class Contract implements Serializable{
 		if (type == "bringGood"){
 			//random required good from the good datalist
 			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
-			//required amount = random between 1 and half max capacity + 1
-			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2 + 1);
+			//required amount = random between 1 and half max capacity + 2
+			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2) + 2;
 		}
-		reward = minReward + r.nextInt(maxReward);
+		reward = minReward + r.nextInt(maxReward-minReward);
 	}
 	
+	/**
+	 * Generate a contract of the given type, for testing purposes
+	 * @param type
+	 */
 	public void generateContract(String type){
 		Random r = new Random();
 		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
@@ -49,12 +56,16 @@ public class Contract implements Serializable{
 		if (type == "bringGood"){
 			//random required good from the good datalist
 			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
-			//required amount = random between 1 and half max capacity + 1
-			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2 + 1);
+			//required amount = random between 1 and half max capacity + 2
+			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2) + 2;
 		}
-		reward = minReward + r.nextInt(maxReward);
+		reward = minReward + r.nextInt(maxReward-minReward);
 	}
 	
+	/**
+	 * Checks to see if a contract is completed. If it is, trigger any events, reward the player,
+	 * and set the contract flag to false
+	 */
 	public void checkContract(){
 		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
 		if (destination == curPlanet){
@@ -78,10 +89,14 @@ public class Contract implements Serializable{
 		}
 	}
 	
+	/**
+	 * Returns a string containing the details of the contract to display to the user
+	 * @return string with the contract details
+	 */
 	public String getString(){
 		String out = "Invalid Contract";
 		if (type == "goTo"){
-			out = String.format("Please deliver this important message to %s. You will be paid %d upon your arrival.", destination, reward);
+			out = String.format("Please deliver this important message to %s. You will be paid %d credits upon your arrival.", destination, reward);
 		}			
 		else if (type == "fightPirate"){
 			out = String.format("Pirates are terrorizing %s! We can offer a bounty of %d credits to anyone who destroys them.", destination, reward);
@@ -92,10 +107,18 @@ public class Contract implements Serializable{
 		return out;
 	}
 	
+	/**
+	 * Returns the name of the planet that completes the contract
+	 * @return string planet name
+	 */
 	public String getDestination(){
 		return destination;
 	}
 	
+	/**
+	 * Returns the money paid if the contract is completed
+	 * @return integer reward value
+	 */
 	public int getReward(){
 		return reward;
 	}
