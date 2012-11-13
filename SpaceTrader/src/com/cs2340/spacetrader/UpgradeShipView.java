@@ -72,7 +72,9 @@ public class UpgradeShipView extends Activity
     }
     
     /**
-     * Fetches current armor and guns prices and toggles UI actions
+     * Fetches current armor and guns prices;
+     * Toggles UI actions;
+     * Displays updated price/names.
      */
     public void updatePrices()
     {
@@ -81,8 +83,8 @@ public class UpgradeShipView extends Activity
     	int armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
     	int gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
     	
-    	upgradeArmorButton.setText(this.getString(R.string.button_upgrade_armor) + " ($" + armorPrice + ")");
-    	upgradeGunsButton.setText(this.getString(R.string.button_upgrade_guns) + " ($" + gunsPrice + ")");
+    	upgradeArmorButton.setText("Upgrade armor to \n" + GameSetup.thePlayer.getship().armorUpgradeName() + " ($" + armorPrice + ")");
+    	upgradeGunsButton.setText("Upgrade guns to \n" + GameSetup.thePlayer.getship().wepUpgradeName() + " ($" + gunsPrice + ")");
     	
     	if (sInventory.getMoneyLeft() < armorPrice)
         {
