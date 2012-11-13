@@ -1,7 +1,7 @@
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
-
+import java.util.Random;
 //planet
 public class Ship implements Serializable {
 	private ShipInventory inventory;
@@ -98,12 +98,45 @@ public class Ship implements Serializable {
 		return Armor.nextArmor(armorLevel).getPrice();
 	}
 	
+	
 	public void removeIllicitGoods() {
 		this.inventory.removeIllicitGoods();
 	}
 	
 	public int priceBribe() {
 		return this.inventory.priceBribe();
+	}
+	
+	
+	public boolean fight() {
+		
+		Random generator = new Random();
+		int val = generator.nextInt(100);
+		if (val > 49)
+		{
+			this.inventory.deltaMoney((val*25));
+			return true;
+		}
+		else
+		{
+			this.inventory.deltaMoney(-(val*50));
+			return false;
+		}
+	}
+	
+	public boolean flee() {
+		Random generator = new Random();
+		int val = generator.nextInt(100);
+		if (val > 20)
+		{
+			return true;
+		}
+		else 
+		{
+			this.inventory.deltaMoney(-(val*50));
+			return false;
+		}
+		
 	}
 	
 	private int fuelMetric(int deltaX, int deltaY)
