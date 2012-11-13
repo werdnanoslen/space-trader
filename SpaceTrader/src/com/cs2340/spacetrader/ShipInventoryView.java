@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ShipInventoryView extends Activity {
@@ -21,11 +22,22 @@ public class ShipInventoryView extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ship_inventory_view);
-        getInventory();
+        sInventory = GameSetup.thePlayer.getship().getInventory();
+        
+        TextView cashDisplay = (TextView) findViewById(R.id.ship_cash);
+        TextView capacityDisplay = (TextView) findViewById(R.id.ship_capacity);
+        TextView weaponDisplay = (TextView) findViewById(R.id.ship_weapon);
+        TextView armorDisplay = (TextView) findViewById(R.id.ship_armor);
+        cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
+		capacityDisplay.setText(String.valueOf(sInventory.getCapacityLeft()));
+		weaponDisplay.setText("Current Weapon: " + GameSetup.thePlayer.getship().getWeaponName());
+		armorDisplay.setText("Current Armor: " + GameSetup.thePlayer.getship().getArmorName());
         
         ShipInventoryAdapter sAdapter = new ShipInventoryAdapter(this, R.layout.ship_item, sInventory);
 
-        Log.i("goodSize",Integer.toString(sInventory.goods.size()));
+        ListView InventoryList = (ListView) findViewById(R.id.ship_inventory_list);
+        
+        InventoryList.setAdapter(sAdapter);
     }
 
     @Override
@@ -35,6 +47,12 @@ public class ShipInventoryView extends Activity {
         return true;
     }
     
+    /**
+     * This class acts as an Adapter for the ListView in the ShipInventoryView activity
+     * It's used to populate the ListView upon the activity's creation
+     * @author David
+     *
+     */
     private class ShipInventoryAdapter extends ArrayAdapter<GoodData> {
 
         private ArrayList<GoodData> goodArray;
@@ -58,27 +76,22 @@ public class ShipInventoryView extends Activity {
                         TextView tt = (TextView) v.findViewById(R.id.toptext);
                         TextView bt = (TextView) v.findViewById(R.id.bottomtext);
                         if (tt != null) {
-                              tt.setText("Good: "+ o.getGood().getName());                            }
+                              tt.setText(o.getGood().getName());                            }
                         if(bt != null){
-                              bt.setText("Amount "+ o.getQuantity());
+                              bt.setText("Amount: "+ o.getQuantity());
                         }
                 }
                 return v;
         }
     }
     
-    private void getInventory(){
-    	//This should fetch sInventory from the player/ship
-    	//Currently just a test to see if the data structure works
-    	// and demonstrates how to create/use the data
-    	int startingCash = 1000;	//initializing cash
-    	int startingCap = 15;		//initializing capacity
-    	sInventory = new ShipInventory(startingCash, startingCap);
-    	Good[] goodList = Good.getDataList();	//getting the predefined goods
-    	sInventory.add(goodList[0], 5);	//storing 5 units of water
-    	sInventory.add(goodList[1], 3); //3 units of furs
-    	sInventory.add(goodList[5], 2); //2 units of firearms
-    	
+    /**
+     * Changes the activity to Space
+     * @param view
+     */
+    public void goToSpace(View view){
+    	Intent intent = new Intent(this, Space.class);
+    	startActivity(intent);
     }
     
 }

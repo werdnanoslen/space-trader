@@ -37,6 +37,24 @@ public class Contract implements Serializable{
 		reward = minReward + r.nextInt(maxReward);
 	}
 	
+	public void generateContract(String type){
+		Random r = new Random();
+		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		int minReward = 500;
+		int maxReward = 1500;
+		//random destination planet
+		destination = GameSetup.theMap.getPlanetArray()[rand].getName();
+		//random type
+		this.type = type;
+		if (type == "bringGood"){
+			//random required good from the good datalist
+			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
+			//required amount = random between 1 and half max capacity + 1
+			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2 + 1);
+		}
+		reward = minReward + r.nextInt(maxReward);
+	}
+	
 	public void checkContract(){
 		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
 		if (destination == curPlanet){

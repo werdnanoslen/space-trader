@@ -3,11 +3,11 @@
     <string name="app_name">SpaceTrader</string>
     <string name="intro_text">Welcome to Space Trader!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_launcher">Launcher</string>
+    <string name="title_activity_launcher">Space Trader</string>
     <string name="button_newGame">New Game</string>
     <string name="button_loadGame">Load Game</string>
     <string name="hello_world">Let\'s setup a game!</string>
-    <string name="title_activity_game_setup">GameSetup</string>
+    <string name="title_activity_game_setup">Create Your Character</string>
     <string name="too_high_error">Remove some skill points! Sum must equal 16 to continue!</string>
     <string name="too_low_error">You still have skill points to allocate! Sum must equal 16 to continue! </string>
     <string name="title_activity_space">Space</string>
@@ -42,15 +42,17 @@
     <string name="temp_buy">BUY $30\n2 Available</string>
     <string name="temp_sell">SELL $27\n5 Owned</string>
 
-    <string name="title_activity_planet">PlanetView</string>
+    <string name="title_activity_planet">The Dock</string>
     
-    <string name="title_activity_trade_view">TradeView</string>
+    <string name="title_activity_trade_view">The Market</string>
+    <string name="title_activity_ship_inventory_view">Ship\'s Inventory</string>
     <string name="button_stay_here">Stay Here</string>
     <string name="title_activity_select_planet">Select Planet</string>
     <string name="text_tech">Tech Level: </string>
     <string name="save_game">Save</string>
     <string name="quit_game">Quit</string>
     <string name="upgrade_leave">Leave shipyard</string>
+    <string name="return_to_space">Return to Space</string>
     <string name="button_upgrade_guns">Upgrade Guns</string>
     <string name="button_upgrade_armor">Upgrade Armor</string>
     <string name="title_activity_upgrade_ship_view">Upgrade Ship</string>

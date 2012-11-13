@@ -71,6 +71,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.PlanetView" />
         </activity>
+        <activity
+            android:name=".ShipInventoryView"
+            android:label="@string/title_activity_ship_inventory_view" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.PlanetView" />
+        </activity>
 
     </application>
 
