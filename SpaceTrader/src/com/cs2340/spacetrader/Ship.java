@@ -107,6 +107,9 @@ public class Ship implements Serializable {
 		return this.inventory.priceBribe();
 	}
 	
+	public void bribePolice() {
+		this.inventory.deltaMoney(this.priceBribe());
+	}
 	
 	public boolean fight() {
 		
