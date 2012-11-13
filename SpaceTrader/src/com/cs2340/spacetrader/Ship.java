@@ -172,11 +172,11 @@ public class Ship implements Serializable {
 	}
 	
 	/**
-	 * Returns the name of the next weapon the ship can upgrade to
+	 * Returns the name of the current weapon the ship has
 	 * @return string weapon name
 	 */
 	public String getWeaponName(){
-		return Weapons.values()[weaponLevel].getName();
+		return Weapons.values()[weaponLevel-1].getName();
 	}
 	
 	/**
@@ -188,11 +188,11 @@ public class Ship implements Serializable {
 	}
 	
 	/**
-	 * Returns the name of the next armor the ship can upgrade to
+	 * Returns the name of the current armor the ship has
 	 * @return string armor name
 	 */
 	public String getArmorName(){
-		return Armor.values()[armorLevel].getName();
+		return Armor.values()[armorLevel-1].getName();
 	}
 
 	enum Weapons {
