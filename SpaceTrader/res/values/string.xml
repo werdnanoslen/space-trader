@@ -54,4 +54,9 @@
     <string name="button_upgrade_guns">Upgrade Guns</string>
     <string name="button_upgrade_armor">Upgrade Armor</string>
     <string name="title_activity_upgrade_ship_view">Upgrade Ship</string>
+    <string name="title_activity_encounter">Sudden Encounter!</string>
+    <string name="encounter_description">[Encounter Description]</string>
+    <string name="encounter_title">[Encounter Title]</string>
+    <string name="encounter_action1">Engage</string>
+    <string name="encounter_action2">Evade</string>
 </resources>

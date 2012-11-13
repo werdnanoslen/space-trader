@@ -37,6 +37,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".EncounterView"
+            android:label="@string/title_activity_encounter" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.app.Space" />
+        </activity>
+        <activity
             android:name=".PlanetView"
             android:label="@string/title_activity_planet" >
             <meta-data
