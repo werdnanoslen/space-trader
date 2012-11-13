@@ -12,6 +12,7 @@ public class Player implements Serializable{
 	private int traderLevel;
 	private Ship ship;
 	public static int startingPoints = 16;
+	public boolean hasContract = false;
 	
 	
 	public Player(String name, int eLevel, int pLevel, int fLevel, int tLevel, int gold, int slots)

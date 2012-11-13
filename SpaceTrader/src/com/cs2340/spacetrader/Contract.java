@@ -1,7 +1,83 @@
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Contract implements Serializable{
+	private String destination;
+	private String type;
+	private int reward;
+	private String[] possibleTypes = new String[]{
+			"goTo",
+			"fightPirate",
+			"bringGood"
+		};
+	private String reqGood;
+	private int reqAmount;
 	
+	public Contract(){
+		generateContract();
+	}
+	
+	public void generateContract(){
+		Random r = new Random();
+		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		int minReward = 500;
+		int maxReward = 1500;
+		//random destination planet
+		destination = GameSetup.theMap.getPlanetArray()[rand].getName();
+		//random type
+		type = possibleTypes[r.nextInt(possibleTypes.length)];
+		if (type == "bringGood"){
+			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
+			//required amount = random between 1 and half max capacity + 1
+			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2 + 1);
+		}
+		reward = minReward + r.nextInt(maxReward);
+	}
+	
+	public void checkContract(){
+		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
+		if (destination == curPlanet){
+			if (type == "goTo"){
+				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
+				GameSetup.thePlayer.hasContract = false;
+			}
+			else if (type == "fightPirate"){
+				//TODO CALL PIRATE ENCOUNTER HERE
+				//Ideally, the encounter will return whether the pirates have
+				//been defeated, if yes then:
+				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
+				GameSetup.thePlayer.hasContract = false;
+			}
+			else if (type == "bringGood"){
+					if (GameSetup.thePlayer.getship().getInventory().getGoodAmount(reqGood) >= reqAmount){
+						GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
+						GameSetup.thePlayer.hasContract = false;
+					}
+			}
+		}
+	}
+	
+	public String getString(){
+		String out = "Invalid Contract";
+		if (type == "goTo"){
+			out = String.format("Please deliver this important message to %s. You will be paid %d upon your arrival.", destination, reward);
+		}			
+		else if (type == "fightPirate"){
+			out = String.format("Pirates are terrorizing %s! We can offer a bounty of %d credits to anyone who destroys them.", destination, reward);
+		}
+		else if (type == "bringGood"){
+			out = String.format("A client on %s is offering %d credits for the safe delivery of %d units of %s.", destination, reward, reqAmount, reqGood);
+		}
+		return out;
+	}
+	
+	public String getDestination(){
+		return destination;
+	}
+	
+	public int getReward(){
+		return reward;
+	}
 }
