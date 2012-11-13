@@ -78,11 +78,11 @@ public class UpgradeShipView extends Activity
     {
     	cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
     	
-    	//armorPrice = getArmorPrice();
-    	//gunsPrice = getGunsPrice();
+    	int armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
+    	int gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
     	
-    	upgradeArmorButton.setText(this.getString(R.string.button_upgrade_armor) + " ($" /* + getArmorPrice()*/ + ")");
-    	upgradeGunsButton.setText(this.getString(R.string.button_upgrade_guns) + " ($" /* + getGunsPrice()*/ + ")");
+    	upgradeArmorButton.setText(this.getString(R.string.button_upgrade_armor) + " ($" + armorPrice + ")");
+    	upgradeGunsButton.setText(this.getString(R.string.button_upgrade_guns) + " ($" + gunsPrice + ")");
     	
     	if (sInventory.getMoneyLeft() < armorPrice)
         {
@@ -90,7 +90,7 @@ public class UpgradeShipView extends Activity
         }
     	if (sInventory.getMoneyLeft() < gunsPrice)
         {
-        	upgradeArmorButton.setClickable(false);
+        	upgradeGunsButton.setClickable(false);
         }
     }
     
@@ -99,6 +99,7 @@ public class UpgradeShipView extends Activity
      */
     public void upgradeArmor(View view)
     {
+    	GameSetup.thePlayer.getship().upgradeArmor();
     	updatePrices();
     }
     
@@ -107,6 +108,7 @@ public class UpgradeShipView extends Activity
      */
     public void upgradeGuns(View view)
     {
+    	GameSetup.thePlayer.getship().upgradeWeapons();
     	updatePrices();
     }
     

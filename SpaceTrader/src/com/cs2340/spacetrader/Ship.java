@@ -9,7 +9,7 @@ public class Ship implements Serializable {
 	private int fuel;
 	private int fuelCapacity;
 	private int weaponLevel;
-	private int shieldLevel;
+	private int armorLevel;
 
 	public Ship(int gold, int nSlots)
 	{
@@ -19,7 +19,7 @@ public class Ship implements Serializable {
 		this.fuel = 100;
 		this.fuelCapacity = 100;
 		this.weaponLevel=1;
-		this.shieldLevel=1;
+		this.armorLevel=1;
 	}
 
 	public ShipInventory getInventory()
@@ -70,8 +70,9 @@ public class Ship implements Serializable {
 	
 	public void upgradeWeapons(){
 		//TODO - check if there are any upgrades level
+		int cost = wepUpgradeCost();
 		weaponLevel = weaponLevel +1;
-		inventory.deltaMoney(-(wepUpgradeCost()));
+		inventory.deltaMoney(-(cost));
 	}
 	
 	public String wepUpgradeName() {
@@ -82,18 +83,19 @@ public class Ship implements Serializable {
 		return Weapons.nextWeapon(weaponLevel).getPrice();
 	}
 	
-	public void upgradeShields(){
+	public void upgradeArmor(){
 		//TODO - check if there are any upgrades level
-		shieldLevel = shieldLevel +1;
-		inventory.deltaMoney(-(shieldUpgradeCost()));
+		int cost = armorUpgradeCost();
+		armorLevel = armorLevel +1;
+		inventory.deltaMoney(-(cost));
 	}
 	
-	public String shieldUpgradeName() {
-		return Shields.nextShield(shieldLevel).getName();
+	public String armorUpgradeName() {
+		return Armor.nextArmor(armorLevel).getName();
 	}
 	
-	public int shieldUpgradeCost(){
-		return Shields.nextShield(shieldLevel).getPrice();
+	public int armorUpgradeCost(){
+		return Armor.nextArmor(armorLevel).getPrice();
 	}
 	
 	private int fuelMetric(int deltaX, int deltaY)
@@ -133,7 +135,7 @@ public class Ship implements Serializable {
 		 }
 	}
 	
-	enum Shields {
+	enum Armor {
 		Trashcans("Old Trashcans",1),
 		Steel("Steel Plates",4),
 		Force("Force Field",5),
@@ -142,7 +144,7 @@ public class Ship implements Serializable {
 		 final String name;
 		 final int power;
 		 
-		 Shields(String name,final int power){
+		 Armor(String name,final int power){
 			 this.name =name;
 			 this.power=power;
 		 }
@@ -159,8 +161,8 @@ public class Ship implements Serializable {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 
-		 static Shields nextShield(int ShieldLevel) {
-		 	return Shields.values()[ShieldLevel];
+		 static Armor nextArmor(int ArmorLevel) {
+		 	return Armor.values()[ArmorLevel];
 		 }
 	}
 }
