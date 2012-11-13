@@ -111,6 +111,38 @@ public class Ship implements Serializable {
 		int squaredCost = (int) (Math.pow((int)deltaX,2)+ Math.pow((int)deltaY, 2));
 		return (int) Math.round(Math.sqrt(squaredCost));
 	}
+	
+	/**
+	 * Returns the level of weaponry the ship has
+	 * @return integer weapon level
+	 */
+	public int getWeaponLevel(){
+		return weaponLevel;
+	}
+	
+	/**
+	 * Returns the name of the weapon the ship has
+	 * @return string weapon name
+	 */
+	public String getWeaponName(){
+		return Weapons.values()[weaponLevel].getName();
+	}
+	
+	/**
+	 * Returns the level of armor the ship has
+	 * @return integer armor level
+	 */
+	public int getArmorLevel(){
+		return armorLevel;
+	}
+	
+	/**
+	 * Returns the name of the armor the ship has
+	 * @return string armor name
+	 */
+	public String getArmorName(){
+		return Armor.values()[armorLevel].getName();
+	}
 
 	enum Weapons {
 		Blaster("Blaster Pistol",1),

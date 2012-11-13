@@ -74,6 +74,11 @@ public class TradeView extends Activity
         }
     }
     
+    /**
+     * This class serves as a data holder class to pass into TradeAdapter
+     * @author David
+     *
+     */
     public class GoodInfo{
     	public String name;
     	public int buyPrice;

@@ -105,4 +105,14 @@ public class Space extends Activity {
     	//Intent intent = new Intent(this, EncounterView.class);
     	//startActivity(intent);
     }
+    
+    /**
+     * Changes activity to Ship Inventory View
+     * @param view
+     */
+    public void startShipView(View view)
+    {
+    	Intent intent = new Intent(Space.this, ShipInventoryView.class);
+    	startActivity(intent);
+    }
 }
