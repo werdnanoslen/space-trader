@@ -3,6 +3,8 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.Random;
 
+import android.widget.Toast;
+
 public class Contract implements Serializable{
 	private String destination;
 	private String type;
@@ -25,6 +27,10 @@ public class Contract implements Serializable{
 	public void generateContract(){
 		Random r = new Random();
 		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		//reselect planet if it's the planet you're currently on
+		while (GameSetup.theMap.getPlanetArray()[rand].getName() == GameSetup.thePlayer.getship().getPlanetName()){
+			rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		}
 		int minReward = 500;
 		int maxReward = 1500;
 		//random destination planet
@@ -47,17 +53,24 @@ public class Contract implements Serializable{
 	public void generateContract(String type){
 		Random r = new Random();
 		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		//reselect planet if it's the planet you're currently on
+		while (GameSetup.theMap.getPlanetArray()[rand].getName() == GameSetup.thePlayer.getship().getPlanetName()){
+			rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		}
 		int minReward = 500;
-		int maxReward = 1500;
+		int maxReward = 2000;
 		//random destination planet
 		destination = GameSetup.theMap.getPlanetArray()[rand].getName();
 		//random type
 		this.type = type;
 		if (type == "bringGood"){
 			//random required good from the good datalist
-			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
+			int goodNum = r.nextInt(Good.getDataList().length);
+			reqGood = Good.getDataList()[goodNum].getName();
 			//required amount = random between 1 and half max capacity + 2
 			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2) + 2;
+			minReward = Good.getDataList()[goodNum].basePrice();
+			maxReward = Good.getDataList()[goodNum].basePrice() * (reqAmount + 2);
 		}
 		reward = minReward + r.nextInt(maxReward-minReward);
 	}
@@ -65,13 +78,15 @@ public class Contract implements Serializable{
 	/**
 	 * Checks to see if a contract is completed. If it is, trigger any events, reward the player,
 	 * and set the contract flag to false
+	 * @return Returns true if contract is completed, false otherwise
 	 */
-	public void checkContract(){
+	public boolean checkContract(){
 		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
 		if (destination == curPlanet){
 			if (type == "goTo"){
 				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 				GameSetup.thePlayer.hasContract = false;
+				return true;
 			}
 			else if (type == "fightPirate"){
 				//TODO CALL PIRATE ENCOUNTER HERE
@@ -79,14 +94,25 @@ public class Contract implements Serializable{
 				//been defeated, if yes then:
 				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 				GameSetup.thePlayer.hasContract = false;
+				return true;
 			}
 			else if (type == "bringGood"){
 					if (GameSetup.thePlayer.getship().getInventory().getGoodAmount(reqGood) >= reqAmount){
 						GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 						GameSetup.thePlayer.hasContract = false;
+						return true;
 					}
 			}
 		}
+		return false;
+	}
+	
+	/**
+	 * Add money to player inventory, reset states
+	 */
+	private void contractComplete(){
+		GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
+		GameSetup.thePlayer.hasContract = false;
 	}
 	
 	/**
@@ -99,7 +125,7 @@ public class Contract implements Serializable{
 			out = String.format("Please deliver this important message to %s. You will be paid %d credits upon your arrival.", destination, reward);
 		}			
 		else if (type == "fightPirate"){
-			out = String.format("Pirates are terrorizing %s! We can offer a bounty of %d credits to anyone who destroys them.", destination, reward);
+			out = String.format("Pirates are terrorizing %s! A bounty of %d credits is offered to anyone who destroys them.", destination, reward);
 		}
 		else if (type == "bringGood"){
 			out = String.format("A client on %s is offering %d credits for the safe delivery of %d units of %s.", destination, reward, reqAmount, reqGood);

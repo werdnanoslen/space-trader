@@ -28,11 +28,20 @@ public class ShipInventoryView extends Activity {
         TextView capacityDisplay = (TextView) findViewById(R.id.ship_capacity);
         TextView weaponDisplay = (TextView) findViewById(R.id.ship_weapon);
         TextView armorDisplay = (TextView) findViewById(R.id.ship_armor);
+        TextView contractDisplay = (TextView) findViewById(R.id.player_contract);
+        
         cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
 		capacityDisplay.setText(String.valueOf(sInventory.getCapacityLeft()));
 		weaponDisplay.setText("Current Weapon: " + GameSetup.thePlayer.getship().getWeaponName());
 		armorDisplay.setText("Current Armor: " + GameSetup.thePlayer.getship().getArmorName());
         
+		if (GameSetup.thePlayer.hasContract){
+			contractDisplay.setText("Current Contract:\n" + GameSetup.thePlayer.getContract().getString());
+		}
+		else{
+			contractDisplay.setText("Current Contract:\nNone Accepted");
+		}
+		
         ShipInventoryAdapter sAdapter = new ShipInventoryAdapter(this, R.layout.ship_item, sInventory);
 
         ListView InventoryList = (ListView) findViewById(R.id.ship_inventory_list);

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class PlanetListAdapter extends ArrayAdapter<Planet> 
 {
@@ -59,8 +60,12 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 		{
 			public void onClick(View view) 
 			{
-				Log.i("TEST","I'VE BEEN CLICKED IN THE ADAPTER");
 				GameSetup.thePlayer.getship().moveToPlanet(data[position]);
+				if (GameSetup.thePlayer.hasContract){
+					if (GameSetup.thePlayer.getContract().checkContract()){
+						Toast.makeText(context, "Contract Completed. You recieved " + GameSetup.thePlayer.getContract().getReward() + " credits in payment.", Toast.LENGTH_LONG).show();
+					}
+				}
 				Intent intent = new Intent(context, Space.class);
             	context.startActivity(intent);
 			}

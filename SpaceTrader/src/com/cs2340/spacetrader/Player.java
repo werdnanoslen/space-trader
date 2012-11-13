@@ -11,6 +11,7 @@ public class Player implements Serializable{
 	private int fighterLevel;
 	private int traderLevel;
 	private Ship ship;
+	private Contract contract;
 	public static int startingPoints = 16;
 	public boolean hasContract = false;
 	
@@ -28,5 +29,20 @@ public class Player implements Serializable{
 	Ship getship()
 	{
 		return ship;
+	}
+	
+	/**
+	 * Returns the player's current contract
+	 */
+	public Contract getContract(){
+		return contract;
+	}
+	
+	/**
+	 * Sets the player's current contract
+	 * @param contract
+	 */
+	public void setContract(Contract contract){
+		this.contract = contract;
 	}
 }
