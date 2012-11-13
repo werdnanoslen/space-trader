@@ -95,4 +95,14 @@ public class Space extends Activity {
     	Intent intent = new Intent(this, PlanetView.class);
     	startActivity(intent);
     }
+    
+    /**
+     * Temporary method to test Encounters
+     * @param view
+     */
+    public void testEncounter(View view)
+    {
+    	Intent intent = new Intent(this, EncounterView.class);
+    	startActivity(intent);
+    }
 }

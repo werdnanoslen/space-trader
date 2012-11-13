@@ -85,6 +85,7 @@
         android:id="@+id/button_ship"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_ship" />
+        android:text="@string/button_ship" 
+        android:onClick="testEncounter"/>
 
 </LinearLayout>
