@@ -16,7 +16,7 @@ public class Contract implements Serializable{
 	private int reqAmount;
 	
 	public Contract(){
-		generateContract();
+		//generateContract();
 	}
 	
 	public void generateContract(){
@@ -29,6 +29,7 @@ public class Contract implements Serializable{
 		//random type
 		type = possibleTypes[r.nextInt(possibleTypes.length)];
 		if (type == "bringGood"){
+			//random required good from the good datalist
 			reqGood = Good.getDataList()[r.nextInt(Good.getDataList().length)].getName();
 			//required amount = random between 1 and half max capacity + 1
 			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2 + 1);
