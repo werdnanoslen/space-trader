@@ -53,6 +53,7 @@ public class Launcher extends Activity
     public void loadGame(View view)
     {
     	SaveState state = null;
+    	Toast.makeText(this, "Loading game", Toast.LENGTH_SHORT).show();
     	if (MemoryService.loadGame(state, this))
     	{
     		Toast.makeText(this, "Loaded game", Toast.LENGTH_SHORT).show();
