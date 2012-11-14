@@ -58,10 +58,5 @@
         android:text="@string/planet_button_leave"
 		android:onClick="startSpaceView"/>
     
-    <TextView
-            android:id="@+id/temp_contract"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    
 
 </LinearLayout>

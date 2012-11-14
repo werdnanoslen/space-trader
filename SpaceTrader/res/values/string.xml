@@ -62,4 +62,8 @@
     <string name="encounter_title">[Encounter Title]</string>
     <string name="encounter_action1">Engage</string>
     <string name="encounter_action2">Evade</string>
+    <string name="contract_title">You\'ve found an offer!</string>
+    <string name="contract_accept">Accept</string>
+    <string name="contract_decline">Decline</string>
+    
 </resources>
