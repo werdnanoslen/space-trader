@@ -36,7 +36,7 @@ public class PlanetView extends FragmentActivity{
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         else{
-        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
+        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         
         TextView name = (TextView) findViewById(R.id.planet_current_planet);

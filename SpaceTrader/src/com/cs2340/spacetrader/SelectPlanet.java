@@ -60,6 +60,5 @@ public class SelectPlanet extends Activity {
         	startActivity(intent);
         	
 		}
-
     }
 }
