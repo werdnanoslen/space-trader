@@ -47,9 +47,27 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		{
 			holder = (GoodHolder)row.getTag();
 		}
+		String buyText;
+		String sellText;
+		String planetName = GameSetup.thePlayer.getship().getPlanetName();
 		
-		String buyText = String.format("BUY $%d\n%d Available", data[position].buyPrice, data[position].planetAmount);
-		String sellText = String.format("SELL $%d\n%d Available", data[position].sellPrice, data[position].shipAmount);
+		if (!Good.getDataList()[position].canBuy(GameSetup.theMap.getPlanet(planetName).getNTechLevel())){
+			buyText = ("Can't Buy\nHere");
+			holder.txtBuyGood.setEnabled(false);
+		}
+		else{
+			buyText = String.format("BUY $%d\n%d Available", data[position].buyPrice, data[position].planetAmount);
+			holder.txtBuyGood.setEnabled(true);
+		}
+		
+		if (!Good.getDataList()[position].canSell(GameSetup.theMap.getPlanet(planetName).getNTechLevel())){
+			sellText = ("Can't Sell\nHere");
+			holder.txtSellGood.setEnabled(false);
+		}
+		else{
+			sellText = String.format("SELL $%d\n%d Available", data[position].sellPrice, data[position].shipAmount);
+			holder.txtSellGood.setEnabled(true);
+		}
 		
 		final String gName = data[position].name;
 		holder.txtName.setText(data[position].name);
@@ -74,6 +92,11 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		return row;
 	}
 	
+	/**
+	 * Class that handles view storing for the Adapter
+	 * @author David
+	 *
+	 */
 	static class GoodHolder
 	{
 		TextView txtName;

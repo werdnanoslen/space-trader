@@ -100,7 +100,7 @@ public class PlanetView extends FragmentActivity{
     public void createContract()
     {
     	contract = GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getContract();
-    	contract.generateContract();    	
+    	contract.generateContract();	//add param "toGo", "fightPirate", "bringGood" to test specific contracts
     }
     
     /**

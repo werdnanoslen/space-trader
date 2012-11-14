@@ -3,6 +3,8 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.Random;
 
+import android.util.Log;
+
 //import android.util.Log;
 
 public class Good implements Serializable {
@@ -30,7 +32,6 @@ public class Good implements Serializable {
 	}
 	
 	public void resetPrice(int planetTechLvl) {
-		int price; // returned buy price, sell price = 10% lower
 		Random rand = new Random();
 		int variance = rand.nextInt(var * 2) - var;
 
@@ -58,6 +59,7 @@ public class Good implements Serializable {
 	}
 	
 	public int importPriceforPlanet(int planetTechLvl){
+		Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100);
 		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100;
 	}
 	

@@ -64,7 +64,7 @@
     <ListView
         android:id="@+id/trade_list"
         android:layout_width="match_parent"
-        android:layout_height="193dp"
+        android:layout_height="wrap_content"
         android:entries="@array/trade_list" >
     </ListView>
 

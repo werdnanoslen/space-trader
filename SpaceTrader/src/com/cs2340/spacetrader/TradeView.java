@@ -17,7 +17,7 @@ public class TradeView extends Activity
 	private TextView capacityDisplay;
 	private ListView TradeList;
 	private Planet planet;
-	private MarketVisit market;
+	public MarketVisit market;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) 
@@ -86,31 +86,37 @@ public class TradeView extends Activity
     	public int sellPrice;
     	public int shipAmount;
     	
+    	
     	public GoodInfo(){
     		super();
     		
     	}
     	
-    	public GoodInfo(String name, int buyPrice, int planetAmount, int sellPrice, int shipAmount){
+    	public GoodInfo(String name){
     		super();
     		this.name = name;
-        	this.buyPrice = buyPrice;
-        	this.planetAmount = planetAmount;
-        	this.sellPrice = sellPrice;
-        	this.shipAmount = shipAmount;
+        	this.buyPrice = market.priceAtWhichPlanetSells(planet.getInventory().getGood(name));
+        	this.planetAmount = planet.getInventory().getGoodAmount(name);
+        	this.sellPrice = market.priceAtWhichPlanetBuys(planet.getInventory().getGood(name));
+        	this.shipAmount =  sInventory.getGoodAmount(name);
     	}
     }
     
+    /**
+     * Reloads the data in the screen so all quantities are updated
+     */
     private void refreshDisplays()
     {
 		cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
 		capacityDisplay.setText(String.valueOf(sInventory.getCapacityLeft()));
 		//extract good info
-        Good good = planet.getInventory().getGood("Water");
-        GoodInfo[] gi = new GoodInfo[]{
-        		new GoodInfo("Water", market.priceAtWhichPlanetSells(good), planet.getInventory().getGoodAmount("Water"), market.priceAtWhichPlanetBuys(good), sInventory.getGoodAmount("Water")),
-        		new GoodInfo("Furs", market.priceAtWhichPlanetSells(planet.getInventory().getGood("Furs")), planet.getInventory().getGoodAmount("Furs"), market.priceAtWhichPlanetBuys(planet.getInventory().getGood("Furs")), sInventory.getGoodAmount("Furs"))
-        };
+		String[] goodlist = {"Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"};
+        GoodInfo[] gi = new GoodInfo[goodlist.length];
+        int i = 0;
+		for (String good : goodlist){
+			gi[i] = new GoodInfo(good);
+			i ++;
+		}
         
         
         //set the adapter
