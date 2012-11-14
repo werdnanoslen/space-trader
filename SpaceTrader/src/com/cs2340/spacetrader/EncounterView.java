@@ -73,10 +73,10 @@ public class EncounterView extends Activity
     public void setupEncounter()
     {
     	/* Fill in */
-    	encounterTitle.setText("");
-    	encounterDescription.setText(""); 
-    	action1.setText("");
-    	action2.setText("");
+    	encounterTitle.setText("Pirates!");
+    	encounterDescription.setText("You have encountered pirates! Do you wish to fight or flee?"); 
+    	action1.setText("Fight");
+    	action2.setText("Flee");
     }
     
     /**

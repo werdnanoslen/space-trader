@@ -1,5 +1,7 @@
 package com.cs2340.spacetrader;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -68,6 +70,19 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 				}
 				//Intent intent = new Intent(context, Space.class);
             	//context.startActivity(intent);
+		    	Random generator = new Random();
+		    	int num = generator.nextInt(10);
+		    	if (num>2)
+		    	{
+		    		Intent intent = new Intent(context, EncounterView.class);
+		        	context.startActivity(intent);	
+		    	}
+		    	else
+				{
+					Intent intent = new Intent(context, Space.class);
+	            	context.startActivity(intent);
+		        	
+				}
 			}
 		});
 		

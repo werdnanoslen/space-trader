@@ -58,6 +58,7 @@ public class SelectPlanet extends Activity {
 		{
     		Intent intent = new Intent(this, Space.class);
         	startActivity(intent);
+        	
 		}
 
     }
