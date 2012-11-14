@@ -3,6 +3,8 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.Random;
 
+import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 public class Contract implements Serializable{
@@ -80,7 +82,7 @@ public class Contract implements Serializable{
 	 * and set the contract flag to false
 	 * @return Returns true if contract is completed, false otherwise
 	 */
-	public boolean checkContract(){
+	public boolean checkContract(Context context){
 		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
 		if (destination == curPlanet){
 			if (type == "goTo"){
@@ -89,9 +91,8 @@ public class Contract implements Serializable{
 				return true;
 			}
 			else if (type == "fightPirate"){
-				//TODO CALL PIRATE ENCOUNTER HERE
-				//Ideally, the encounter will return whether the pirates have
-				//been defeated, if yes then:
+				Intent intent = new Intent(context, EncounterView.class);
+	        	context.startActivity(intent);
 				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 				GameSetup.thePlayer.hasContract = false;
 				return true;
@@ -125,7 +126,7 @@ public class Contract implements Serializable{
 			out = String.format("Please deliver this important message to %s. You will be paid %d credits upon your arrival.", destination, reward);
 		}			
 		else if (type == "fightPirate"){
-			out = String.format("Pirates are terrorizing %s! A bounty of %d credits is offered to anyone who destroys them.", destination, reward);
+			out = String.format("Pirates are terrorizing %s! A bounty of %d credits is offered to anyone who confronts them.", destination, reward);
 		}
 		else if (type == "bringGood"){
 			out = String.format("A client on %s is offering %d credits for the safe delivery of %d units of %s.", destination, reward, reqAmount, reqGood);

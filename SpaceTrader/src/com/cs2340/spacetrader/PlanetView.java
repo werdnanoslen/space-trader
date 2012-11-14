@@ -32,12 +32,12 @@ public class PlanetView extends FragmentActivity{
         
         Resources rs = getResources();
         LinearLayout pv = (LinearLayout) findViewById(R.id.planet_layout);
-        if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2){
+        /*if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2){
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         else{
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
-        }
+        }*/
         
         TextView name = (TextView) findViewById(R.id.planet_current_planet);
         name.setText(GameSetup.thePlayer.getship().getPlanetName());
@@ -140,6 +140,7 @@ public class PlanetView extends FragmentActivity{
     
     public void refuel(View view){
     	GameSetup.thePlayer.getship().refuel();
+    	Toast.makeText(this, "Ship Refueled", Toast.LENGTH_SHORT).show();
     }
     
     /**
