@@ -138,6 +138,10 @@ public class PlanetView extends FragmentActivity{
         editNameDialog.show(fm, "fragment_contract");
     }
     
+    public void refuel(View view){
+    	GameSetup.thePlayer.getship().refuel();
+    }
+    
     /**
      * Class for creating the dialog box to accept/reject a contract
      * @author David
