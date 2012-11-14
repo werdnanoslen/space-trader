@@ -1,5 +1,7 @@
 package com.cs2340.spacetrader;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +47,18 @@ public class SelectPlanet extends Activity {
      */
     public void startSpaceView(View view)
     {
-    	Intent intent = new Intent(this, Space.class);
-    	startActivity(intent);
+    	Random generator = new Random();
+    	int num = generator.nextInt(10);
+    	if (num>2)
+    	{
+    		Intent intent = new Intent(this, EncounterView.class);
+        	startActivity(intent);	
+    	}
+    	else
+		{
+    		Intent intent = new Intent(this, Space.class);
+        	startActivity(intent);
+		}
+
     }
 }

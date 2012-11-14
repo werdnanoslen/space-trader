@@ -66,8 +66,8 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 						Toast.makeText(context, "Contract Completed. You recieved " + GameSetup.thePlayer.getContract().getReward() + " credits in payment.", Toast.LENGTH_LONG).show();
 					}
 				}
-				Intent intent = new Intent(context, Space.class);
-            	context.startActivity(intent);
+				//Intent intent = new Intent(context, Space.class);
+            	//context.startActivity(intent);
 			}
 		});
 		
