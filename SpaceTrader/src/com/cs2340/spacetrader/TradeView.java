@@ -2,10 +2,12 @@ package com.cs2340.spacetrader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,15 @@ public class TradeView extends Activity
         cashDisplay = (TextView) findViewById(R.id.trade_cash);
         capacityDisplay = (TextView) findViewById(R.id.trade_capacity);
 
+        Resources rs = getResources();
+        LinearLayout pv = (LinearLayout) findViewById(R.id.trade_layout);
+        if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2){
+        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
+        }
+        else{
+        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
+        }
+        
 
         //initialize values in slots
         refreshDisplays();
