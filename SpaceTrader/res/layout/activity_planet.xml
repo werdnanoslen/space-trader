@@ -28,7 +28,13 @@
         android:layout_height="wrap_content"
         android:text="@string/planet_business"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    <Button
+        android:id="@+id/planet_refuel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/planet_button_refuel" 
+        android:onClick="refuel"/>
+    
     <Button
         android:id="@+id/planet_button_trade"
         android:layout_width="match_parent"

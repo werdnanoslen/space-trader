@@ -28,6 +28,7 @@
     <string name="setup_button_submit">Submit!</string>
     <string name="planet_docked">Currently docked on: </string>
     <string name="planet_business">What is your business here?</string>
+    <string name="planet_button_refuel">Refuel ship</string>
     <string name="planet_button_trade">Trade goods</string>
     <string name="planet_button_leave">Return to orbit</string>
     <string name="planet_button_upgrade">Upgrade ship</string>

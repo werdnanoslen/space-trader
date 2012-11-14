@@ -67,6 +67,10 @@ public class Ship implements Serializable {
 			this.fuel = newFuel;
 	}
 	
+	//TODO - implement buying individual units of fuel and cost for it
+	public void refuel(){
+		this.fuel = this.fuelCapacity;
+	}
 	
 	public void upgradeWeapons(){
 		//TODO - check if there are any upgrades level
