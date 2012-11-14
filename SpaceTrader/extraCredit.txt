@@ -1,0 +1,6 @@
+singletons
+toast
+android
+flyweight
+contracts
+
