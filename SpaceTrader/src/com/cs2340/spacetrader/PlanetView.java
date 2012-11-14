@@ -131,7 +131,7 @@ public class PlanetView extends FragmentActivity{
      * @author David
      *
      */
-    public class ContractFragment extends DialogFragment {
+    private class ContractFragment extends DialogFragment {
     	public String dialog = "";
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {

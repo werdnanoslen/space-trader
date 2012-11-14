@@ -59,7 +59,7 @@ public class Good implements Serializable {
 	}
 	
 	public int importPriceforPlanet(int planetTechLvl){
-		Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100);
+		//Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100);
 		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100;
 	}
 	
