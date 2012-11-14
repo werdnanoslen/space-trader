@@ -102,8 +102,8 @@ public class Space extends Activity {
      */
     public void testEncounter(View view)
     {
-    	//Intent intent = new Intent(this, EncounterView.class);
-    	//startActivity(intent);
+    	Intent intent = new Intent(this, EncounterView.class);
+    	startActivity(intent);
     }
     
     /**

@@ -23,14 +23,14 @@
         android:id="@+id/encounter_action1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doAction1"
+        android:onClick="fight"
         android:text="@string/encounter_action1" />
 
     <Button
         android:id="@+id/encounter_action2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doAction2"
+        android:onClick="flee"
         android:text="@string/encounter_action2" />
  
 </LinearLayout>

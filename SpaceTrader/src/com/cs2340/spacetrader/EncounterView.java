@@ -82,16 +82,18 @@ public class EncounterView extends Activity
     /**
      * Consequences of user's choice of action1
      */
-    public void doAction1(View view)
+    public void fight(View view)
     {
+    	GameSetup.thePlayer.getship().fight();
     	startPlanetView(view);
     }
     
     /**
      * Consequences of user's choice of action2
      */
-    public void doAction2(View view)
+    public void flee(View view)
     {
+    	GameSetup.thePlayer.getship().flee();
     	startPlanetView(view);
     }
     
