@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 public class GameSetup extends Activity {
 	public final static String PLAYA = "com.example.myfirstapp.PLAYA";
@@ -61,14 +62,13 @@ public class GameSetup extends Activity {
     	int eLevel = e.getValue();
     	int fLevel = f.getValue();
     	int levels = t.getValue()+p.getValue()+e.getValue()+f.getValue();
-    	EditText feedbackArea = (EditText) findViewById(R.id.feedback_area);
     	if (levels > Player.startingPoints)
     	{
-    		feedbackArea.setText(R.string.too_high_error);
+    		Toast.makeText(this, R.string.too_high_error, Toast.LENGTH_LONG).show();
     	}
     	else if (levels < Player.startingPoints)
     	{
-    		feedbackArea.setText(R.string.too_low_error);
+    		Toast.makeText(this, R.string.too_low_error, Toast.LENGTH_LONG).show();
     	}
     	else
     	{

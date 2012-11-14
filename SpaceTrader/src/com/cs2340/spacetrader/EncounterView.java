@@ -84,7 +84,12 @@ public class EncounterView extends Activity
      */
     public void fight(View view)
     {
-    	GameSetup.thePlayer.getship().fight();
+    	if (GameSetup.thePlayer.getship().fight()){
+    		Toast.makeText(this, "You've destroyed the pirates and salvaged the wreckage!", Toast.LENGTH_LONG).show();
+    	}
+    	else{
+    		Toast.makeText(this, "The pirates shot you out of the sky and stole some credits!", Toast.LENGTH_LONG).show();
+    	}
     	startPlanetView(view);
     }
     
@@ -93,7 +98,11 @@ public class EncounterView extends Activity
      */
     public void flee(View view)
     {
-    	GameSetup.thePlayer.getship().flee();
+    	if(GameSetup.thePlayer.getship().flee()){
+    		Toast.makeText(this, "You've escaped successfully!", Toast.LENGTH_LONG).show();}
+    	else{
+    		Toast.makeText(this, "The pirates caught you and forced you to pay a random!", Toast.LENGTH_LONG).show();
+    	}
     	startPlanetView(view);
     }
     

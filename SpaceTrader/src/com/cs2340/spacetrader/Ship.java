@@ -2,6 +2,9 @@ package com.cs2340.spacetrader;
 
 import java.io.Serializable;
 import java.util.Random;
+
+import android.content.Context;
+import android.widget.Toast;
 //planet
 public class Ship implements Serializable {
 	private ShipInventory inventory;
