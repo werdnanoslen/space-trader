@@ -44,9 +44,9 @@ public class ShipInventoryView extends Activity {
 		
         ShipInventoryAdapter sAdapter = new ShipInventoryAdapter(this, R.layout.ship_item, sInventory);
 
-        ListView InventoryList = (ListView) findViewById(R.id.ship_inventory_list);
+        ListView inventoryList = (ListView) findViewById(R.id.ship_inventory_list);
         
-        InventoryList.setAdapter(sAdapter);
+        inventoryList.setAdapter(sAdapter);
     }
 
     @Override

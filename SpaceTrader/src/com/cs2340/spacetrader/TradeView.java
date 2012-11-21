@@ -17,7 +17,7 @@ public class TradeView extends Activity
 	private ShipInventory sInventory;
 	private TextView cashDisplay;
 	private TextView capacityDisplay;
-	private ListView TradeList;
+	private ListView tradeList;
 	private Planet planet;
 	public MarketVisit market;
 	
@@ -133,9 +133,9 @@ public class TradeView extends Activity
         //set the adapter
         TradeAdapter adapter = new TradeAdapter(this, R.layout.market_row, gi);
         //display the list view
-        TradeList = (ListView)findViewById(R.id.trade_list);
+        tradeList = (ListView)findViewById(R.id.trade_list);
         
-        TradeList.setAdapter(adapter);
+        tradeList.setAdapter(adapter);
     }
     
     public void buy(String goodName)

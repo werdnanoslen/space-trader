@@ -19,18 +19,18 @@ public class GameSetup extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_setup);
-    	NumberPicker t = (NumberPicker) findViewById(R.id.traderLevel);
-    	NumberPicker p = (NumberPicker) findViewById(R.id.pilotLevel);
-    	NumberPicker e = (NumberPicker) findViewById(R.id.engineerLevel);
-    	NumberPicker f = (NumberPicker) findViewById(R.id.fighterLevel);
-    	t.setMaxValue(16);
-    	t.setMinValue(0);
-    	p.setMaxValue(16);
-    	p.setMinValue(0);
-    	e.setMaxValue(16);
-    	e.setMinValue(0);
-    	f.setMaxValue(16);
-    	f.setMinValue(0);
+    	NumberPicker traderLevel = (NumberPicker) findViewById(R.id.traderLevel);
+    	NumberPicker pilotLevel = (NumberPicker) findViewById(R.id.pilotLevel);
+    	NumberPicker engineerLevel = (NumberPicker) findViewById(R.id.engineerLevel);
+    	NumberPicker fighterLevel = (NumberPicker) findViewById(R.id.fighterLevel);
+    	traderLevel.setMaxValue(16);
+    	traderLevel.setMinValue(0);
+    	pilotLevel.setMaxValue(16);
+    	pilotLevel.setMinValue(0);
+    	engineerLevel.setMaxValue(16);
+    	engineerLevel.setMinValue(0);
+    	fighterLevel.setMaxValue(16);
+    	fighterLevel.setMinValue(0);
     }
 
     @Override
@@ -53,15 +53,15 @@ public class GameSetup extends Activity {
     public void checkMakePlayer(View view)
     {
     	//TODO - make this prettier
-    	NumberPicker t = (NumberPicker) findViewById(R.id.traderLevel);
-    	NumberPicker p = (NumberPicker) findViewById(R.id.pilotLevel);
-    	NumberPicker e = (NumberPicker) findViewById(R.id.engineerLevel);
-    	NumberPicker f = (NumberPicker) findViewById(R.id.fighterLevel);
-    	int tLevel = t.getValue();
-    	int pLevel = p.getValue();
-    	int eLevel = e.getValue();
-    	int fLevel = f.getValue();
-    	int levels = t.getValue()+p.getValue()+e.getValue()+f.getValue();
+    	NumberPicker traderLevel = (NumberPicker) findViewById(R.id.traderLevel);
+    	NumberPicker pilotLevel = (NumberPicker) findViewById(R.id.pilotLevel);
+    	NumberPicker engineerLevel = (NumberPicker) findViewById(R.id.engineerLevel);
+    	NumberPicker fighterLevel = (NumberPicker) findViewById(R.id.fighterLevel);
+    	int tLevel = traderLevel.getValue();
+    	int pLevel = pilotLevel.getValue();
+    	int eLevel = engineerLevel.getValue();
+    	int fLevel = fighterLevel.getValue();
+    	int levels = traderLevel.getValue()+pilotLevel.getValue()+engineerLevel.getValue()+fighterLevel.getValue();
     	if (levels > Player.startingPoints)
     	{
     		Toast.makeText(this, R.string.too_high_error, Toast.LENGTH_LONG).show();
@@ -77,9 +77,9 @@ public class GameSetup extends Activity {
     		//TODO - create game class, replace player instantiation with game
     		//TODO - MOVE CONSTANTS SOMEWHERE BETTER
     		int initGold = 2000;
-    		int CargoSlots = 10;
+    		int cargoSlots = 10;
     		theMap = new Map();
-    		thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel, initGold, CargoSlots);
+    		thePlayer = new Player(name,tLevel, pLevel, eLevel, fLevel, initGold, cargoSlots);
     		Intent intent = new Intent(this, Space.class);
     		startActivity(intent);
     	}

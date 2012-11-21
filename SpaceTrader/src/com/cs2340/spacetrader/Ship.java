@@ -228,8 +228,8 @@ public class Ship implements Serializable {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 
-		 static Weapons nextWeapon(int WeaponLevel) {
-		 	return Weapons.values()[WeaponLevel];
+		 static Weapons nextWeapon(int weaponLevel) {
+		 	return Weapons.values()[weaponLevel];
 		 }
 	}
 	
@@ -259,8 +259,8 @@ public class Ship implements Serializable {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 
-		 static Armor nextArmor(int ArmorLevel) {
-		 	return Armor.values()[ArmorLevel];
+		 static Armor nextArmor(int armorLevel) {
+		 	return Armor.values()[armorLevel];
 		 }
 	}
 }
