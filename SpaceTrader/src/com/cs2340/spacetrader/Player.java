@@ -1,3 +1,8 @@
+// $codepro.audit.disable staticFieldNamingConvention
+/**
+ * Contains the class Player
+ */
+
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
@@ -10,22 +15,22 @@ import java.io.Serializable;
 
 public class Player implements Serializable {
 	/** Name of Player **/
-	private String name;
+	private final String name;
 
 	/** Engineer Level of Player **/
-	private int engineerLevel;
+	private final int engineerLevel;
 
 	/** Pilot Level of Player **/
-	private int pilotLevel;
+	private final int pilotLevel;
 
 	/** Fighter level of player **/
-	private int fighterLevel;
+	private final int fighterLevel;
 
 	/** Trader level of player **/
-	private int traderLevel;
+	private final int traderLevel;
 
 	/** Ship piloted by player **/
-	private Ship ship;
+	private final Ship ship;
 
 	/** Contract player has if any **/
 	private Contract contract;
@@ -34,7 +39,7 @@ public class Player implements Serializable {
 	public static int startingPoints = 16;
 
 	/** Whether Player has constract **/
-	public boolean hasContract = false;
+	public boolean hasContract = false; // $codepro.audit.disable instanceFieldVisibility
 
 	/**
 	 * Constructor for Player Class
@@ -50,11 +55,11 @@ public class Player implements Serializable {
 	public Player(String name, int eLevel, int pLevel, int fLevel, int tLevel,
 			int gold, int slots) {
 		this.name = name;
-		this.engineerLevel = eLevel;
-		this.pilotLevel = pLevel;
-		this.fighterLevel = fLevel;
-		this.traderLevel = tLevel;
-		this.ship = new Ship(gold, slots);
+		engineerLevel = eLevel;
+		pilotLevel = pLevel;
+		fighterLevel = fLevel;
+		traderLevel = tLevel;
+		ship = new Ship(gold, slots);
 	}
 
 	/**
@@ -79,5 +84,13 @@ public class Player implements Serializable {
 	 */
 	public void setContract(Contract contract) {
 		this.contract = contract;
+	}
+	
+	/**
+	 * returns the name of the player.
+	 * @return name
+	 */
+	public String toString(){
+		return name;
 	}
 }
