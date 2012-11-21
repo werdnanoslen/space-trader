@@ -56,7 +56,7 @@ public class Map implements Serializable{
 		int numel = planetArray.length;
 		for (int i=0;i<numel;i++)
 		{
-			if (planetArray[i].getName()==name)
+			if (planetArray[i].getName().equals(name))
 				return planetArray[i];		
 		}
 		return null;

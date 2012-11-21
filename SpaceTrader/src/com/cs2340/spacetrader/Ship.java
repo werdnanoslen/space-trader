@@ -247,20 +247,20 @@ public class Ship implements Serializable {
 		 final String name;
 		 final int power;
 		 
-		 Armor(String name,final int power){
+		 private Armor(String name,final int power){
 			 this.name =name;
 			 this.power=power;
 		 }
 		 
-		 String getName() {
+		 public String getName() {
 			 return name;
 		 }
 		 
-		 int getPower() {
+		 public int getPower() {
 			 return power;
 		 }
 		 
-		 int getPrice() {
+		 public int getPrice() {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 

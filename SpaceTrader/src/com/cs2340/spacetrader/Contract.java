@@ -26,7 +26,8 @@ public class Contract implements Serializable{
 		Random random = new Random();
 		int rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		//reselect planet if it's the planet you're currently on
-		while (GameSetup.theMap.getPlanetArray()[rand].getName() == GameSetup.thePlayer.getship().getPlanetName()){
+		while (GameSetup.theMap.getPlanetArray()[rand].getName().
+				equals(GameSetup.thePlayer.getship().getPlanetName())){
 			rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		}
 		int minReward = 500;
@@ -35,7 +36,7 @@ public class Contract implements Serializable{
 		destination = GameSetup.theMap.getPlanetArray()[rand].getName();
 		//random type
 		type = possibleTypes[random.nextInt(possibleTypes.length)];
-		if (type == "bringGood"){
+		if (type.equals("bringGood")){
 			//random required good from the good datalist
 			reqGood = Good.getDataList()[random.nextInt(Good.getDataList().length)].getName();
 			//required amount = random between 1 and half max capacity + 2
@@ -52,7 +53,8 @@ public class Contract implements Serializable{
 		Random random = new Random();
 		int rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		//reselect planet if it's the planet you're currently on
-		while (GameSetup.theMap.getPlanetArray()[rand].getName() == GameSetup.thePlayer.getship().getPlanetName()){
+		while (GameSetup.theMap.getPlanetArray()[rand].getName()
+				.equals(GameSetup.thePlayer.getship().getPlanetName())){
 			rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		}
 		int minReward = 500;
@@ -61,7 +63,7 @@ public class Contract implements Serializable{
 		destination = GameSetup.theMap.getPlanetArray()[rand].getName();
 		//random type
 		this.type = type;
-		if (type == "bringGood"){
+		if (type.equals("bringGood")){
 			//random required good from the good datalist
 			int goodNum = random.nextInt(Good.getDataList().length);
 			reqGood = Good.getDataList()[goodNum].getName();
@@ -80,20 +82,20 @@ public class Contract implements Serializable{
 	 */
 	public boolean checkContract(Context context){
 		String curPlanet = GameSetup.thePlayer.getship().getPlanetName();
-		if (destination == curPlanet){
-			if (type == "goTo"){
+		if (destination.equals(curPlanet)){
+			if (type.equals("goTo")){
 				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 				GameSetup.thePlayer.hasContract = false;
 				return true;
 			}
-			else if (type == "fightPirate"){
+			else if (type.equals("fightPirate")){
 				Intent intent = new Intent(context, EncounterView.class);
 	        	context.startActivity(intent);
 				GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 				GameSetup.thePlayer.hasContract = false;
 				return true;
 			}
-			else if (type == "bringGood"){
+			else if (type.equals("bringGood")){
 					if (GameSetup.thePlayer.getship().getInventory().getGoodAmount(reqGood) >= reqAmount){
 						GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 						GameSetup.thePlayer.hasContract = false;
@@ -118,13 +120,13 @@ public class Contract implements Serializable{
 	 */
 	public String getString(){
 		String out = "Invalid Contract";
-		if (type == "goTo"){
+		if (type.equals("goTo")){
 			out = String.format("Please deliver this important message to %s. You will be paid %d credits upon your arrival.", destination, reward);
 		}			
-		else if (type == "fightPirate"){
+		else if (type.equals("fightPirate")){
 			out = String.format("Pirates are terrorizing %s! A bounty of %d credits is offered to anyone who confronts them.", destination, reward);
 		}
-		else if (type == "bringGood"){
+		else if (type.equals("bringGood")){
 			out = String.format("A client on %s is offering %d credits for the safe delivery of %d units of %s.", destination, reward, reqAmount, reqGood);
 		}
 		return out;
