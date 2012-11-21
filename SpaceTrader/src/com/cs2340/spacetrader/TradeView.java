@@ -102,7 +102,6 @@ public class TradeView extends Activity
     	}
     	
     	public GoodInfo(String name){
-    		super();
     		this.name = name;
         	this.buyPrice = market.priceAtWhichPlanetSells(planet.getInventory().getGood(name));
         	this.planetAmount = planet.getInventory().getGoodAmount(name);
