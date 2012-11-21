@@ -3,10 +3,20 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author The Droids You Are Looking For
+ * @version 1.0
+ * Class representing a collection of quantities of goods
+ */
 public class Inventory implements Serializable
 {
+	/**Arraylist of goodData objects represents goods in the inventory **/
 	public ArrayList<GoodData> goods;
 	
+	/**
+	 * Constructor for Inventory Class
+	 */
 	public Inventory()
 	{
 		goods = new ArrayList<GoodData>();
@@ -14,7 +24,7 @@ public class Inventory implements Serializable
 	
 	/**
 	 * Gets a list of goods in this inventory object
-	 * @return
+	 * @return goods
 	 */
 	public ArrayList<GoodData> getListofGoods()
 	{
@@ -39,8 +49,10 @@ public class Inventory implements Serializable
 		goods.add(new GoodData(good, quantity)); // if good is not already present, it adds it with the specified quantity.
 	}
 	
-	/*
+	/**
 	 * If the good is not present, this method does not have any effect.
+	 * @param good to remove
+	 * @param quantity of good to remove
 	 */
 	public void remove(Good good, int quantity)
 	{
@@ -108,7 +120,7 @@ public class Inventory implements Serializable
 	/**
 	 * Gets number of a good in inventory
 	 * @param goodName
-	 * @return
+	 * @return quantity of good
 	 */
 	public int getGoodAmount(String goodName)
 	{
@@ -121,11 +133,17 @@ public class Inventory implements Serializable
 		return 0;
 	}
 	
+	/**
+	 * @return array of objects
+	 */
 	public Object[] getArray()
 	{
 		return goods.toArray();
 	}
 
+	/**
+	 * @return goodData array stored in inventory
+	 */
 	public GoodData[] array()
 	{
 		GoodData [] array = new GoodData[1];
