@@ -17,7 +17,7 @@ public class PlanetInventory extends Inventory implements Serializable {
 	private int planetTechLevel;
 
 	/**
-	 * Contructor for PlanetInventory
+	 * Constructor for PlanetInventory
 	 * @param techLevel
 	 */
 	public PlanetInventory(int techLevel) {

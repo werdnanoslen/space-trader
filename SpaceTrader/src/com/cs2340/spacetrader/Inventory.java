@@ -28,7 +28,8 @@ public class Inventory implements Serializable {
 	 * 
 	 * @return goods
 	 */
-	public ArrayList<GoodData> getListofGoods() { // $codepro.audit.disable declareAsInterface
+	public ArrayList<GoodData> getListofGoods() { // $codepro.audit.disable
+													// declareAsInterface
 		return goods;
 	}
 

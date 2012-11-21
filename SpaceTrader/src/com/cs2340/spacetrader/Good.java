@@ -5,37 +5,37 @@ import java.util.Random;
 
 //import android.util.Log;
 
-public class Good implements Serializable
-{
-	/**name of good**/
-	public String name; 
-	
-	/**min lvl to produce (buy) **/
+public class Good implements Serializable {
+	/** name of good **/
+	public String name;
+
+	/** min lvl to produce (buy) **/
 	private int minProd;
-	
-	/**min lvl to use (sell) **/
+
+	/** min lvl to use (sell) **/
 	private int minUse;
-	
-	/**base lvl **/
+
+	/** base lvl **/
 	private int idealLvl;
-	
-	/**base price **/
+
+	/** base price **/
 	private int basePrice;
-	
-	/**multiplier when off base lvl**/
+
+	/** multiplier when off base lvl **/
 	private int incPerLvl;
-	
-	/**random variance range **/
+
+	/** random variance range **/
 	private int var;
-	
-	/**price of good **/
+
+	/** price of good **/
 	private int price;
-	
-	/**whether good is legal **/
+
+	/** whether good is legal **/
 	private boolean legal;
 
 	/**
 	 * Constructor for Good Class
+	 * 
 	 * @param name
 	 * @param minProd
 	 * @param minUse
@@ -46,8 +46,7 @@ public class Good implements Serializable
 	 * @param legal
 	 */
 	public Good(String name, int minProd, int minUse, int idealLvl,
-			int basePrice, int incPerLvl, int var, boolean legal)
-	{
+			int basePrice, int incPerLvl, int var, boolean legal) {
 		this.name = name;
 		this.minProd = minProd;
 		this.minUse = minUse;
@@ -57,13 +56,13 @@ public class Good implements Serializable
 		this.var = var;
 		this.legal = legal;
 	}
-	
+
 	/**
 	 * Uses Planet's tech level to change the variance in prices
+	 * 
 	 * @param planetTechLvl
 	 */
-	public void resetPrice(int planetTechLvl)
-	{
+	public void resetPrice(int planetTechLvl) {
 		Random rand = new Random();
 		int variance = rand.nextInt(var << 1) - var;
 
@@ -83,40 +82,42 @@ public class Good implements Serializable
 
 	/**
 	 * Gets the price of a good
+	 * 
 	 * @return price
 	 */
-	public int price()
-	{
+	public int price() {
 		return price;
 	}
-	
+
 	/**
 	 * Gets the base price of a good, without variance
+	 * 
 	 * @return base price
 	 */
-	public int basePrice()
-	{
+	public int basePrice() {
 		return basePrice;
 	}
-	
+
 	/**
 	 * Determines the final price of good
+	 * 
 	 * @param planetTechLvl
 	 * @return final price
 	 */
-	public int importPriceforPlanet(int planetTechLvl)
-	{
-		//Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100);
-		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice * var / 100;
+	public int importPriceforPlanet(int planetTechLvl) {
+		// Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl -
+		// minProd) * incPerLvl + basePrice*var/100);
+		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl
+				+ basePrice * var / 100;
 	}
-	
+
 	/**
 	 * Generates the number of goods available
+	 * 
 	 * @param planetTechLvl
 	 * @return amount of goods
 	 */
-	public int generateAmount(int planetTechLvl)
-	{
+	public int generateAmount(int planetTechLvl) {
 		resetPrice(planetTechLvl);
 		int amount; // returned amount of item on the planet
 		int baseAmount = 50;
@@ -129,66 +130,65 @@ public class Good implements Serializable
 
 	/**
 	 * Determines whether the planet can sell a good
+	 * 
 	 * @param planetTechLvl
 	 * @return returns true if the player can sell the good at the planet
 	 */
-	public boolean canSell(int planetTechLvl)
-	{
+	public boolean canSell(int planetTechLvl) {
 		return (planetTechLvl >= minUse);
 	}
 
 	/**
 	 * Determines whether the planet can buy a good
+	 * 
 	 * @param planetTechLvl
 	 * @return returns true if the player can buy the good at the planet
 	 */
-	public boolean canBuy(int planetTechLvl)
-	{
+	public boolean canBuy(int planetTechLvl) {
 		return (planetTechLvl >= minProd);
 	}
 
 	/**
 	 * Gets the name of an item
+	 * 
 	 * @return item name
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
-	
-	/**
-	 * Gets minimum level to produce
-	 * @return MLTP
-	 */
-	public int getMLTP()
-	{
-		return minProd;
-	}
-	
-	/**
-	 * Gets the Minimum Level To Use
-	 * @return Minimum Level To Use
-	 */
-	public int getMLTU()
-	{
-		return minProd;
-	}
-	
-	/**
-	 * Gets the legal status of a good
-	 * @return legal status
-	 */
-	public boolean getLegal()
-	{
-		return legal;
-	}
-	
 
 	/**
-	* This method is serves like a database that holds the values of all the goods. 	 
-	*/
-	public static Good[] getDataList()
-	{
+	 * Gets minimum level to produce
+	 * 
+	 * @return MLTP
+	 */
+	public int getMLTP() {
+		return minProd;
+	}
+
+	/**
+	 * Gets the Minimum Level To Use
+	 * 
+	 * @return Minimum Level To Use
+	 */
+	public int getMLTU() {
+		return minProd;
+	}
+
+	/**
+	 * Gets the legal status of a good
+	 * 
+	 * @return legal status
+	 */
+	public boolean getLegal() {
+		return legal;
+	}
+
+	/**
+	 * This method is serves like a database that holds the values of all the
+	 * goods.
+	 */
+	public static Good[] getDataList() {
 		Good[] dataList;
 
 		dataList = new Good[10];

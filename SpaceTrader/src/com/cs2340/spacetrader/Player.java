@@ -5,41 +5,40 @@ import java.io.Serializable;
 /**
  * 
  * @author The Droids You Are Looking For
- * @version 1.0
- * Top level representation of player in game
+ * @version 1.0 Top level representation of player in game
  */
 
-public class Player implements Serializable
-{
-	/**Name of Player**/
+public class Player implements Serializable {
+	/** Name of Player **/
 	private String name;
-	
-	/**Engineer Level of Player **/
+
+	/** Engineer Level of Player **/
 	private int engineerLevel;
-	
-	/**Pilot Level of Player **/
+
+	/** Pilot Level of Player **/
 	private int pilotLevel;
-	
-	/**Fighter level of player **/
+
+	/** Fighter level of player **/
 	private int fighterLevel;
-	
-	/**Trader level of player **/
+
+	/** Trader level of player **/
 	private int traderLevel;
-	
-	/**Ship piloted by player **/
+
+	/** Ship piloted by player **/
 	private Ship ship;
-	
-	/**Contract player has if any **/
+
+	/** Contract player has if any **/
 	private Contract contract;
-	
-	/**Initial number of skill points allowed **/
+
+	/** Initial number of skill points allowed **/
 	public static int startingPoints = 16;
-	
-	/**Whether Player has constract **/
+
+	/** Whether Player has constract **/
 	public boolean hasContract = false;
-	
+
 	/**
 	 * Constructor for Player Class
+	 * 
 	 * @param name
 	 * @param eLevel
 	 * @param pLevel
@@ -48,39 +47,37 @@ public class Player implements Serializable
 	 * @param gold
 	 * @param slots
 	 */
-	public Player(String name, int eLevel, int pLevel, int fLevel, int tLevel, int gold, int slots)
-	{	
-		this.name=name;
-		this.engineerLevel=eLevel; 
-		this.pilotLevel =pLevel;
-		this.fighterLevel=fLevel;
-		this.traderLevel=tLevel;
+	public Player(String name, int eLevel, int pLevel, int fLevel, int tLevel,
+			int gold, int slots) {
+		this.name = name;
+		this.engineerLevel = eLevel;
+		this.pilotLevel = pLevel;
+		this.fighterLevel = fLevel;
+		this.traderLevel = tLevel;
 		this.ship = new Ship(gold, slots);
 	}
-	
+
 	/**
 	 * 
 	 * @return player's ship
 	 */
-	public Ship getship()
-	{
+	public Ship getship() {
 		return ship;
 	}
-	
+
 	/**
 	 * @return the player's current contract
 	 */
-	public Contract getContract()
-	{
+	public Contract getContract() {
 		return contract;
 	}
-	
+
 	/**
 	 * Sets the player's current contract
+	 * 
 	 * @param contract
 	 */
-	public void setContract(Contract contract)
-	{
+	public void setContract(Contract contract) {
 		this.contract = contract;
 	}
 }
