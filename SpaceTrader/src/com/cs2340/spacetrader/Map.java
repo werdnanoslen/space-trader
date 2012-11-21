@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * Class contains all non-player objects in one singleton
  * 
- * @author Nikhil
+ * @author The Droids You Are Looking For
  * @version 1.0
  */
 public class Map implements Serializable {
