@@ -1,4 +1,4 @@
-// $codepro.audit.disable variableShouldBeFinal, lossOfPrecisionInCast
+// $codepro.audit.disable variableShouldBeFinal, lossOfPrecisionInCast, numericLiterals
 /**
  * Contains Good class
  */

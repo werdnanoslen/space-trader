@@ -1,4 +1,4 @@
-// $codepro.audit.disable booleanMethodNamingConvention
+// $codepro.audit.disable booleanMethodNamingConvention, numericLiterals
 /**
  * Contains Planet class
  */
@@ -60,28 +60,28 @@ public class Planet implements Serializable {
 			techLevel = "Pre-Agriculture"; // $codepro.audit.disable
 			break;
 		case 1:
-			techLevel = "Agriculture";
+			this.techLevel = "Agriculture";
 			break;
 		case 2:
-			techLevel = "Medieval";
+			this.techLevel = "Medieval";
 			break;
 		case 3:
-			techLevel = "Renaissance";
+			this.techLevel = "Renaissance";
 			break;
 		case 4:
-			techLevel = "Early Industrial";
+			this.techLevel = "Early Industrial";
 			break;
 		case 5:
-			techLevel = "Industrial";
+			this.techLevel = "Industrial";
 			break;
 		case 6:
-			techLevel = "Post-Industrial";
+			this.techLevel = "Post-Industrial";
 			break;
 		case 7:
-			techLevel = "Hi-Tech";
+			this.techLevel = "Hi-Tech";
 			break;
 		default:
-			techLevel = "undefined";
+			this.techLevel = "undefined";
 			break;
 		}
 	}
@@ -102,7 +102,7 @@ public class Planet implements Serializable {
 	 * @return the inventory of the planet
 	 */
 	public PlanetInventory getInventory() {
-		return inventory;
+		return this.inventory;
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class Planet implements Serializable {
 	 * @return the contract the planet has available
 	 */
 	public Contract getContract() {
-		return contract;
+		return this.contract;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Planet implements Serializable {
 	 * @return name of the planet
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class Planet implements Serializable {
 	 * @return string tech level
 	 */
 	public String getTechLevel() {
-		return techLevel;
+		return this.techLevel;
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class Planet implements Serializable {
 	 * @return coordinates of planet
 	 */
 	public int[] getCoordinate() {
-		return coordinate;
+		return this.coordinate;
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Planet implements Serializable {
 	 * @return numerical tech level of planet
 	 */
 	public int getNTechLevel() {
-		return nTechLevel;
+		return this.nTechLevel;
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class Planet implements Serializable {
 	 *            - state to set marketBusy to
 	 */
 	public void setMarketBusy(boolean bool) {
-		marketBusy = bool;
+		this.marketBusy = bool;
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class Planet implements Serializable {
 	 * @return marketBusy
 	 */
 	public boolean getMarketBusy() {
-		return marketBusy;
+		return this.marketBusy;
 	}
 	
 	/**
@@ -167,6 +167,6 @@ public class Planet implements Serializable {
 	 * @return name
 	 */
 	public String toString(){
-		return name;
+		return this.name;
 	}
 }
