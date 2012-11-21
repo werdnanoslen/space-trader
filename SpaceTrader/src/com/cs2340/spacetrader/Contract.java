@@ -49,11 +49,11 @@ public class Contract implements Serializable{
 	 * @param type
 	 */
 	public void generateContract(String type){
-		Random r = new Random();
-		int rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+		Random random = new Random();
+		int rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		//reselect planet if it's the planet you're currently on
 		while (GameSetup.theMap.getPlanetArray()[rand].getName() == GameSetup.thePlayer.getship().getPlanetName()){
-			rand = r.nextInt(GameSetup.theMap.getPlanetArray().length);
+			rand = random.nextInt(GameSetup.theMap.getPlanetArray().length);
 		}
 		int minReward = 500;
 		int maxReward = 2000;
@@ -63,14 +63,14 @@ public class Contract implements Serializable{
 		this.type = type;
 		if (type == "bringGood"){
 			//random required good from the good datalist
-			int goodNum = r.nextInt(Good.getDataList().length);
+			int goodNum = random.nextInt(Good.getDataList().length);
 			reqGood = Good.getDataList()[goodNum].getName();
 			//required amount = random between 1 and half max capacity + 2
-			reqAmount = r.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2) + 2;
+			reqAmount = random.nextInt(GameSetup.thePlayer.getship().getInventory().getCapacityMax()/2) + 2;
 			minReward = Good.getDataList()[goodNum].basePrice();
 			maxReward = Good.getDataList()[goodNum].basePrice() * (reqAmount + 2);
 		}
-		reward = minReward + r.nextInt(maxReward-minReward);
+		reward = minReward + random.nextInt(maxReward-minReward);
 	}
 	
 	/**
