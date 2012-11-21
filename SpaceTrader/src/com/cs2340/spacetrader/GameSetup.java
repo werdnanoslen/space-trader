@@ -49,6 +49,10 @@ public class GameSetup extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Checks that user's input is valid to proceed
+     * @param view
+     */
     public void checkMakePlayer(View view)
     {
     	//TODO - make this prettier
