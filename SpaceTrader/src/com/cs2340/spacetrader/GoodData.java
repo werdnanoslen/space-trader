@@ -7,31 +7,50 @@ import java.io.Serializable;
  * The Inventory class holds a list of GoodData objects and not Good objects.
  */
 
-public class GoodData implements Serializable {
+public class GoodData implements Serializable
+{
 	private Good good;
 	private int quantity;
 
-	public GoodData(Good good, int quantity) {
+	public GoodData(Good good, int quantity)
+	{
 		this.good = good;
 		this.quantity = quantity;
 	}
 
-	public Good getGood() {
+	/**
+	 * Gets the good
+	 * @return good
+	 */
+	public Good getGood()
+	{
 		return good;
 	}
 
-	public int getQuantity() {
+	/**
+	 * Gets the quantity of a good
+	 * @return quantity
+	 */
+	public int getQuantity()
+	{
 		return quantity;
 	}
 
-	public void increaseQuantityBy(int delta) {
+	/**
+	 * Increases quantity by some integer
+	 * @param delta
+	 */
+	public void increaseQuantityBy(int delta)
+	{
 		quantity = quantity + delta;
 	}
 
-	public void decreaseQuantityBy(int delta) { // with this implementation,
-												// quantity can be negative.
-												// This will be handled while
-												// making a transaction.
+	/**
+	 *  This will be handled while making a transaction.
+	 * @param delta
+	 */
+	public void decreaseQuantityBy(int delta)
+	{
 		quantity = quantity - delta;
 	}
 }
