@@ -65,7 +65,7 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 			{
 				GameSetup.thePlayer.getship().moveToPlanet(data[position]);
 				if (GameSetup.thePlayer.hasContract){
-					if (GameSetup.thePlayer.getContract().checkContract(context)){
+					if (GameSetup.thePlayer.getContract().canCompleteContract(context)){
 						Toast.makeText(context, "Contract Completed. You recieved " + GameSetup.thePlayer.getContract().getReward() + " credits in payment.", Toast.LENGTH_LONG).show();
 					}
 				}
