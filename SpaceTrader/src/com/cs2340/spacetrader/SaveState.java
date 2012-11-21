@@ -1,9 +1,14 @@
+/**
+ * Contains class SaveState
+ */
+
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
 
 /**
- * This class encapsulates the information that is to be written to memory when a game is saved. Save and load mechanisms use an object of
+ * This class encapsulates the information that is to be written to 
+ * memory when a game is saved. Save and load mechanisms use an object of
  * this class to hold the information that is to be saved/loaded.
  * 
  * @author The Droids You Are Looking For
@@ -23,7 +28,8 @@ public class SaveState implements Serializable {
 	private Player player;
 
 	/**
-	 * Constructor takes in a player and map object. These are the objects that hold the state of the game.
+	 * Constructor takes in a player and map object. These are the objects that 
+	 * hold the state of the game.
 	 * @param player
 	 * @param map
 	 */
@@ -62,5 +68,13 @@ public class SaveState implements Serializable {
 	 */
 	public void setPlayer(Player player) {
 		this.player = player;
+	}
+	
+	/**
+	 * returns a string containing the map and player information
+	 * @return map and player
+	 */
+	public String toString(){
+		return (this.player.toString() + " " + this.map.toString());
 	}
 }

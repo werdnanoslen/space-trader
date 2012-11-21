@@ -1,4 +1,9 @@
+/**
+ * Contains the class Space
+ */
 package com.cs2340.spacetrader;
+
+
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -11,7 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * An object of this class acts as the user interface screen that displays game details 
+ * An object of this class acts as the user
+ * interface screen that displays game details 
  * like the current planet, its detailsa and fuel level
  * 
  * @author The Droids You Are Looking For
@@ -145,5 +151,13 @@ public class Space extends Activity {
 	public void startShipView(View view) {
 		Intent intent = new Intent(Space.this, ShipInventoryView.class);
 		startActivity(intent);
+	}
+	
+	/**
+	 * retuns details of ship and planet.
+	 * @return ship and planet
+	 */
+	public String toString(){
+		return (ship.toString() + " on " + currentPlanet.toString());
 	}
 }
