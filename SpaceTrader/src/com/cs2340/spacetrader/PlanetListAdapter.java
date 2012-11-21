@@ -15,16 +15,16 @@ import android.widget.Toast;
 
 public class PlanetListAdapter extends ArrayAdapter<Planet> 
 {
-	Context context;
-	int layoutResourceId;
-	Planet data[] = null;
+	public Context context;
+	public int layoutResourceId;
+	public Planet data[] = null;
 
 	public PlanetListAdapter(Context context, int layoutResourceId,
 			Planet[] data) {
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
-		this.data = data;
+		this.data = data.clone();
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class Player implements Serializable{
 		this.ship = new Ship(gold, slots);
 	}
 	
-	Ship getship()
+	public Ship getship()
 	{
 		return ship;
 	}

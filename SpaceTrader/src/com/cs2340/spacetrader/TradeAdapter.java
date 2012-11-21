@@ -24,7 +24,7 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
-		this.data = data;
+		this.data = data.clone();
 	}
 	
 	@Override

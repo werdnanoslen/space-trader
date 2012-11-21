@@ -202,21 +202,21 @@ public class Ship implements Serializable {
 		return Armor.values()[armorLevel-1].getName();
 	}
 
-	enum Weapons {
+	private enum Weapons {
 		Blaster("Blaster Pistol",1),
 		Gat("Gattling Guns",3),
 		Photon("Photon Torpedos",5),
 		Antimatter("Antimatter",11);
 		
-		 final String name;
-		 final int power;
+		 public final String name;
+		 public final int power;
 		 
-		 Weapons(String name,final int power){
+		 private Weapons(String name,final int power){
 			 this.name =name;
 			 this.power=power;
 		 }
 		 
-		 String getName() {
+		 public String getName() {
 			 return name;
 		 }
 		 
@@ -233,7 +233,7 @@ public class Ship implements Serializable {
 		 }
 	}
 	
-	enum Armor {
+	private enum Armor {
 		Trashcans("Old Trashcans",1),
 		Steel("Steel Plates",4),
 		Force("Force Field",5),

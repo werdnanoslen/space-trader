@@ -16,7 +16,7 @@ public class Planet implements Serializable {
 	public Planet(String name, int[] coord, PlanetInventory inventory,
 			Contract contract, int nTechLevel) {
 		this.marketBusy = false;
-		this.coordinate = coord;
+		this.coordinate = coord.clone();
 		this.inventory = inventory;
 		this.name = name;
 		this.contract = contract;

@@ -60,7 +60,8 @@ public class GameSetup extends Activity {
     	int pLevel = pilotLevel.getValue();
     	int eLevel = engineerLevel.getValue();
     	int fLevel = fighterLevel.getValue();
-    	int levels = traderLevel.getValue()+pilotLevel.getValue()+engineerLevel.getValue()+fighterLevel.getValue();
+    	int levels = traderLevel.getValue() + pilotLevel.getValue() + 
+    			engineerLevel.getValue() + fighterLevel.getValue();
     	if (levels > Player.startingPoints)
     	{
     		Toast.makeText(this, R.string.too_high_error, Toast.LENGTH_LONG).show();

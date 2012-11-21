@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MarketVisit implements Serializable {
 		private ShipInventory shipInventory;
 		private PlanetInventory inventory;
-		Planet planet;
+		private Planet planet;
 		
 		public MarketVisit(ShipInventory shipInventory, Planet planet) {
 			this.shipInventory = shipInventory;
@@ -116,12 +116,12 @@ public class MarketVisit implements Serializable {
 			planet.setMarketBusy(false);
 		}
 		
-		PlanetInventory getPlanetInventory()
+		public PlanetInventory getPlanetInventory()
 		{
 			return inventory;
 		}
 		
-		ShipInventory getShipInventory()
+		public ShipInventory getShipInventory()
 		{
 			return shipInventory;
 		}
