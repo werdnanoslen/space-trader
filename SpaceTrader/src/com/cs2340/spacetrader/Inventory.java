@@ -5,7 +5,7 @@ import java.util.*;
 
 public abstract class Inventory implements Serializable{
 	
-	ArrayList<GoodData> goods;
+	public ArrayList<GoodData> goods;
 	
 	public Inventory() {
 		goods = new ArrayList<GoodData>();
@@ -63,7 +63,7 @@ public abstract class Inventory implements Serializable{
 		return goodInInventory;
 	}
 
-	Good getGood(String goodName)
+	public Good getGood(String goodName)
 	{
 		for (int i = 0; i < goods.size(); i++) { // if the good is already present, it just adds to its quantity.
 			String name = goods.get(i).getGood().getName();
@@ -76,7 +76,7 @@ public abstract class Inventory implements Serializable{
 		return new Good("awefulthings", 0, 0, 0, 0, 0, 0, false);
 	}
 	
-	int getGoodAmount(String goodName){
+	public int getGoodAmount(String goodName){
 		for (int i = 0; i < goods.size(); i++) { // if the good is already present, it just adds to its quantity.
 			String name = goods.get(i).getGood().getName();
 			if (name.equals(goodName)){
