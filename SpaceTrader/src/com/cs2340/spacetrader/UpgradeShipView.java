@@ -57,7 +57,7 @@ public class UpgradeShipView extends Activity
         }
         else
         {
-        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
+        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         
         sInventory = GameSetup.thePlayer.getship().getInventory();

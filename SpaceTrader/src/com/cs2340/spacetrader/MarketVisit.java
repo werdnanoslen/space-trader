@@ -54,17 +54,19 @@ public class MarketVisit implements Serializable {
 
 	/**
 	 * Overrides toString because audit complains
+	 * 
 	 * @return a random string
 	 */
 	@Override
-	public String toString(){
+	public String toString() {
 		return "blah";
 	}
-	
+
 	/**
 	 * @return goodsList of inventory
 	 */
-	public ArrayList<GoodData> getGoodsList() { // $codepro.audit.disable declareAsInterface
+	public ArrayList<GoodData> getGoodsList() { // $codepro.audit.disable
+												// declareAsInterface
 		return inventory.getListofGoods();
 	}
 
@@ -106,7 +108,8 @@ public class MarketVisit implements Serializable {
 	 *            amount of good to sell
 	 * @return success of transaction
 	 */
-	public boolean sellToPlanet(Good good, int quantityToSell) { // $codepro.audit.disable booleanMethodNamingConvention
+	public boolean sellToPlanet(Good good, int quantityToSell) { // $codepro.audit.disable
+																	// booleanMethodNamingConvention
 		GoodData goodDetails = inventory.getGoodFromInventory(good);
 		int quantityInShip = goodDetails.getQuantity();
 		if (quantityToSell <= quantityInShip) {
@@ -125,7 +128,7 @@ public class MarketVisit implements Serializable {
 					* ((double) good.basePrice()));
 			shipInventory.deltaMoney(deltaMoney);
 			return true;
-		} else{
+		} else {
 			return false;
 		}
 	}
