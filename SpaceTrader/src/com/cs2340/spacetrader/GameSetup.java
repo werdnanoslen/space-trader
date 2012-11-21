@@ -10,11 +10,26 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+/**
+ * 
+ * @author The Droids You Are Looking For
+ * @version 1.0
+ * GUI for the game setup screen
+ */
 
 public class GameSetup extends Activity {
+	/**application namespace**/
 	public static final String PLAYA = "com.example.myfirstapp.PLAYA";
+	
+	/**singleton representing player object**/
 	public static Player thePlayer;
+	
+	/**singleton representing the map object**/
 	public static Map theMap;
+	
+	/**
+	 * @param savedInstanceState state passed to method by intent
+	 **/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +48,20 @@ public class GameSetup extends Activity {
     	fighterLevel.setMinValue(0);
     }
 
+	/**
+	 * @param menu - menu that was chosen to be created
+	 * @return success of operation
+	 **/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_game_setup, menu);
         return true;
     }
 
-    
+	/**
+	 * @param item - selected item
+	 * @return success of operation
+	 **/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

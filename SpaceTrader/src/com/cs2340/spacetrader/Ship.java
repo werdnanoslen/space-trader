@@ -26,9 +26,13 @@ public class Ship implements Serializable
 	/**provides reference into enum armour types**/
 	private int weaponLevel;
 	
-	/**provides reference into enum armour types **/
+	/**provides reference into enum armor types **/
 	private int armorLevel;
 
+	/**constructor for ship class
+	 *@param gold - initial amount of money player starts with 
+	 *@param nSlots - number of cargo slots the ship has
+	 * **/
 	public Ship(int gold, int nSlots)
 	{
 		this.inventory = new ShipInventory(gold, nSlots);
@@ -40,26 +44,33 @@ public class Ship implements Serializable
 		this.armorLevel=1;
 	}
 
+	/**getter method for the ship's inventory**/
 	public ShipInventory getInventory()
 	{
 		return inventory;
 	}
 	
+	/**getter method for the ship's name**/
 	public String getPlanetName()
 	{
 		return planetName;
 	}
 	
+	/**getter method for the ship's fuel**/
 	public int getFuel()
 	{
 		return fuel;
 	}
 
+	/** getter method for the ship's fuel capacity**/
 	public int getFuelCapacity()
 	{
 		return fuelCapacity;
 	}
 	
+	/**method for moving between planets - takes care of reducing fuel by amount used  
+	 * @param newPlanet - planet to be moved to
+	**/
 	public void moveToPlanet(Planet newPlanet)
 	{
 		//These must be ordered in this way. deltaFuel depends on being on the planet moved from
@@ -67,6 +78,9 @@ public class Ship implements Serializable
 		planetName = newPlanet.getName();
 	}
 	
+	/** method for calculating fuel cost of moving to another planet
+	 * @param newPlanet - planet to be moved to
+	 **/
 	public int fuelCost(Planet newPlanet)
 	{
 		int[] destCoords = newPlanet.getCoordinate();
@@ -74,6 +88,9 @@ public class Ship implements Serializable
 		return fuelMetric((destCoords[0]-currentCoords[0]),(destCoords[1]-currentCoords[1]));
 	}
 
+	/**method for adding or subtracting from current fuel level
+	 * @param fuelAmount - amount of fuel to add, can be negative
+	**/
 	public void deltaFuel(int fuelAmount)
 	{
 		int newFuel = this.fuel-fuelAmount;
@@ -91,12 +108,13 @@ public class Ship implements Serializable
 		}
 	}
 	
-	//TODO - implement buying individual units of fuel and cost for it
+	/**resets fuel of ship to full, i.e. equal to fuelCapacity**/
 	public void refuel()
 	{
 		this.fuel = this.fuelCapacity;
 	}
 	
+	/** increments weapongLevel and subtracts cost of upgrade**/
 	public void upgradeWeapons()
 	{
 		//TODO - check if there are any upgrades level
@@ -105,16 +123,20 @@ public class Ship implements Serializable
 		inventory.deltaMoney(-(cost));
 	}
 	
+	/**@return the name of the next level's weapon
+	 **/
 	public String wepUpgradeName()
 	{
 		return Weapons.nextWeapon(weaponLevel).getName();
 	}
 	
+	/**@return the cost of upgrading weapons **/
 	public int wepUpgradeCost()
 	{
 		return Weapons.nextWeapon(weaponLevel).getPrice();
 	}
 	
+	/**Increments armor level**/
 	public void upgradeArmor()
 	{
 		//TODO - check if there are any upgrades level
@@ -123,22 +145,28 @@ public class Ship implements Serializable
 		inventory.deltaMoney(-(cost));
 	}
 	
+	/**@return the name of the next level's armour
+	 **/
 	public String armorUpgradeName()
 	{
 		return Armor.nextArmor(armorLevel).getName();
 	}
-	
+
+	/**@return the cost of upgrading armour **/
 	public int armorUpgradeCost()
 	{
 		return Armor.nextArmor(armorLevel).getPrice();
 	}
 	
-	
+	/**removes all illicit goods on ship -for use in police encounter **/
 	public void removeIllicitGoods()
 	{
 		this.inventory.removeIllicitGoods();
 	}
 	
+	/**determines a reasonable amount to charge for a bribe to the police
+	 * @return bribe amount
+	 **/
 	public int priceBribe()
 	{
 		return this.inventory.priceBribe();
@@ -174,7 +202,6 @@ public class Ship implements Serializable
 	 * Carries out logic behind attempting to flee a fight
 	 * @return boolean whether fleeing was successful
 	 */
-	
 	public boolean flee()
 	{
 		Random generator = new Random();
