@@ -1,3 +1,6 @@
+/**
+ * Contains the Activity for ship upgrading
+ */
 package com.cs2340.spacetrader;
 
 import android.app.Activity;
@@ -12,9 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Activity that allows players to upgrade their ship
+ * @author Alex
+ *
+ */
 public class UpgradeShipView extends Activity
 {
+	/** ship's inventory */
 	private ShipInventory sInventory;
+	
+	/** price of armor */
 	private int armorPrice;
 	private int gunsPrice;
 	
