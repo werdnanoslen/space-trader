@@ -1,73 +1,100 @@
-package com.cs2340.spacetrader;
+// $codepro.audit.disable variableShouldBeFinal
+/**
+ * Contains Map class
+ */
+package com.cs2340.spacetrader; // $codepro.audit.disable packageNamingConvention
 
 import java.io.Serializable;
 import java.util.Random;
 
-public class Map implements Serializable
-{ 
+/**
+ * Class contains all non-player objects in one singleton
+ * 
+ * @author Nikhil
+ * @version 1.0
+ */
+public class Map implements Serializable {
+	/**
+	 * Default Serialization ID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** Array that contains all planets */
 	private Planet[] planetArray;
-	
-	public Map()
-	{
+
+	/** Maximum x/y value for coordinates */
+	private static final int XYMAX = 150;
+
+	/** Number of planets */
+	private static final int NUMPLANET = 8;
+
+	/** List of planet names*/
+	private final String[] planetNames = { "Kashyyk", "Tatooine", "Naboo",
+			"Alderon", "Xeon", "Zion", "Mordor", "Krypton" };
+
+	/**
+	 * Constructs the map by randomly generating a list of planets
+	 */
+	public Map() {
 		planetArray = generatePlanetArray();
 	}
-	
+
 	/**
 	 * Generates all the planets on the map
+	 * 
 	 * @return array of planet objects
 	 */
-	public final Planet[] generatePlanetArray()
-	{
+	public final Planet[] generatePlanetArray() {
 		Random rand = new Random();
-		PlanetInventory inventory = new PlanetInventory(7);
+		PlanetInventory inventory = new PlanetInventory(NUMPLANET);
 		Contract contract = new Contract();
-		planetArray = new Planet[8];
-		
-		int [] coord0 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord1 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord2 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord3 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord4 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord5 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord6 = {rand.nextInt(150),rand.nextInt(150)};
-		int [] coord7 = {rand.nextInt(150),rand.nextInt(150)};
+		planetArray = new Planet[NUMPLANET];
 
+		int[] techLevels = new int[NUMPLANET];
+		for (int i = 0; i < NUMPLANET; i++) {
+			techLevels[i] = i;
+		}
 
-		Planet planet0 = new Planet ("Kashyyyk",coord0, inventory, contract, 6);
-		Planet planet1 = new Planet ("Tatooine",coord1,inventory, contract, 3);
-		Planet planet2 = new Planet ("Naboo",coord2,inventory, contract, 1);
-		Planet planet3 = new Planet ("Alderon",coord3,inventory, contract, 2); 
-		Planet planet4 = new Planet ("Xeon",coord4,inventory, contract, 5);
-		Planet planet5 = new Planet ("Zion",coord5,inventory, contract, 4);  
-		Planet planet6 = new Planet ("Mordor",coord6, inventory, contract, 7);
-		Planet planet7 = new Planet ("Krypton",coord7,inventory, contract, 0);
-		
-		planetArray[0] = planet0;
-		planetArray[1] = planet1;
-		planetArray[2] = planet2;
-		planetArray[3] = planet3;
-		planetArray[4] = planet4;
-		planetArray[5] = planet5;
-		planetArray[6] = planet6;
-		planetArray[7] = planet7;
+		for (int i = 0; i < planetArray.length; i++) {
+			int[] coord = { rand.nextInt(XYMAX), rand.nextInt(XYMAX) };
+			planetArray[i] = new Planet(planetNames[i], coord, inventory,
+					contract, techLevels[i]);
+		}
+
 		return planetArray;
 	}
-	
-	public Planet[] getPlanetArray()
-	{
+
+	/**
+	 * Returns the entire planet array
+	 * 
+	 * @return Returns an array of planets
+	 */
+	public Planet[] getPlanetArray() {
 		return planetArray;
 	}
-	
-	public Planet getPlanet(String name)
-	{
+
+	/**
+	 * Returns a planet with the specified name
+	 * 
+	 * @param name
+	 * @return Returns a Planet object
+	 */
+	public Planet getPlanet(String name) {
 		int numel = planetArray.length;
-		for (int i=0;i<numel;i++)
-		{
-			if (planetArray[i].getName().equals(name))
-			{
-				return planetArray[i];		
+		for (int i = 0; i < numel; i++) {
+			if (planetArray[i].getName().equals(name)) {
+				return planetArray[i];
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * Returns number of planets
+	 * 
+	 * @return List of planet names
+	 */
+	public String toString() {
+		return "" + planetArray.length;
 	}
 }
