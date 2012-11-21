@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 public class TradeAdapter extends ArrayAdapter<GoodInfo>
 {
-	Context context;
-	int layoutResourceId;
-	GoodInfo data[] = null;
+	private Context context;
+	private int layoutResourceId;
+	private GoodInfo data[] = null;
 	
 	public TradeAdapter(Context context, int layoutResourceId, GoodInfo[] data)
 	{
@@ -100,10 +100,10 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo>
 	 * @author David
 	 *
 	 */
-	static class GoodHolder
+	private static class GoodHolder
 	{
-		TextView txtName;
-		Button txtBuyGood;
-		Button txtSellGood;
+		private TextView txtName;
+		private Button txtBuyGood;
+		private Button txtSellGood;
 	}
 }

@@ -23,13 +23,13 @@ public class GameSetup extends Activity {
     	NumberPicker pilotLevel = (NumberPicker) findViewById(R.id.pilotLevel);
     	NumberPicker engineerLevel = (NumberPicker) findViewById(R.id.engineerLevel);
     	NumberPicker fighterLevel = (NumberPicker) findViewById(R.id.fighterLevel);
-    	traderLevel.setMaxValue(16);
+    	traderLevel.setMaxValue(Player.startingPoints);
     	traderLevel.setMinValue(0);
-    	pilotLevel.setMaxValue(16);
+    	pilotLevel.setMaxValue(Player.startingPoints);
     	pilotLevel.setMinValue(0);
-    	engineerLevel.setMaxValue(16);
+    	engineerLevel.setMaxValue(Player.startingPoints);
     	engineerLevel.setMinValue(0);
-    	fighterLevel.setMaxValue(16);
+    	fighterLevel.setMaxValue(Player.startingPoints);
     	fighterLevel.setMinValue(0);
     }
 

@@ -31,12 +31,12 @@ public class ShipInventory extends Inventory implements Serializable
 		return capacityMax;
 	}
 
-	void deltaMoney(int delta)
+	public void deltaMoney(int delta)
 	{
 		moneyLeft += delta;
 	}
 	
-	void deltaCapacity (int delta)
+	public void deltaCapacity (int delta)
 	{
 		capacityLeft += delta;
 	}

@@ -95,8 +95,8 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 		return row;
 	}
 	
-	static class PlanetHolder 
+	private static class PlanetHolder 
 	{
-		Button button;
+		private Button button;
 	}
 }

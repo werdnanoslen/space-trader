@@ -48,7 +48,6 @@ public class MarketVisit implements Serializable
 		{
 			if (inventory.contains(good)) 
 			{
-				GoodData goodDetails = inventory.getGoodFromInventory(good);
 				int sellPrice = good.importPriceforPlanet(planet.getNTechLevel());
 				int price = (int)(0.9*((double)sellPrice));
 				return price;
