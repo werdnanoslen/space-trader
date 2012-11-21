@@ -42,7 +42,7 @@ public class TradeView extends Activity
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         else{
-        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
+        	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
         
 
