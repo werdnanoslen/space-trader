@@ -10,13 +10,29 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**@author The Droids You Are looking For
+ * @version 1.0
+ * EncounterView provides generic view that will be subclassed to create displays
+ * for particular encounters
+ **/
 public class EncounterView extends Activity 
 {
+	/**encounterTitle - displays title of encounter **/
 	private TextView encounterTitle;
+
+	/**encounterDescription - displays description of particular encounter**/
 	private TextView encounterDescription;
+
+	/**action1 - presents user with first possible response to encounter**/
 	private Button action1;
-	private Button action2;
 	
+	/**action2 - presents user with alternate response to encounter**/
+	private Button action2;
+
+    /**
+     * Method onCreate - inits view on intent
+     * @param savedInstanceState Bundle - basic passed info
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -81,6 +97,7 @@ public class EncounterView extends Activity
     
     /**
      * Consequences of user's choice of action1
+     * @param - the view it is called from
      */
     public void fight(View view)
     {

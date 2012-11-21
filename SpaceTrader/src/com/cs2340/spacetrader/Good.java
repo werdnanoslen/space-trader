@@ -79,7 +79,7 @@ public class Good implements Serializable
 	public int importPriceforPlanet(int planetTechLvl)
 	{
 		//Log.i("Price of " + name, "" + basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100);
-		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice*var/100;
+		return basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl + basePrice * var / 100;
 	}
 	
 	/**
@@ -110,7 +110,7 @@ public class Good implements Serializable
 	}
 
 	/**
-	 * Determiens whether the planet can buy a good
+	 * Determines whether the planet can buy a good
 	 * @param planetTechLvl
 	 * @return returns true if the player can buy the good at the planet
 	 */

@@ -11,11 +11,22 @@ import java.util.Random;
  */
 public class Ship implements Serializable
 {
+	/**items the ship is carrying **/
 	private ShipInventory inventory;
+	
+	/**planet the ship is currently on **/
 	private String planetName;
+	
+	/**amount of fuel the ship is currently carrying **/
 	private int fuel;
+	
+	/**maximum units of fuel the ship can carry **/
 	private int fuelCapacity;
+	
+	/**provides reference into enum armour types**/
 	private int weaponLevel;
+	
+	/**provides reference into enum armour types **/
 	private int armorLevel;
 
 	public Ship(int gold, int nSlots)
