@@ -8,7 +8,7 @@
         <category id="codepro.code.audit">
             <xmlfile id="audit.xml">
                 <auditRuleSets>
-                    <auditRuleSet name="CS2340 Rules" locked="false" active="true" ignoreDisableDirectives="false" autoResolutionEnabled="false" maximumViolationCount="20000" maximumViolationCountByType="2000" maximumViolationCountInResource="200" maximumViolationCountByTypeInResource="20" resourceFilterEnabled="false" closeInFinally="false" closeWhereCreated"false" default="true">
+                    <auditRuleSet name="CS2340 Rules" locked="false" active="true" ignoreDisableDirectives="false" autoResolutionEnabled="false" largeNumberOfParameters="false" maximumViolationCount="20000" maximumViolationCountByType="2000" maximumViolationCountInResource="200" maximumViolationCountByTypeInResource="20" resourceFilterEnabled="false" closeInFinally="false" closeWhereCreated"false" default="true">
                         <resourceFilter>
                             <null/>
                         </resourceFilter>
@@ -154,7 +154,6 @@
                         com.instantiations.assist.eclipse.audit.commandExecution.enabled=true
                         com.instantiations.assist.eclipse.analysis.audit.rule.codingStyle.returnBooleanExpressionValue.enabled=true
                         com.instantiations.assist.eclipse.audit.pluralizeCollectionNames.allowedSuffixes=collection,list,map,set
-                        com.instantiations.assist.eclipse.audit.largeNumberOfParameters.enabled=true
                         com.instantiations.assist.eclipse.audit.avoidFutureKeywords.enabled=true
                         com.instantiations.assist.eclipse.audit.environmentVariableAccess.enabled=true
                         com.instantiations.assist.eclipse.audit.useTypeSpecificNames.nameMap=java.io.InputStream\:in,inStream,input,inputStream;java.io.OutputStream\:out,outStream,output,outputStream
