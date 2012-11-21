@@ -85,6 +85,26 @@ public class Ship implements Serializable {
 		this.weaponLevel = 1;
 		this.armorLevel = 1;
 	}
+	
+	/**
+	 * constructor for ship class
+	 * 
+	 * @param gold
+	 *            - initial amount of money player starts with
+	 * @param nSlots
+	 *            - number of cargo slots the ship has
+	 * @param planetName
+	 * 			  -The name of the planet
+	 * **/
+	public Ship(int gold, int nSlots, String planetName) {
+		this.planetName = planetName;
+		this.inventory = new ShipInventory(gold, nSlots);
+		// TODO think of a centralized place to put all these kinds of numbers.
+		this.fuel = INITFUEL;
+		this.fuelCapacity = INITFUELCAP;
+		this.weaponLevel = 1;
+		this.armorLevel = 1;
+	}
 
 	/**
 	 * getter method for the ship's inventory
@@ -155,7 +175,7 @@ public class Ship implements Serializable {
 	 * method for adding or subtracting from current fuel level
 	 * 
 	 * @param fuelAmount
-	 *            - amount of fuel to add, can be negative
+	 *            - amount of fuel to subtract, can be negative
 	 **/
 	public void deltaFuel(int fuelAmount) {
 		int newFuel = this.fuel - fuelAmount;
