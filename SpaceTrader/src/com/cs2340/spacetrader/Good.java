@@ -7,16 +7,44 @@ import java.util.Random;
 
 public class Good implements Serializable
 {
-	public String name; // name of good
-	private int minProd; // min lvl to produce (buy)
-	private int minUse; // min lvl to use (sell)
-	private int idealLvl; // base lvl
-	private int basePrice; // base price
-	private int incPerLvl; // multiplier when off base lvl
-	private int var; // random variance range
+	/**name of good**/
+	public String name; 
+	
+	/**min lvl to produce (buy) **/
+	private int minProd;
+	
+	/**min lvl to use (sell) **/
+	private int minUse;
+	
+	/**base lvl **/
+	private int idealLvl;
+	
+	/**base price **/
+	private int basePrice;
+	
+	/**multiplier when off base lvl**/
+	private int incPerLvl;
+	
+	/**random variance range **/
+	private int var;
+	
+	/**price of good **/
 	private int price;
+	
+	/**whether good is legal **/
 	private boolean legal;
 
+	/**
+	 * Constructor for Good Class
+	 * @param name
+	 * @param minProd
+	 * @param minUse
+	 * @param idealLvl
+	 * @param basePrice
+	 * @param incPerLvl
+	 * @param var
+	 * @param legal
+	 */
 	public Good(String name, int minProd, int minUse, int idealLvl,
 			int basePrice, int incPerLvl, int var, boolean legal)
 	{
