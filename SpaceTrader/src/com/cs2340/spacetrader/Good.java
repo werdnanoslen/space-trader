@@ -1,37 +1,44 @@
-package com.cs2340.spacetrader;
+// $codepro.audit.disable variableShouldBeFinal, lossOfPrecisionInCast
+package com.cs2340.spacetrader; // $codepro.audit.disable packageNamingConvention
 
 import java.io.Serializable;
 import java.util.Random;
 
 //import android.util.Log;
-
+/**
+ * This class encapsulates the concept of a Good. It holds data attributes that
+ * would normally be associated with a good.
+ * 
+ * @author The Droids You Are Looking For
+ * @version 1.0
+ */
 public class Good implements Serializable {
 	/** name of good **/
 	public String name;
 
 	/** min lvl to produce (buy) **/
-	private int minProd;
+	private final int minProd;
 
 	/** min lvl to use (sell) **/
-	private int minUse;
+	private final int minUse;
 
 	/** base lvl **/
-	private int idealLvl;
+	private final int idealLvl;
 
 	/** base price **/
-	private int basePrice;
+	private final int basePrice;
 
 	/** multiplier when off base lvl **/
-	private int incPerLvl;
+	private final int incPerLvl;
 
 	/** random variance range **/
-	private int var;
+	private final int var;
 
 	/** price of good **/
 	private int price;
 
 	/** whether good is legal **/
-	private boolean legal;
+	private final boolean legal;
 
 	/**
 	 * Constructor for Good Class
@@ -64,10 +71,10 @@ public class Good implements Serializable {
 	 */
 	public void resetPrice(int planetTechLvl) {
 		Random rand = new Random();
-		int variance = rand.nextInt(var << 1) - var;
+		int variance = rand.nextInt(this.var << 1) - this.var;
 
-		price = basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl
-				+ basePrice * (variance) / 100;
+		this.price = this.basePrice + Math.abs(planetTechLvl - this.minProd)
+				* this.incPerLvl + this.basePrice * (variance) / 100;
 
 		// test code, prints to LogCat
 		// Log.d("BasePrice", Integer.toString(basePrice));
@@ -118,11 +125,12 @@ public class Good implements Serializable {
 	 * @return amount of goods
 	 */
 	public int generateAmount(int planetTechLvl) {
-		resetPrice(planetTechLvl);
-		int amount; // returned amount of item on the planet
+		
+		int amount = 0; // returned amount of item on the planet
 		int baseAmount = 50;
 		Random rand = new Random();
-
+		resetPrice(planetTechLvl);
+		
 		amount = rand.nextInt(baseAmount - Math.abs(idealLvl - planetTechLvl));
 
 		return amount;
@@ -135,7 +143,7 @@ public class Good implements Serializable {
 	 * @return returns true if the player can sell the good at the planet
 	 */
 	public boolean canSell(int planetTechLvl) {
-		return (planetTechLvl >= minUse);
+		return planetTechLvl >= minUse;
 	}
 
 	/**
@@ -145,7 +153,7 @@ public class Good implements Serializable {
 	 * @return returns true if the player can buy the good at the planet
 	 */
 	public boolean canBuy(int planetTechLvl) {
-		return (planetTechLvl >= minProd);
+		return planetTechLvl >= minProd;
 	}
 
 	/**
@@ -180,18 +188,20 @@ public class Good implements Serializable {
 	 * 
 	 * @return legal status
 	 */
-	public boolean getLegal() {
+	public boolean getLegal() { // $codepro.audit.disable
+		// booleanMethodNamingConvention
 		return legal;
 	}
 
 	/**
 	 * This method is serves like a database that holds the values of all the
 	 * goods.
+	 * 
+	 * @return dataList
 	 */
 	public static Good[] getDataList() {
-		Good[] dataList;
 
-		dataList = new Good[10];
+		Good[] dataList = new Good[10];
 		dataList[0] = new Good("Water", 0, 0, 2, 30, 3, 4, true);
 		dataList[1] = new Good("Furs", 0, 0, 0, 250, 10, 10, true);
 		dataList[2] = new Good("Food", 1, 0, 1, 100, 5, 5, true);
@@ -204,5 +214,14 @@ public class Good implements Serializable {
 		dataList[9] = new Good("Robots", 6, 4, 7, 5000, -150, 100, true);
 
 		return dataList;
+	}
+
+	/**
+	 * returns the name of the good.
+	 * 
+	 * @return name
+	 */
+	public String toString() {
+		return name;
 	}
 }
