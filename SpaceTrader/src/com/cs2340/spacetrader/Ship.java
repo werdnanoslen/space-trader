@@ -6,6 +6,8 @@ import java.util.Random;
 //import android.content.Context;
 //import android.widget.Toast;
 /**
+ * @author The Droids You Are Looking For
+ * @version 1.0
  * @class Ship - Represents the player's ship inside the game, holds inventory and fuel
  * 
  */
