@@ -29,7 +29,7 @@ public class Map implements Serializable {
 	private static final int NUMPLANET = 8;
 
 	/** List of planet names*/
-	private final String[] planetNames = { "Kashyyk", "Tatooine", "Naboo",
+	public final String[] planetNames = { "Kashyyk", "Tatooine", "Naboo",
 			"Alderon", "Xeon", "Zion", "Mordor", "Krypton" };
 
 	/**

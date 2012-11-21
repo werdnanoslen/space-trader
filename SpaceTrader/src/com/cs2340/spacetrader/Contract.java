@@ -169,6 +169,9 @@ public class Contract implements Serializable {
 							+ " of %d units of %s.", destination, reward,
 					reqAmount, reqGood);
 		}
+		else{
+			out = "Invalid Type";
+		}
 		return out;
 	}
 
@@ -188,6 +191,33 @@ public class Contract implements Serializable {
 	 */
 	public int getReward() {
 		return reward;
+	}
+	
+	/**
+	 * Returns the required good amount
+	 * 
+	 * @return integer amount required
+	 */
+	public int getReqAmount() {
+		return reqAmount;
+	}
+	
+	/**
+	 * Returns the required good
+	 * 
+	 * @return string name of required good
+	 */
+	public String getReqGood() {
+		return reqGood;
+	}
+	
+	/**
+	 * Returns the type of the contract
+	 * 
+	 * @return string type of the contract
+	 */
+	public String getType() {
+		return type;
 	}
 
 	/**
