@@ -1,4 +1,4 @@
-// $codepro.audit.disable staticFieldNamingConvention
+// $codepro.audit.disable staticFieldNamingConvention, modifierOrder
 /**
  * Contains the class Player
  */
@@ -36,7 +36,7 @@ public class Player implements Serializable {
 	private Contract contract;
 
 	/** Initial number of skill points allowed **/
-	public static int startingPoints = 16;
+	public static final int startingPoints = 16;
 
 	/** Whether Player has constract **/
 	public boolean hasContract = false; // $codepro.audit.disable instanceFieldVisibility

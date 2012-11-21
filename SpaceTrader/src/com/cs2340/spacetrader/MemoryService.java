@@ -1,4 +1,4 @@
-// $codepro.audit.disable questionableAssignment
+// $codepro.audit.disable questionableAssignment, booleanMethodNamingConvention
 /**
  * Contains MemoryService class
  */

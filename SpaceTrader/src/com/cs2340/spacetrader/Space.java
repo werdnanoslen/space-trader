@@ -1,3 +1,4 @@
+// $codepro.audit.disable com.instantiations.assist.eclipse.analysis.unusedReturnValue
 /**
  * Contains the class Space
  */
@@ -49,10 +50,10 @@ public class Space extends Activity {
 		currentPlanet = GameSetup.theMap.getPlanet(ship.getPlanetName());
 
 		// Fields
-		ProgressBar fuelBar = (ProgressBar) findViewById(R.id.bar_fuel_level);
-		TextView name = (TextView) findViewById(R.id.current_planet);
-		TextView techLevel = (TextView) findViewById(R.id.tech_level);
-		int[] coordinates = currentPlanet.getCoordinate();
+		final ProgressBar fuelBar = (ProgressBar) findViewById(R.id.bar_fuel_level);
+		final TextView name = (TextView) findViewById(R.id.current_planet);
+		final TextView techLevel = (TextView) findViewById(R.id.tech_level);
+		final int[] coordinates = currentPlanet.getCoordinate();
 
 		// Set values of fields
 		fuelBar.setMax(ship.getFuelCapacity());
@@ -79,7 +80,6 @@ public class Space extends Activity {
 		return true;
 	}
 
-	
 	/**
 	 * Populates the save/close menu
 	 * 
@@ -92,7 +92,7 @@ public class Space extends Activity {
 		case R.id.save_game:
 			item.setEnabled(false);
 			item.setTitle("Saving");
-			SaveState state = new SaveState(GameSetup.thePlayer,
+			final SaveState state = new SaveState(GameSetup.thePlayer,
 					GameSetup.theMap);
 			if (MemoryService.saveGame(state, this)) {
 				Toast.makeText(this, "Game saved successfully",
@@ -105,7 +105,7 @@ public class Space extends Activity {
 			item.setEnabled(true);
 			return true;
 		case R.id.quit_game:
-			Intent intent = new Intent(this, Launcher.class);
+			final Intent intent = new Intent(this, Launcher.class);
 			startActivity(intent);
 			return true;
 		default:
@@ -119,7 +119,7 @@ public class Space extends Activity {
 	 * @param view
 	 */
 	public void changeDestination(View view) {
-		Intent intent = new Intent(this, SelectPlanet.class);
+		final Intent intent = new Intent(this, SelectPlanet.class);
 		startActivity(intent);
 	}
 
@@ -129,7 +129,7 @@ public class Space extends Activity {
 	 * @param view
 	 */
 	public void startPlanetView(View view) {
-		Intent intent = new Intent(this, PlanetView.class);
+		final Intent intent = new Intent(this, PlanetView.class);
 		startActivity(intent);
 	}
 
@@ -139,7 +139,7 @@ public class Space extends Activity {
 	 * @param view
 	 */
 	public void testEncounter(View view) {
-		Intent intent = new Intent(this, EncounterView.class);
+		final Intent intent = new Intent(this, EncounterView.class);
 		startActivity(intent);
 	}
 
@@ -149,7 +149,7 @@ public class Space extends Activity {
 	 * @param view
 	 */
 	public void startShipView(View view) {
-		Intent intent = new Intent(Space.this, ShipInventoryView.class);
+		final Intent intent = new Intent(Space.this, ShipInventoryView.class);
 		startActivity(intent);
 	}
 	
@@ -157,6 +157,7 @@ public class Space extends Activity {
 	 * retuns details of ship and planet.
 	 * @return ship and planet
 	 */
+	@Override
 	public String toString(){
 		return (ship.toString() + " on " + currentPlanet.toString());
 	}
