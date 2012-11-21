@@ -108,7 +108,7 @@ public class Contract implements Serializable{
 	/**
 	 * Add money to player inventory, reset states
 	 */
-	private void contractComplete(){
+	public void contractComplete(){
 		GameSetup.thePlayer.getship().getInventory().deltaMoney(reward);
 		GameSetup.thePlayer.hasContract = false;
 	}

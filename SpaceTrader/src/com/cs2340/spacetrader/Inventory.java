@@ -1,7 +1,7 @@
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
 
 public class Inventory implements Serializable
 {
