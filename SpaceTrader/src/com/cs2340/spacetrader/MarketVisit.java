@@ -70,7 +70,7 @@ public class MarketVisit implements Serializable
 		 */
 		public int priceAtWhichPlanetBuys(Good good)
 		{
-			if (inventory.contains(good)) 
+			if (inventory.hasGood(good)) 
 			{
 				int sellPrice = good.importPriceforPlanet(planet.getNTechLevel());
 				int price = (int)(0.9*((double)sellPrice));
@@ -118,7 +118,7 @@ public class MarketVisit implements Serializable
 		 */
 		public boolean willPlanetSell(Good good)
 		{
-			return (inventory.contains(good));
+			return (inventory.hasGood(good));
 		}
 		
 		/**
