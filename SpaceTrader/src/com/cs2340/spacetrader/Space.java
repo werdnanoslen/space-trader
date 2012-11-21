@@ -10,10 +10,29 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * An object of this class acts as the user interface screen that displays game details 
+ * like the current planet, its detailsa and fuel level
+ * 
+ * @author The Droids You Are Looking For
+ * @version 1.0
+ */
 public class Space extends Activity {
+	
+	/**
+	 * instance varialble for ship object
+	 */
 	private Ship ship;
+	
+	/**
+	 * instance variable for the planet that is being currently visited.
+	 */
 	private Planet currentPlanet;
 
+	/**
+	 * runs at the creation of the new Activity, sets up initial state.
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,12 +61,25 @@ public class Space extends Activity {
 		// http://stackoverflow.com/questions/2736389/how-to-pass-object-from-one-activity-to-another-in-android
 	}
 
+	/**
+	 * Set's up the menu layout
+	 * 
+	 * @param menu
+	 * @return boolean on sucessful create
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_options, menu);
 		return true;
 	}
 
+	
+	/**
+	 * Populates the save/close menu
+	 * 
+	 * @param item
+	 * @return boolean on successful run
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
