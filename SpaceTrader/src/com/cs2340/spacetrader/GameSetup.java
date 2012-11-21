@@ -49,13 +49,13 @@ public class GameSetup extends Activity {
 		NumberPicker pilotLevel = (NumberPicker) findViewById(R.id.pilotLevel);
 		NumberPicker engineerLevel = (NumberPicker) findViewById(R.id.engineerLevel);
 		NumberPicker fighterLevel = (NumberPicker) findViewById(R.id.fighterLevel);
-		traderLevel.setMaxValue(Player.startingPoints);
+		traderLevel.setMaxValue(Player.STARTINGPOINTS);
 		traderLevel.setMinValue(0);
-		pilotLevel.setMaxValue(Player.startingPoints);
+		pilotLevel.setMaxValue(Player.STARTINGPOINTS);
 		pilotLevel.setMinValue(0);
-		engineerLevel.setMaxValue(Player.startingPoints);
+		engineerLevel.setMaxValue(Player.STARTINGPOINTS);
 		engineerLevel.setMinValue(0);
-		fighterLevel.setMaxValue(Player.startingPoints);
+		fighterLevel.setMaxValue(Player.STARTINGPOINTS);
 		fighterLevel.setMinValue(0);
 	}
 
@@ -110,10 +110,10 @@ public class GameSetup extends Activity {
 		int fLevel = fighterLevel.getValue();
 		int levels = traderLevel.getValue() + pilotLevel.getValue()
 				+ engineerLevel.getValue() + fighterLevel.getValue();
-		if (levels > Player.startingPoints) {
+		if (levels > Player.STARTINGPOINTS) {
 			Toast.makeText(this, R.string.too_high_error, Toast.LENGTH_LONG)
 					.show();
-		} else if (levels < Player.startingPoints) {
+		} else if (levels < Player.STARTINGPOINTS) {
 			Toast.makeText(this, R.string.too_low_error, Toast.LENGTH_LONG)
 					.show();
 		} else {

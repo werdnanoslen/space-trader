@@ -194,13 +194,13 @@ public class SpaceTraderExampleTest extends TestCase {
 
 	public void testAdd(){
 		Inventory list = new Inventory();
-		Assert.assertEquals(list.goods.length, 0); // tests successful creation of Inventory object.
+		Assert.assertEquals(list.goods.size(), 0); // tests successful creation of Inventory object.
 		Good good1 = new Good ("testGood", 0, 0, 0,
 				10, 1, 0, true);
 		list.add (good1, 1);
-		Assert.assertEquals(list.goods.length, 1); // tests that the the new good is being added after creation of a GoodData object, since it doesn't exist yet.
+		Assert.assertEquals(list.goods.size(), 1); // tests that the the new good is being added after creation of a GoodData object, since it doesn't exist yet.
 		list.add(good1, 1);
-		Assert.assertEquals(list.goods.length, 1); // tests that a new GoodData object is not created, since one already exists
+		Assert.assertEquals(list.goods.size(), 1); // tests that a new GoodData object is not created, since one already exists
 												   // ensures branch coverage for the Inventory.add() method.
 	}
 	

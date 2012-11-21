@@ -1,17 +1,12 @@
 package com.cs2340.spacetrader.test;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import com.cs2340.spacetrader.Ship;
-
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-public class shipTest {
+import com.cs2340.spacetrader.Ship;
 
-	@Test
+public class shipTest extends TestCase{
+
 	public final void testDeltaFuel() {
 		Ship aShip = new Ship(5000,10, "Walter");
 		//Test Lower Bound Checking
