@@ -270,8 +270,8 @@ public class Ship implements Serializable
 		FORCE("Force Field",5),
 		TEMPORAL("Temporal Evasion",20);
 		
-		final String name;
-		final int power;
+		private final String name;
+		private final int power;
  
 		private Armor(String name,final int power)
 		{
@@ -294,7 +294,7 @@ public class Ship implements Serializable
 			return (int) Math.pow(power, 2)*500;
 		}
 		 
-		private static Armor nextArmor(int armorLevel)
+		public static Armor nextArmor(int armorLevel)
 		{
 			 return Armor.values()[armorLevel];
 		}
