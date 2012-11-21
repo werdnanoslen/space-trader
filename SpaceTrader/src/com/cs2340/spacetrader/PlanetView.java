@@ -20,12 +20,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PlanetView extends FragmentActivity{
+public class PlanetView extends FragmentActivity
+{
 	private Context context = this;
 	public Contract contract;
 	
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,10 +45,12 @@ public class PlanetView extends FragmentActivity{
         name.setText(GameSetup.thePlayer.getship().getPlanetName());
         
         Button contractButton = (Button) findViewById(R.id.planet_button_contract);
-        if (GameSetup.thePlayer.hasContract){        	
+        if (GameSetup.thePlayer.hasContract)
+        {        	
         	contractButton.setEnabled(false);
         }
-        else{
+        else
+        {
         	contractButton.setEnabled(true);
         }
     }
@@ -61,7 +65,8 @@ public class PlanetView extends FragmentActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) 
     {
-        switch (item.getItemId()) {
+        switch (item.getItemId())
+        {
             case R.id.save_game:
             	item.setEnabled(false);
             	item.setTitle("Saving");
@@ -129,7 +134,8 @@ public class PlanetView extends FragmentActivity{
      * Displays a dialog to accept or reject a contract
      * @param view
      */
-    public void lookForContract(View view){
+    public void lookForContract(View view)
+    {
     	createContract();
     	
     	FragmentManager fm = getSupportFragmentManager();
@@ -138,7 +144,8 @@ public class PlanetView extends FragmentActivity{
         editNameDialog.show(fm, "fragment_contract");
     }
     
-    public void refuel(View view){
+    public void refuel(View view)
+    {
     	GameSetup.thePlayer.getship().refuel();
     	Toast.makeText(this, "Ship Refueled", Toast.LENGTH_SHORT).show();
     }
@@ -148,31 +155,36 @@ public class PlanetView extends FragmentActivity{
      * @author David
      *
      */
-    private class ContractFragment extends DialogFragment {
+    private class ContractFragment extends DialogFragment
+    {
     	public String dialog = "";
         @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the Builder class for convenient dialog construction
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            
-            builder.setTitle(R.string.contract_title);
-            builder.setMessage(dialog);
-            builder.setPositiveButton(R.string.contract_accept, new DialogInterface.OnClickListener() {
-                       public void onClick(DialogInterface dialog, int id) {
-                    	   	GameSetup.thePlayer.hasContract = true;
-                       		GameSetup.thePlayer.setContract(contract);
-                       		Button contractButton = (Button) findViewById(R.id.planet_button_contract);
-                       		contractButton.setEnabled(false);
-                       		Toast.makeText(context, "You've accepted the contract", Toast.LENGTH_LONG).show();
-                       }
-                   })
-                   .setNegativeButton(R.string.contract_decline, new DialogInterface.OnClickListener() {
-                       public void onClick(DialogInterface dialog, int id) {
-                           // User cancelled the dialog
-                       }
-                   });
-            // Create the AlertDialog object and return it
-            return builder.create();
+        public Dialog onCreateDialog(Bundle savedInstanceState)
+        {
+	        // Use the Builder class for convenient dialog construction
+	        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+	        
+	        builder.setTitle(R.string.contract_title);
+	        builder.setMessage(dialog);
+	        builder.setPositiveButton(R.string.contract_accept, new DialogInterface.OnClickListener()
+	        {
+			    public void onClick(DialogInterface dialog, int id)
+			    {
+				   	GameSetup.thePlayer.hasContract = true;
+			   		GameSetup.thePlayer.setContract(contract);
+			   		Button contractButton = (Button) findViewById(R.id.planet_button_contract);
+			   		contractButton.setEnabled(false);
+			   		Toast.makeText(context, "You've accepted the contract", Toast.LENGTH_LONG).show();
+			    }
+	        }).setNegativeButton(R.string.contract_decline, new DialogInterface.OnClickListener()
+	        {
+	            public void onClick(DialogInterface dialog, int id)
+	            {
+	            	// User cancelled the dialog
+	            }
+	        });
+	        // Create the AlertDialog object and return it
+	        return builder.create();
         }
     }
 }

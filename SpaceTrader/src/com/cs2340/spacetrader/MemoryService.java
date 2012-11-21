@@ -38,7 +38,8 @@ import android.content.Context;
  * @see SaveState, Toast
  */
 
-public class MemoryService {
+public class MemoryService
+{
 	
 	private static final String FILENAME = "savedSpaceTrader";
 	
@@ -48,29 +49,31 @@ public class MemoryService {
 	 * @param context
 	 * @return boolean
 	 */
-	public static boolean saveGame(SaveState state, Context context){
-		
+	public static boolean saveGame(SaveState state, Context context)
+	{
 		FileOutputStream fos;
-		try {
+		try
+		{
 			fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-			try {
+			try
+			{
 				ObjectOutputStream objStream = new ObjectOutputStream(fos);
 				objStream.writeObject(state);
 				fos.close();
 				objStream.close();
-				return true; // return true because the saving has occurred without any exceptions being thrown.
-				
+				return true; // return true because the saving has occurred without any exceptions being thrown.	
 			} 
-			catch (IOException e) {
+			catch (IOException e)
+			{
 				e.printStackTrace();
 				return false;
 			}
 		} 
-		catch (FileNotFoundException e) {
+		catch (FileNotFoundException e)
+		{
 			e.printStackTrace();
 			return false;
 		}
-		
 	}
 	
 	/**
@@ -86,35 +89,40 @@ public class MemoryService {
 	 * @return boolean
 	 */
 	
-	public static boolean loadGame(SaveState state, Context context){
+	public static boolean loadGame(SaveState state, Context context)
+	{
 		FileInputStream fis;
-		try {
+		try 
+		{
 			fis = context.openFileInput(FILENAME);
-			try {
+			try
+			{
 				ObjectInputStream objStream = new ObjectInputStream(fis);
-				try {
+				try
+				{
 					state = (SaveState) objStream.readObject();
 					fis.close();
 					objStream.close();
 					return true; // return true because the saving has occurred without any exceptions being thrown.
 				} 
-				catch (ClassNotFoundException e) {
+				catch (ClassNotFoundException e)
+				{
 					e.printStackTrace();
 					return false;
 				}
 				
 				
 			} 
-			catch (IOException e) {
+			catch (IOException e)
+			{
 				e.printStackTrace();
 				return false;
 			}
 		} 
-		catch (FileNotFoundException e) {
+		catch (FileNotFoundException e)
+		{
 			e.printStackTrace();
 			return false;
 		}
-
 	}
 }
-	

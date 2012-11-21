@@ -20,7 +20,8 @@ public class PlanetListAdapter extends ArrayAdapter<Planet>
 	public Planet data[] = null;
 
 	public PlanetListAdapter(Context context, int layoutResourceId,
-			Planet[] data) {
+			Planet[] data)
+	{
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;

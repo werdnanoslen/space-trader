@@ -3,7 +3,8 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.*;
 
-public class Planet implements Serializable {
+public class Planet implements Serializable
+{
 
 	private int[] coordinate;
 	private boolean marketBusy; // indicates whether a ship is presently visiting a market 
@@ -14,7 +15,8 @@ public class Planet implements Serializable {
 	private int nTechLevel; // numeric tech level for calculating good prices
 
 	public Planet(String name, int[] coord, PlanetInventory inventory,
-			Contract contract, int nTechLevel) {
+			Contract contract, int nTechLevel)
+	{
 		this.marketBusy = false;
 		this.coordinate = coord.clone();
 		this.inventory = inventory;
@@ -52,49 +54,54 @@ public class Planet implements Serializable {
 		}
 	}
 
-	public void setInventory(PlanetInventory inventory) {
+	public void setInventory(PlanetInventory inventory)
+	{
 		this.inventory = inventory;
 	}
 
-	public PlanetInventory getInventory() {
+	public PlanetInventory getInventory()
+	{
 		return inventory;
 	}
 
-	public Contract getContract() {
+	public Contract getContract()
+	{
 		return contract;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public String getTechLevel() {
+	public String getTechLevel()
+	{
 		return techLevel;
 	}
 
-/*	public void createContract() {
+/*	public void createContract()
+ 	{
 		// randomly generate contract here
 	}
 */
 
-	public int[] getCoordinate() {
+	public int[] getCoordinate()
+	{
 		return coordinate;
 	}
 
-	public int getNTechLevel() {
+	public int getNTechLevel()
+	{
 		return nTechLevel;
 	}
 	
-	public void setMarketBusy(boolean bool){
+	public void setMarketBusy(boolean bool)
+	{
 		marketBusy = bool;
 	}
 	
-	public boolean getMarketBusy(){
+	public boolean getMarketBusy()
+	{
 		return marketBusy;
 	}
-	
-	
 }
-
-
-

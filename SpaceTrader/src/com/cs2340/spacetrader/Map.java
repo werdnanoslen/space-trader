@@ -3,15 +3,21 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.*;
 
-public class Map implements Serializable{ 
+public class Map implements Serializable
+{ 
 	private Planet[] planetArray;
 	
-	public Map(){
+	public Map()
+	{
 		planetArray = generatePlanetArray();
-
 	}
 	
-	public final Planet[] generatePlanetArray(){
+	/**
+	 * Generates all the planets on the map
+	 * @return array of planet objects
+	 */
+	public final Planet[] generatePlanetArray()
+	{
 		Random rand = new Random();
 		PlanetInventory inventory = new PlanetInventory(7);
 		Contract contract = new Contract();
@@ -47,7 +53,8 @@ public class Map implements Serializable{
 		return planetArray;
 	}
 	
-	public Planet[] getPlanetArray(){
+	public Planet[] getPlanetArray()
+	{
 		return planetArray;
 	}
 	
@@ -57,9 +64,10 @@ public class Map implements Serializable{
 		for (int i=0;i<numel;i++)
 		{
 			if (planetArray[i].getName().equals(name))
+			{
 				return planetArray[i];		
+			}
 		}
 		return null;
 	}
-	
 }
