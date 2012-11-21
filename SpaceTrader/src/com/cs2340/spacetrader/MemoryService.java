@@ -1,4 +1,7 @@
 // $codepro.audit.disable questionableAssignment
+/**
+ * Contains MemoryService class
+ */
 package com.cs2340.spacetrader;
 
 import java.io.FileInputStream;

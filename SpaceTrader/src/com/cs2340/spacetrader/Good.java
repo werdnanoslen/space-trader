@@ -1,4 +1,7 @@
 // $codepro.audit.disable variableShouldBeFinal, lossOfPrecisionInCast
+/**
+ * Contains Good class
+ */
 package com.cs2340.spacetrader; // $codepro.audit.disable packageNamingConvention
 
 import java.io.Serializable;

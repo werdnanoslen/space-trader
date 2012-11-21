@@ -1,4 +1,8 @@
 // $codepro.audit.disable booleanMethodNamingConvention
+/**
+ * Contains Planet class
+ */
+
 package com.cs2340.spacetrader;
 
 import java.io.Serializable;
@@ -53,7 +57,7 @@ public class Planet implements Serializable {
 		this.nTechLevel = nTechLevel;
 		switch (nTechLevel) {
 		case 0:
-			techLevel = "Pre-Agriculture";
+			techLevel = "Pre-Agriculture"; // $codepro.audit.disable
 			break;
 		case 1:
 			techLevel = "Agriculture";
