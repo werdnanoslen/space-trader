@@ -8,7 +8,6 @@ public class PlanetInventory extends Inventory implements Serializable
 	
 	public PlanetInventory(int techLevel)
 	{
-		super();
 		this.planetTechLevel = techLevel;
 	}
 	

@@ -12,7 +12,7 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 public class GameSetup extends Activity {
-	public final static String PLAYA = "com.example.myfirstapp.PLAYA";
+	public static final String PLAYA = "com.example.myfirstapp.PLAYA";
 	public static Player thePlayer;
 	public static Map theMap;
     @Override
@@ -42,10 +42,9 @@ public class GameSetup extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
+        if (item.getItemId() == android.R.id.home) {
                 NavUtils.navigateUpFromSameTask(this);
-                return true;
+                return true;          	
         }
         return super.onOptionsItemSelected(item);
     }

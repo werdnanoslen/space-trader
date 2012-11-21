@@ -47,7 +47,7 @@ public class MarketVisit implements Serializable {
 				return price;
 			}
 			
-			else if (willPlanetBuy(good) == true) // planet will buy but does not produce
+			else if (willPlanetBuy(good)) // planet will buy but does not produce
 				return good.importPriceforPlanet(planet.getNTechLevel());
 			else // if planet will not buy
 				return -1;
@@ -80,7 +80,7 @@ public class MarketVisit implements Serializable {
 		 * returns -1 if planet does not sell
 		 */
 		public int priceAtWhichPlanetSells(Good good){
-			if (willPlanetSell(good) == true){
+			if (willPlanetSell(good)){
 				GoodData goodDetails = inventory.getGoodFromInventory(good);
 				int price = goodDetails.getGood().importPriceforPlanet(planet.getNTechLevel());
 				return price;
@@ -99,7 +99,7 @@ public class MarketVisit implements Serializable {
 			int capacityNeeded = quantity; // 1 quantity of any object takes up 1 capacity. This may not be realistic but I thought this is enough for our purpose.
 			int planetQuantity = inventory.getGoodFromInventory(good).getQuantity();
 			
-			if (willPlanetSell(good) == true && moneyNeeded <= shipInventory.getMoneyLeft() && capacityNeeded <= shipInventory.getCapacityLeft() && planetQuantity >= quantity){
+			if (willPlanetSell(good) && moneyNeeded <= shipInventory.getMoneyLeft() && capacityNeeded <= shipInventory.getCapacityLeft() && planetQuantity >= quantity){
 				shipInventory.add(good, quantity);
 				shipInventory.deltaMoney(-1*price);
 				shipInventory.deltaCapacity(-1*quantity);

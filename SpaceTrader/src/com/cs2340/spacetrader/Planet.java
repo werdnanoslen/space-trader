@@ -21,31 +21,34 @@ public class Planet implements Serializable {
 		this.name = name;
 		this.contract = contract;
 		this.nTechLevel = nTechLevel;
-		switch (nTechLevel) {
-		case 0:
-			techLevel = "Pre-Agriculture";
-			break;
-		case 1:
-			techLevel = "Agriculture";
-			break;
-		case 2:
-			techLevel = "Medieval";
-			break;
-		case 3:
-			techLevel = "Renaissance";
-			break;
-		case 4:
-			techLevel = "Early Industrial";
-			break;
-		case 5:
-			techLevel = "Industrial";
-			break;
-		case 6:
-			techLevel = "Post-Industrial";
-			break;
-		case 7:
-			techLevel = "Hi-Tech";
-			break;
+		switch (nTechLevel) 
+		{
+			case 0:
+				techLevel = "Pre-Agriculture";
+				break;
+			case 1:
+				techLevel = "Agriculture";
+				break;
+			case 2:
+				techLevel = "Medieval";
+				break;
+			case 3:
+				techLevel = "Renaissance";
+				break;
+			case 4:
+				techLevel = "Early Industrial";
+				break;
+			case 5:
+				techLevel = "Industrial";
+				break;
+			case 6:
+				techLevel = "Post-Industrial";
+				break;
+			case 7:
+				techLevel = "Hi-Tech";
+				break;
+			default:
+				techLevel = "undefined";
 		}
 	}
 

@@ -19,10 +19,6 @@ public class Contract implements Serializable{
 	private String reqGood;
 	private int reqAmount;
 	
-	public Contract(){
-		//generateContract();
-	}
-	
 	/**
 	 * Generate the fields of the contract randomly
 	 */

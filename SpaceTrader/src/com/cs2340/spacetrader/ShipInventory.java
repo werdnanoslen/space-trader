@@ -9,7 +9,6 @@ public class ShipInventory extends Inventory implements Serializable {
 	private int capacityMax;
 	
 	public ShipInventory(int initialMoney,int initialCapacity) {
-		super();
 		this.moneyLeft = initialMoney;
 		this.capacityLeft = initialCapacity;
 		this.capacityMax = initialCapacity;

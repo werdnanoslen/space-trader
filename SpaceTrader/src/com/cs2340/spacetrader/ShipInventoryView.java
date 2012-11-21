@@ -67,7 +67,7 @@ public class ShipInventoryView extends Activity {
         private ArrayList<GoodData> goodArray;
         private Context context;
 
-        public ShipInventoryAdapter(Context context, int textViewResourceId, ShipInventory sInventory) {
+        private ShipInventoryAdapter(Context context, int textViewResourceId, ShipInventory sInventory) {
                 super(context, textViewResourceId, sInventory.goods);
                 goodArray = sInventory.goods;
                 this.context = context;

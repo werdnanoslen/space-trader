@@ -98,9 +98,7 @@ public class TradeView extends Activity
     	public int shipAmount;
     	
     	
-    	public GoodInfo(){
-    		super();
-    		
+    	public GoodInfo(){    		
     	}
     	
     	public GoodInfo(String name){
