@@ -5,7 +5,6 @@ import java.util.Random;
 
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 
 public class Contract implements Serializable{
 	private String destination;

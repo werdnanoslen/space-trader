@@ -3,8 +3,6 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.Random;
 
-import android.util.Log;
-
 //import android.util.Log;
 
 public class Good implements Serializable

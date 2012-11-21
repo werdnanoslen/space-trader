@@ -94,8 +94,8 @@ public class UpgradeShipView extends Activity
     {
     	cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
     	
-    	int armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
-    	int gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
+    	armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
+    	gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
     	
     	upgradeArmorButton.setText("Upgrade armor to \n" + GameSetup.thePlayer.getship().armorUpgradeName() + " ($" + armorPrice + ")");
     	upgradeGunsButton.setText("Upgrade guns to \n" + GameSetup.thePlayer.getship().wepUpgradeName() + " ($" + gunsPrice + ")");
