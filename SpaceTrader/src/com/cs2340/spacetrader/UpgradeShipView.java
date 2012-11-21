@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 /**
  * Activity that allows players to upgrade their ship
- * @author Alex
+ * @author The Droids You Are Looking For
  *
  */
 public class UpgradeShipView extends Activity
@@ -27,12 +27,22 @@ public class UpgradeShipView extends Activity
 	
 	/** price of armor */
 	private int armorPrice;
+	
+	/**  price of guns **/
 	private int gunsPrice;
 	
+	/** view used to display player's cash**/
 	private TextView cashDisplay;
+	
+	/** button used to upgrade armor**/
 	private Button upgradeArmorButton;
+	
+	/** button used to upgrade guns**/
 	private Button upgradeGunsButton;
 	
+	/**
+	 * Initializes things after being created by intent
+	 */
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -60,6 +70,9 @@ public class UpgradeShipView extends Activity
         updatePrices();
     }
     
+    /**
+     * Initializes things when options menu is asked to be created
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) 
     {
@@ -67,6 +80,10 @@ public class UpgradeShipView extends Activity
         return true;
     }
     
+    /**
+     * This too is a method
+     * @return success of action
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) 
     {
