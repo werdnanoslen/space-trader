@@ -37,7 +37,7 @@ public class Good implements Serializable
 	public void resetPrice(int planetTechLvl)
 	{
 		Random rand = new Random();
-		int variance = rand.nextInt(var * 2) - var;
+		int variance = rand.nextInt(var << 1) - var;
 
 		price = basePrice + Math.abs(planetTechLvl - minProd) * incPerLvl
 				+ basePrice * (variance) / 100;
