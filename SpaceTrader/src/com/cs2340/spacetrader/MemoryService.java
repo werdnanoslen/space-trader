@@ -1,3 +1,4 @@
+// $codepro.audit.disable questionableAssignment
 package com.cs2340.spacetrader;
 
 import java.io.FileInputStream;
@@ -43,7 +44,10 @@ import android.content.Context;
  */
 
 public class MemoryService {
-
+	
+	/**
+	 * the name of the file that holds the saved games.
+	 */
 	private static final String FILENAME = "savedSpaceTrader";
 
 	/**
@@ -55,11 +59,12 @@ public class MemoryService {
 	 * @return boolean
 	 */
 	public static boolean saveGame(SaveState state, Context context) {
-		FileOutputStream fos;
+		final FileOutputStream fos;
 		try {
 			fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
 			try {
-				ObjectOutputStream objStream = new ObjectOutputStream(fos);
+				final ObjectOutputStream objStream;
+				objStream = new ObjectOutputStream(fos);
 				objStream.writeObject(state);
 				fos.close();
 				objStream.close();
@@ -93,11 +98,11 @@ public class MemoryService {
 	 */
 
 	public static boolean loadGame(SaveState state, Context context) {
-		FileInputStream fis;
+		final FileInputStream fis;
 		try {
 			fis = context.openFileInput(FILENAME);
 			try {
-				ObjectInputStream objStream = new ObjectInputStream(fis);
+				final ObjectInputStream objStream = new ObjectInputStream(fis);
 				try {
 					state = (SaveState) objStream.readObject();
 					fis.close();
@@ -117,5 +122,13 @@ public class MemoryService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	/**
+	 * returns the name of the file used to save a game.
+	 * @return FILENAME
+	 */
+	public String toString(){
+		return FILENAME;
 	}
 }
