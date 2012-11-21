@@ -50,7 +50,7 @@ public class MarketVisit implements Serializable
 		 */
 		public ArrayList<GoodData> getGoodsList()
 		{
-			return inventory.getListofGoods();
+			return (ArrayList<GoodData>) inventory.getListofGoods();
 		}
 		
 		/**
