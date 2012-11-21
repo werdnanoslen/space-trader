@@ -47,10 +47,12 @@ public class MarketVisit implements Serializable {
 				return price;
 			}
 			
-			else if (willPlanetBuy(good)) // planet will buy but does not produce
+			else if (willPlanetBuy(good)){ // planet will buy but does not produce
 				return good.importPriceforPlanet(planet.getNTechLevel());
-			else // if planet will not buy
+			}
+			else{ // if planet will not buy
 				return -1;
+			}
 		}
 		/*
 		 *  returns false if planet will not buy a good or ship is trying to sell more than you have or you haven't checked in to the market. if sale is complete, it returns true.

@@ -72,9 +72,10 @@ public class Planet implements Serializable {
 		return techLevel;
 	}
 
-	public void createContract() {
+/*	public void createContract() {
 		// randomly generate contract here
 	}
+*/
 
 	public int[] getCoordinate() {
 		return coordinate;

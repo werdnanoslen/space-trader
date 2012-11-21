@@ -3,9 +3,12 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.Random;
 
-import android.content.Context;
-import android.widget.Toast;
-//planet
+//import android.content.Context;
+//import android.widget.Toast;
+/**
+ * @class Ship - Represents the player's ship inside the game, holds inventory and fuel
+ * 
+ */
 public class Ship implements Serializable {
 	private ShipInventory inventory;
 	private String planetName;
@@ -64,10 +67,12 @@ public class Ship implements Serializable {
 		int newFuel = this.fuel-fuelAmount;
 		if (newFuel < 0)
 			this.fuel=0;
-		else if (newFuel > this.fuelCapacity)
+		else if (newFuel > this.fuelCapacity) {
 			this.fuel = this.fuelCapacity;
-		else
+		}
+		else{
 			this.fuel = newFuel;
+		}
 	}
 	
 	//TODO - implement buying individual units of fuel and cost for it
@@ -166,7 +171,7 @@ public class Ship implements Serializable {
 	
 	private int fuelMetric(int deltaX, int deltaY)
 	{
-		int squaredCost = (int) (Math.pow((int)deltaX,2)+ Math.pow((int)deltaY, 2));
+		int squaredCost = (int) (Math.pow(deltaX,2) + Math.pow(deltaY, 2));
 		return (int) Math.round(Math.sqrt(squaredCost));
 	}
 	
@@ -203,10 +208,10 @@ public class Ship implements Serializable {
 	}
 
 	private enum Weapons {
-		Blaster("Blaster Pistol",1),
-		Gat("Gattling Guns",3),
-		Photon("Photon Torpedos",5),
-		Antimatter("Antimatter",11);
+		BLASTER("Blaster Pistol",1),
+		GAT("Gattling Guns",3),
+		PHOTON("Photon Torpedos",5),
+		ANTIMATTER("Antimatter",11);
 		
 		 public final String name;
 		 public final int power;
@@ -220,24 +225,24 @@ public class Ship implements Serializable {
 			 return name;
 		 }
 		 
-		 int getPower() {
+		 public int getPower() {
 			 return power;
 		 }
 		 
-		 int getPrice() {
+		 public int getPrice() {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 
-		 static Weapons nextWeapon(int weaponLevel) {
+		 public static Weapons nextWeapon(int weaponLevel) {
 		 	return Weapons.values()[weaponLevel];
 		 }
 	}
 	
 	private enum Armor {
-		Trashcans("Old Trashcans",1),
-		Steel("Steel Plates",4),
-		Force("Force Field",5),
-		Temporal("Temporal Evasion",20);
+		TRASHCANS("Old Trashcans",1),
+		STEEL("Steel Plates",4),
+		FORCE("Force Field",5),
+		TEMPORAL("Temporal Evasion",20);
 		
 		 final String name;
 		 final int power;
