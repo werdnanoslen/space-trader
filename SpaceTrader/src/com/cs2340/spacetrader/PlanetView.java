@@ -30,8 +30,6 @@ public class PlanetView extends FragmentActivity
         setContentView(R.layout.activity_planet);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         
-        Resources rs = getResources();
-        LinearLayout pv = (LinearLayout) findViewById(R.id.planet_layout);
         /*if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2){
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
