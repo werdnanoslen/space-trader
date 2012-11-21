@@ -176,11 +176,19 @@ public class MarketVisit implements Serializable
 			planet.setMarketBusy(false);
 		}
 		
+		/**
+		 * getter method for planet inventory
+		 * @return planetInventory
+		 */
 		public PlanetInventory getPlanetInventory()
 		{
 			return inventory;
 		}
 		
+		/**
+		 * getter method for shipInventory
+		 * @return shipInventory
+		 */
 		public ShipInventory getShipInventory()
 		{
 			return shipInventory;
