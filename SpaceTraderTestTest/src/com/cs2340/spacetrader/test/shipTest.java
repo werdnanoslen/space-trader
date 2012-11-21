@@ -2,9 +2,9 @@ package com.cs2340.spacetrader.test;
 
 import static org.junit.Assert.*;
 
-import com.cs2340.spacetrader.Ship;
-
 import org.junit.Test;
+
+import com.cs2340.spacetrader.Ship;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -27,7 +27,4 @@ public class shipTest {
 		aShip.deltaFuel(-200);
 		Assert.assertEquals(100, aShip.getFuel());
 	}
-
 }
-
-
