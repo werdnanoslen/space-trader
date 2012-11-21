@@ -88,7 +88,6 @@ public class TradeView extends Activity
     /**
      * This class serves as a data holder class to pass into TradeAdapter
      * @author David
-     *
      */
     public class GoodInfo
     {
@@ -138,6 +137,10 @@ public class TradeView extends Activity
         tradeList.setAdapter(adapter);
     }
     
+    /**
+     * Initiates buy action sequence
+     * @param goodName
+     */
     public void buy(String goodName)
     {
     	//quick weedouts
@@ -151,6 +154,10 @@ public class TradeView extends Activity
     	refreshDisplays();
     }
     
+    /**
+     * Initiates sell action sequence
+     * @param goodName
+     */
     public void sell(String goodName)
     {
     	//quick weedout
@@ -162,6 +169,10 @@ public class TradeView extends Activity
     	refreshDisplays();
     }
     
+    /**
+     * Moves player to Planet screen
+     * @param view
+     */
     public void gotoPlanet(View view)
     {
     	Intent intent = new Intent(TradeView.this, PlanetView.class);

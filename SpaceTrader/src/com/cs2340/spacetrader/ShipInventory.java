@@ -41,6 +41,9 @@ public class ShipInventory extends Inventory implements Serializable
 		capacityLeft += delta;
 	}
 
+	/**
+	 * Removes goods from inventory that fail getLegal check
+	 */
 	public void removeIllicitGoods() 
 	{
 		ArrayList<GoodData> goods = this.getListofGoods();
@@ -55,6 +58,10 @@ public class ShipInventory extends Inventory implements Serializable
 		}	
 	}
 	
+	/**
+	 * Determines the price of a bribe to police encounters
+	 * @return price of bribe
+	 */
 	public int priceBribe() 
 	{
 		ArrayList<GoodData> goods = this.getListofGoods();

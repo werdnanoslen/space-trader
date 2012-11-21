@@ -11,8 +11,9 @@ public class PlanetInventory extends Inventory implements Serializable
 		this.planetTechLevel = techLevel;
 	}
 	
-	// On each new visit to the planet's market, the planet's inventory gets changed 
-	// is different as a result of trade with other ships.
+	/**
+	 *  On each new visit to the planet's market, the planet's inventory gets changed 
+	 */
 	public void regenerateInventory()
 	{ 
 		for (int i = 0; i < Good.getDataList().length; i++)

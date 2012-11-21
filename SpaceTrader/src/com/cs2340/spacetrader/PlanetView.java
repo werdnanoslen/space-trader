@@ -144,6 +144,10 @@ public class PlanetView extends FragmentActivity
         editNameDialog.show(fm, "fragment_contract");
     }
     
+    /**
+     * Refuels the ship
+     * @param view
+     */
     public void refuel(View view)
     {
     	GameSetup.thePlayer.getship().refuel();
