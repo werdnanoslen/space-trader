@@ -50,19 +50,25 @@ public class Ship implements Serializable
 		return inventory;
 	}
 	
-	/**getter method for the ship's name**/
+	/**getter method for the ship's name
+	 * @return planetName
+	 **/
 	public String getPlanetName()
 	{
 		return planetName;
 	}
 	
-	/**getter method for the ship's fuel**/
+	/**getter method for the ship's fuel
+	 * @return ship's fuel
+	 **/
 	public int getFuel()
 	{
 		return fuel;
 	}
 
-	/** getter method for the ship's fuel capacity**/
+	/** getter method for the ship's fuel capacity
+	 *@return ship's fuel capacity
+	 **/
 	public int getFuelCapacity()
 	{
 		return fuelCapacity;
@@ -80,12 +86,13 @@ public class Ship implements Serializable
 	
 	/** method for calculating fuel cost of moving to another planet
 	 * @param newPlanet - planet to be moved to
+	 * @return units of fuel needed to move
 	 **/
 	public int fuelCost(Planet newPlanet)
 	{
 		int[] destCoords = newPlanet.getCoordinate();
 		int[] currentCoords =  GameSetup.theMap.getPlanet(this.planetName).getCoordinate();
-		return fuelMetric((destCoords[0]-currentCoords[0]),(destCoords[1]-currentCoords[1]));
+		return fuelMetric((destCoords[0] - currentCoords[0]),(destCoords[1] - currentCoords[1]));
 	}
 
 	/**method for adding or subtracting from current fuel level
@@ -93,7 +100,7 @@ public class Ship implements Serializable
 	**/
 	public void deltaFuel(int fuelAmount)
 	{
-		int newFuel = this.fuel-fuelAmount;
+		int newFuel = this.fuel - fuelAmount;
 		if (newFuel < 0)
 		{
 			this.fuel=0;
@@ -119,7 +126,7 @@ public class Ship implements Serializable
 	{
 		//TODO - check if there are any upgrades level
 		int cost = wepUpgradeCost();
-		weaponLevel = weaponLevel +1;
+		weaponLevel = weaponLevel + 1;
 		inventory.deltaMoney(-(cost));
 	}
 	
@@ -141,7 +148,7 @@ public class Ship implements Serializable
 	{
 		//TODO - check if there are any upgrades level
 		int cost = armorUpgradeCost();
-		armorLevel = armorLevel +1;
+		armorLevel = armorLevel + 1;
 		inventory.deltaMoney(-(cost));
 	}
 	
@@ -188,12 +195,12 @@ public class Ship implements Serializable
 		int val = generator.nextInt(100);
 		if (val > 49)
 		{
-			this.inventory.deltaMoney((val*25));
+			this.inventory.deltaMoney((val * 25));
 			return true;
 		}
 		else
 		{
-			this.inventory.deltaMoney(-(val*50));
+			this.inventory.deltaMoney(-(val * 50));
 			return false;
 		}
 	}
@@ -212,7 +219,7 @@ public class Ship implements Serializable
 		}
 		else 
 		{
-			this.inventory.deltaMoney(-(val*50));
+			this.inventory.deltaMoney(-(val * 50));
 			return false;
 		}
 		
@@ -221,6 +228,8 @@ public class Ship implements Serializable
 	/**
 	 * Returns an amount of fuel necessary to fly proportional to euclidean distance between planets
 	 * @return integer fuel cost
+	 * @param deltaX - distance in x direction between planets
+	 * @param deltaY - distance in y direction between planets
 	 */
 	private int fuelMetric(int deltaX, int deltaY)
 	{
@@ -243,7 +252,7 @@ public class Ship implements Serializable
 	 */
 	public String getWeaponName()
 	{
-		return Weapons.values()[weaponLevel-1].getName();
+		return Weapons.values()[weaponLevel - 1].getName();
 	}
 	
 	/**
@@ -261,7 +270,7 @@ public class Ship implements Serializable
 	 */
 	public String getArmorName()
 	{
-		return Armor.values()[armorLevel-1].getName();
+		return Armor.values()[armorLevel - 1].getName();
 	}
 
 	private enum Weapons
@@ -271,28 +280,44 @@ public class Ship implements Serializable
 		PHOTON("Photon Torpedos",5),
 		ANTIMATTER("Antimatter",11);
 		
+		/**name of the weapon**/
 		 public final String name;
+		 
+		 /**power of the weapon**/
 		 public final int power;
 		 
+		 /**Constructor for Weapons enum
+		  * @param name of weapon
+		  * @param power of weapon
+		  **/
 		 private Weapons(String name,final int power)
 		 {
 			 this.name =name;
 			 this.power=power;
 		 }
 		 
+		 /**
+		  * @return name of weapon
+		  * **/
 		 public String getName()
 		 {
 			 return name;
 		 }
 		 
+		 /** 
+		  * @return power of weapon
+		  **/
 		 public int getPower()
 		 {
 			 return power;
 		 }
 		 
+		 /**
+		  * @return returns price of next weapon upgrade
+		  * **/
 		 public int getPrice()
 		 {
-			 return (int) Math.pow(power, 2)*500;
+			 return (int) Math.pow(power, 2) * 500;
 		 }
 		 
 		 public static Weapons nextWeapon(int weaponLevel)
@@ -308,30 +333,51 @@ public class Ship implements Serializable
 		FORCE("Force Field",5),
 		TEMPORAL("Temporal Evasion",20);
 		
-		private final String name;
-		private final int power;
+		/**name of the armour**/
+		 public final String name;
+		 
+		 /**power of the armor**/
+		 public final int power;		
  
-		private Armor(String name,final int power)
+		 /**Constructor method for enum Armor type 
+		  * @param name - armor name
+		  * @param power - power of armour
+		 **/
+		private Armor(String name, final int power)
 		{
 			 this.name =name;
 			 this.power=power;
 		}
  
+		/**
+		 * @return name of the armor
+		 */
 		public String getName()
 		{
 			return name;
 		}
-		 
+
+		/**
+		 * @return power of the armor
+		 */
 		public int getPower()
 		{
 			return power;
 		}
 		 
+		/**
+		 * @return price of next armor upgrade
+		 */
 		public int getPrice()
 		{
-			return (int) Math.pow(power, 2)*500;
+			return (int) Math.pow(power, 2) * 500;
 		}
 		 
+		/**
+		 * 
+		 * @param armorLevel - armor level information desired for
+		 * @return - armor object for given level
+		 */
 		public static Armor nextArmor(int armorLevel)
 		{
 			 return Armor.values()[armorLevel];
