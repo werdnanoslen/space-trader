@@ -3,22 +3,26 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ShipInventory extends Inventory implements Serializable {
+public class ShipInventory extends Inventory implements Serializable
+{
 	private int moneyLeft;
 	private int capacityLeft;
 	private int capacityMax;
 	
-	public ShipInventory(int initialMoney,int initialCapacity) {
+	public ShipInventory(int initialMoney,int initialCapacity)
+	{
 		this.moneyLeft = initialMoney;
 		this.capacityLeft = initialCapacity;
 		this.capacityMax = initialCapacity;
 	}
 	
-	public int getMoneyLeft(){
+	public int getMoneyLeft()
+	{
 		return moneyLeft;
 	}
 	
-	public int getCapacityLeft(){
+	public int getCapacityLeft()
+	{
 		return capacityLeft;
 	}
 	
@@ -27,11 +31,13 @@ public class ShipInventory extends Inventory implements Serializable {
 		return capacityMax;
 	}
 
-	void deltaMoney(int delta){
+	void deltaMoney(int delta)
+	{
 		moneyLeft += delta;
 	}
 	
-	void deltaCapacity (int delta){
+	void deltaCapacity (int delta)
+	{
 		capacityLeft += delta;
 	}
 

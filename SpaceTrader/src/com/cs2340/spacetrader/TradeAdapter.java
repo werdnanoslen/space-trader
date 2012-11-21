@@ -15,12 +15,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class TradeAdapter extends ArrayAdapter<GoodInfo> {
+public class TradeAdapter extends ArrayAdapter<GoodInfo>
+{
 	Context context;
 	int layoutResourceId;
 	GoodInfo data[] = null;
 	
-	public TradeAdapter(Context context, int layoutResourceId, GoodInfo[] data){
+	public TradeAdapter(Context context, int layoutResourceId, GoodInfo[] data)
+	{
 		super(context, layoutResourceId, data);
 		this.layoutResourceId = layoutResourceId;
 		this.context = context;
@@ -32,7 +34,8 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		View row = convertView;
 		GoodHolder holder = null;
 		
-		if (row == null){
+		if (row == null)
+		{
 			LayoutInflater inflater = ((Activity)context).getLayoutInflater();
 			row = inflater.inflate(layoutResourceId, parent, false);
 			
@@ -51,20 +54,24 @@ public class TradeAdapter extends ArrayAdapter<GoodInfo> {
 		String sellText;
 		String planetName = GameSetup.thePlayer.getship().getPlanetName();
 		
-		if (!Good.getDataList()[position].canBuy(GameSetup.theMap.getPlanet(planetName).getNTechLevel())){
+		if (!Good.getDataList()[position].canBuy(GameSetup.theMap.getPlanet(planetName).getNTechLevel()))
+		{
 			buyText = ("Can't Buy\nHere");
 			holder.txtBuyGood.setEnabled(false);
 		}
-		else{
+		else
+		{
 			buyText = String.format("BUY $%d\n%d Available", data[position].buyPrice, data[position].planetAmount);
 			holder.txtBuyGood.setEnabled(true);
 		}
 		
-		if (!Good.getDataList()[position].canSell(GameSetup.theMap.getPlanet(planetName).getNTechLevel())){
+		if (!Good.getDataList()[position].canSell(GameSetup.theMap.getPlanet(planetName).getNTechLevel()))
+		{
 			sellText = ("Can't Sell\nHere");
 			holder.txtSellGood.setEnabled(false);
 		}
-		else{
+		else
+		{
 			sellText = String.format("SELL $%d\n%d Available", data[position].sellPrice, data[position].shipAmount);
 			holder.txtSellGood.setEnabled(true);
 		}

@@ -9,7 +9,8 @@ import java.util.Random;
  * @class Ship - Represents the player's ship inside the game, holds inventory and fuel
  * 
  */
-public class Ship implements Serializable {
+public class Ship implements Serializable
+{
 	private ShipInventory inventory;
 	private String planetName;
 	private int fuel;
@@ -66,60 +67,74 @@ public class Ship implements Serializable {
 	{
 		int newFuel = this.fuel-fuelAmount;
 		if (newFuel < 0)
+		{
 			this.fuel=0;
-		else if (newFuel > this.fuelCapacity) {
+		}
+		else if (newFuel > this.fuelCapacity)
+		{
 			this.fuel = this.fuelCapacity;
 		}
-		else{
+		else
+		{
 			this.fuel = newFuel;
 		}
 	}
 	
 	//TODO - implement buying individual units of fuel and cost for it
-	public void refuel(){
+	public void refuel()
+	{
 		this.fuel = this.fuelCapacity;
 	}
 	
-	public void upgradeWeapons(){
+	public void upgradeWeapons()
+	{
 		//TODO - check if there are any upgrades level
 		int cost = wepUpgradeCost();
 		weaponLevel = weaponLevel +1;
 		inventory.deltaMoney(-(cost));
 	}
 	
-	public String wepUpgradeName() {
+	public String wepUpgradeName()
+	{
 		return Weapons.nextWeapon(weaponLevel).getName();
 	}
 	
-	public int wepUpgradeCost(){
+	public int wepUpgradeCost()
+	{
 		return Weapons.nextWeapon(weaponLevel).getPrice();
 	}
 	
-	public void upgradeArmor(){
+	public void upgradeArmor()
+	{
 		//TODO - check if there are any upgrades level
 		int cost = armorUpgradeCost();
 		armorLevel = armorLevel +1;
 		inventory.deltaMoney(-(cost));
 	}
 	
-	public String armorUpgradeName() {
+	public String armorUpgradeName()
+	{
 		return Armor.nextArmor(armorLevel).getName();
 	}
 	
-	public int armorUpgradeCost(){
+	public int armorUpgradeCost()
+	{
 		return Armor.nextArmor(armorLevel).getPrice();
 	}
 	
 	
-	public void removeIllicitGoods() {
+	public void removeIllicitGoods()
+	{
 		this.inventory.removeIllicitGoods();
 	}
 	
-	public int priceBribe() {
+	public int priceBribe()
+	{
 		return this.inventory.priceBribe();
 	}
 	
-	public void bribePolice() {
+	public void bribePolice()
+	{
 		this.inventory.deltaMoney(this.priceBribe());
 	}
 	
@@ -127,7 +142,8 @@ public class Ship implements Serializable {
 	 * Carries out logic behind attempting to fight a pirate
 	 * @return boolean player won fight
 	 */
-	public boolean fight() {
+	public boolean fight()
+	{
 		
 		Random generator = new Random();
 		int val = generator.nextInt(100);
@@ -148,8 +164,8 @@ public class Ship implements Serializable {
 	 * @return boolean whether fleeing was successful
 	 */
 	
-	public boolean flee() {
-		
+	public boolean flee()
+	{
 		Random generator = new Random();
 		int val = generator.nextInt(100);
 		if (val > 20)
@@ -168,7 +184,6 @@ public class Ship implements Serializable {
 	 * Returns an amount of fuel necessary to fly proportional to euclidean distance between planets
 	 * @return integer fuel cost
 	 */
-	
 	private int fuelMetric(int deltaX, int deltaY)
 	{
 		int squaredCost = (int) (Math.pow(deltaX,2) + Math.pow(deltaY, 2));
@@ -179,7 +194,8 @@ public class Ship implements Serializable {
 	 * Returns the level of weaponry the ship has
 	 * @return integer weapon level
 	 */
-	public int getWeaponLevel(){
+	public int getWeaponLevel()
+	{
 		return weaponLevel;
 	}
 	
@@ -187,7 +203,8 @@ public class Ship implements Serializable {
 	 * Returns the name of the current weapon the ship has
 	 * @return string weapon name
 	 */
-	public String getWeaponName(){
+	public String getWeaponName()
+	{
 		return Weapons.values()[weaponLevel-1].getName();
 	}
 	
@@ -195,7 +212,8 @@ public class Ship implements Serializable {
 	 * Returns the level of armor the ship has
 	 * @return integer armor level
 	 */
-	public int getArmorLevel(){
+	public int getArmorLevel()
+	{
 		return armorLevel;
 	}
 	
@@ -203,11 +221,13 @@ public class Ship implements Serializable {
 	 * Returns the name of the current armor the ship has
 	 * @return string armor name
 	 */
-	public String getArmorName(){
+	public String getArmorName()
+	{
 		return Armor.values()[armorLevel-1].getName();
 	}
 
-	private enum Weapons {
+	private enum Weapons
+	{
 		BLASTER("Blaster Pistol",1),
 		GAT("Gattling Guns",3),
 		PHOTON("Photon Torpedos",5),
@@ -216,56 +236,67 @@ public class Ship implements Serializable {
 		 public final String name;
 		 public final int power;
 		 
-		 private Weapons(String name,final int power){
+		 private Weapons(String name,final int power)
+		 {
 			 this.name =name;
 			 this.power=power;
 		 }
 		 
-		 public String getName() {
+		 public String getName()
+		 {
 			 return name;
 		 }
 		 
-		 public int getPower() {
+		 public int getPower()
+		 {
 			 return power;
 		 }
 		 
-		 public int getPrice() {
+		 public int getPrice()
+		 {
 			 return (int) Math.pow(power, 2)*500;
 		 }
 		 
-		 public static Weapons nextWeapon(int weaponLevel) {
+		 public static Weapons nextWeapon(int weaponLevel)
+		 {
 		 	return Weapons.values()[weaponLevel];
 		 }
 	}
 	
-	private enum Armor {
+	private enum Armor
+	{
 		TRASHCANS("Old Trashcans",1),
 		STEEL("Steel Plates",4),
 		FORCE("Force Field",5),
 		TEMPORAL("Temporal Evasion",20);
 		
-		 final String name;
-		 final int power;
-		 
-		 private Armor(String name,final int power){
+		final String name;
+		final int power;
+ 
+		private Armor(String name,final int power)
+		{
 			 this.name =name;
 			 this.power=power;
-		 }
+		}
+ 
+		public String getName()
+		{
+			return name;
+		}
 		 
-		 public String getName() {
-			 return name;
-		 }
+		public int getPower()
+		{
+			return power;
+		}
 		 
-		 public int getPower() {
-			 return power;
-		 }
+		public int getPrice()
+		{
+			return (int) Math.pow(power, 2)*500;
+		}
 		 
-		 public int getPrice() {
-			 return (int) Math.pow(power, 2)*500;
-		 }
-		 
-		 static Armor nextArmor(int armorLevel) {
-		 	return Armor.values()[armorLevel];
-		 }
+		private static Armor nextArmor(int armorLevel)
+		{
+			 return Armor.values()[armorLevel];
+		}
 	}
 }

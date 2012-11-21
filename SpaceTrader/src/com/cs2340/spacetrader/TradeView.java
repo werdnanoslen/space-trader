@@ -90,18 +90,20 @@ public class TradeView extends Activity
      * @author David
      *
      */
-    public class GoodInfo{
+    public class GoodInfo
+    {
     	public String name;
     	public int buyPrice;
     	public int planetAmount;
     	public int sellPrice;
     	public int shipAmount;
     	
-    	
-    	public GoodInfo(){    		
+    	public GoodInfo()
+    	{    		
     	}
     	
-    	public GoodInfo(String name){
+    	public GoodInfo(String name)
+    	{
     		this.name = name;
         	this.buyPrice = market.priceAtWhichPlanetSells(planet.getInventory().getGood(name));
         	this.planetAmount = planet.getInventory().getGoodAmount(name);
@@ -121,7 +123,8 @@ public class TradeView extends Activity
 		String[] goodlist = {"Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"};
         GoodInfo[] gi = new GoodInfo[goodlist.length];
         int i = 0;
-		for (String good : goodlist){
+		for (String good : goodlist)
+		{
 			gi[i] = new GoodInfo(good);
 			i ++;
 		}

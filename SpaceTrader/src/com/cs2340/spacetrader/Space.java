@@ -10,8 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Space extends Activity {
-
+public class Space extends Activity
+{
 	private Ship ship;
 	private Planet currentPlanet;
 	
@@ -51,7 +51,8 @@ public class Space extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) 
     {
-        switch (item.getItemId()) {
+        switch (item.getItemId())
+        {
             case R.id.save_game:
             	item.setEnabled(false);
             	item.setTitle("Saving");
