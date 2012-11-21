@@ -88,20 +88,21 @@ public class TradeView extends Activity
     /**
      * This class serves as a data holder class to pass into TradeAdapter
      * @author David
-     *
      */
-    public class GoodInfo{
+    public class GoodInfo
+    {
     	public String name;
     	public int buyPrice;
     	public int planetAmount;
     	public int sellPrice;
     	public int shipAmount;
     	
-    	
-    	public GoodInfo(){    		
+    	public GoodInfo()
+    	{    		
     	}
     	
-    	public GoodInfo(String name){
+    	public GoodInfo(String name)
+    	{
     		this.name = name;
         	this.buyPrice = market.priceAtWhichPlanetSells(planet.getInventory().getGood(name));
         	this.planetAmount = planet.getInventory().getGoodAmount(name);
@@ -121,7 +122,8 @@ public class TradeView extends Activity
 		String[] goodlist = {"Water", "Furs", "Food", "Ore", "Games", "Firearms", "Medicine", "Machines", "Narcotics", "Robots"};
         GoodInfo[] gi = new GoodInfo[goodlist.length];
         int i = 0;
-		for (String good : goodlist){
+		for (String good : goodlist)
+		{
 			gi[i] = new GoodInfo(good);
 			i ++;
 		}
@@ -135,6 +137,10 @@ public class TradeView extends Activity
         tradeList.setAdapter(adapter);
     }
     
+    /**
+     * Initiates buy action sequence
+     * @param goodName
+     */
     public void buy(String goodName)
     {
     	//quick weedouts
@@ -148,6 +154,10 @@ public class TradeView extends Activity
     	refreshDisplays();
     }
     
+    /**
+     * Initiates sell action sequence
+     * @param goodName
+     */
     public void sell(String goodName)
     {
     	//quick weedout
@@ -159,6 +169,10 @@ public class TradeView extends Activity
     	refreshDisplays();
     }
     
+    /**
+     * Moves player to Planet screen
+     * @param view
+     */
     public void gotoPlanet(View view)
     {
     	Intent intent = new Intent(TradeView.this, PlanetView.class);

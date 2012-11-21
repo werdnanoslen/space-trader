@@ -14,12 +14,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ShipInventoryView extends Activity {
-
+public class ShipInventoryView extends Activity
+{
 	private ShipInventory sInventory;	//holds the ShipInventory
 	
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ship_inventory_view);
         sInventory = GameSetup.thePlayer.getship().getInventory();
@@ -35,10 +36,12 @@ public class ShipInventoryView extends Activity {
 		weaponDisplay.setText("Current Weapon: " + GameSetup.thePlayer.getship().getWeaponName());
 		armorDisplay.setText("Current Armor: " + GameSetup.thePlayer.getship().getArmorName());
         
-		if (GameSetup.thePlayer.hasContract){
+		if (GameSetup.thePlayer.hasContract)
+		{
 			contractDisplay.setText("Current Contract:\n" + GameSetup.thePlayer.getContract().getString());
 		}
-		else{
+		else
+		{
 			contractDisplay.setText("Current Contract:\nNone Accepted");
 		}
 		
@@ -62,35 +65,42 @@ public class ShipInventoryView extends Activity {
      * @author David
      *
      */
-    private class ShipInventoryAdapter extends ArrayAdapter<GoodData> {
-
+    private class ShipInventoryAdapter extends ArrayAdapter<GoodData>
+    {
         private ArrayList<GoodData> goodArray;
         private Context context;
 
-        private ShipInventoryAdapter(Context context, int textViewResourceId, ShipInventory sInventory) {
-                super(context, textViewResourceId, sInventory.goods);
-                goodArray = sInventory.goods;
-                this.context = context;
+        private ShipInventoryAdapter(Context context, int textViewResourceId, ShipInventory sInventory) 
+        {
+            super(context, textViewResourceId, sInventory.goods);
+            goodArray = sInventory.goods;
+            this.context = context;
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-                View v = convertView;
-                if (v == null) {
-                    LayoutInflater vi = ((Activity)context).getLayoutInflater();
-                    v = vi.inflate(R.layout.ship_item, parent, false);
-                }
-                GoodData o = goodArray.get(position);
-                if (o != null) {
-                        TextView tt = (TextView) v.findViewById(R.id.toptext);
-                        TextView bt = (TextView) v.findViewById(R.id.bottomtext);
-                        if (tt != null) {
-                              tt.setText(o.getGood().getName());                            }
-                        if(bt != null){
-                              bt.setText("Amount: "+ o.getQuantity());
-                        }
-                }
-                return v;
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+			View v = convertView;
+			if (v == null)
+			{
+			    LayoutInflater vi = ((Activity)context).getLayoutInflater();
+			    v = vi.inflate(R.layout.ship_item, parent, false);
+			}
+			GoodData o = goodArray.get(position);
+			if (o != null)
+			{
+			    TextView tt = (TextView) v.findViewById(R.id.toptext);
+			    TextView bt = (TextView) v.findViewById(R.id.bottomtext);
+			    if (tt != null)
+			    {
+			          tt.setText(o.getGood().getName());
+			    }
+			    if(bt != null)
+			    {
+			          bt.setText("Amount: "+ o.getQuantity());
+			    }
+			}
+			return v;
         }
     }
     
@@ -98,9 +108,9 @@ public class ShipInventoryView extends Activity {
      * Changes the activity to Space
      * @param view
      */
-    public void goToSpace(View view){
+    public void goToSpace(View view)
+    {
     	Intent intent = new Intent(this, Space.class);
     	startActivity(intent);
     }
-    
 }

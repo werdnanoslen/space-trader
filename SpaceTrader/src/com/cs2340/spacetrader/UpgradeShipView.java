@@ -30,10 +30,12 @@ public class UpgradeShipView extends Activity
         
         Resources rs = getResources();
         LinearLayout pv = (LinearLayout) findViewById(R.id.upgrade_layout);
-        if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2){
+        if (GameSetup.theMap.getPlanet(GameSetup.thePlayer.getship().getPlanetName()).getNTechLevel() > 2)
+        {
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.hightechback)));
         }
-        else{
+        else
+        {
         	pv.setBackgroundDrawable(rs.getDrawable((R.drawable.lowtechback)));
         }
         
@@ -57,7 +59,8 @@ public class UpgradeShipView extends Activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) 
     {
-        switch (item.getItemId()) {
+        switch (item.getItemId())
+        {
             case R.id.save_game:
             	item.setEnabled(false);
             	item.setTitle("Saving");
@@ -91,8 +94,8 @@ public class UpgradeShipView extends Activity
     {
     	cashDisplay.setText('$' + String.valueOf(sInventory.getMoneyLeft()));
     	
-    	int armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
-    	int gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
+    	armorPrice = GameSetup.thePlayer.getship().armorUpgradeCost();
+    	gunsPrice = GameSetup.thePlayer.getship().wepUpgradeCost();
     	
     	upgradeArmorButton.setText("Upgrade armor to \n" + GameSetup.thePlayer.getship().armorUpgradeName() + " ($" + armorPrice + ")");
     	upgradeGunsButton.setText("Upgrade guns to \n" + GameSetup.thePlayer.getship().wepUpgradeName() + " ($" + gunsPrice + ")");

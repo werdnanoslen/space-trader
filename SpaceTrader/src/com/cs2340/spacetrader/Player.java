@@ -3,7 +3,8 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 
 
-public class Player implements Serializable{
+public class Player implements Serializable
+{
 	//TODO add other attributes
 	private String name;
 	private int engineerLevel;
@@ -34,7 +35,8 @@ public class Player implements Serializable{
 	/**
 	 * Returns the player's current contract
 	 */
-	public Contract getContract(){
+	public Contract getContract()
+	{
 		return contract;
 	}
 	
@@ -42,7 +44,8 @@ public class Player implements Serializable{
 	 * Sets the player's current contract
 	 * @param contract
 	 */
-	public void setContract(Contract contract){
+	public void setContract(Contract contract)
+	{
 		this.contract = contract;
 	}
 }

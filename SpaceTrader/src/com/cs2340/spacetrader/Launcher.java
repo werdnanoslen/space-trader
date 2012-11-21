@@ -23,18 +23,7 @@ public class Launcher extends Activity
         getMenuInflater().inflate(R.menu.activity_launcher, menu);
         return true;
     }
-    
-    @Override
-    protected void onStop() 
-    {
-        super.onStop();
-    }
-    
-    @Override
-    protected void onDestroy()
-    {
-    	super.onDestroy();
-    }
+  
     
     /**
      * Changes view to setup screen to create a new game
