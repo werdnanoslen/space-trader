@@ -3,7 +3,7 @@ package com.cs2340.spacetrader;
 import java.io.Serializable;
 import java.util.*;
 
-public abstract class Inventory implements Serializable
+public class Inventory implements Serializable
 {
 	public ArrayList<GoodData> goods;
 	
